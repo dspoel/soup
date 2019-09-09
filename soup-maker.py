@@ -105,29 +105,28 @@ for crowder in range(1, crowder_total+1):
 
 
 print('\t\tTotal biomolecular mass =%0.3f' % (total_nonwater_mass))
+print('\tCalculating the number of waters necessary to achieve the biomolecular fraction of %.0f %' % str(fraction*100))
 
-# echo $fraction | awk '{printf "\tCalculating the number of waters necessary to achieve the biomolecular fraction of %.0f %%\n", $1*100}'
+water_necessary = (float(total_biomol_mass)/fraction - float(total_biomol_mass))/18.0
+total_water_mass = water_necessary*18.
 
-# water_necessary=$(echo $total_biomol_mass $fraction | awk '{printf "%.0f\n", (($1/$2)-$1)/18 }')
-
-# total_water_mass=$(echo $water_necessary | awk '{printf "%.2f\n",$1*18}')
-
-# echo -e "\t\t"'It is necessary to add '"$water_necessary"' water molecules to the final box'
-# echo -e "\t\t"'That corresponds to '"$total_water_mass"' Da'
-# echo
-# echo
-# echo
+print('\t\tIt is necessary to add %s water molecules to the final box' % str(water_necessary))
+print('\t\tThat corresponds to %s Da'% str(total_water_mass))
+print('\n')
+print('\n')
+print('\n')
 
 
 
 if make_droplets == 1:
     print('Making droplets for each crowder')
     print('\tFinding the optimum droplet shell thickness which comprises a total of %s water molecules for all crowders\n' % str(water_necessary))
-    print('\tThe maximum difference that is allowed between the number of water molecules inside the droplets and the number of molecules we need is %s %%' % str(droplet_shell_precision))
+    print('\tThe maximum difference that is allowed between the number of water molecules inside the droplets and the number of molecules we need is %s %' % str(droplet_shell_precision))
 # if [ $make_droplets -eq 1 ]; then
 	
     ####Zaza: convert the line below
 # 	echo 'thickness[nm] biomol-fract[%] added-perc[%] error-perc[%]' | awk '{printf "\t\t%16s\t%16s\t%16s\t%16s\n",$1,$2,$3,$4}'
+    # print('\t\tthickness[nm] biomol-fract[%]')
 	
 	droplet_thickness_step=0.1	# nm
 	droplet_thickness=droplet_thickness_initial		# nm
@@ -337,7 +336,6 @@ if make_box == 1:
 
 # Writes the topology file
 if make_top == 1:
-# if [ $make_top -eq 1 ]; then
     print('\tWriting the topology file for the soup ... ')
     with open('temporary_top_part_1', 'w') as outfile:
         outfile.write('; Include forcefield parameters\n' )                  
@@ -384,7 +382,6 @@ if make_top == 1:
 
 
 
-# if [ $make_neutral -eq 1 ]; then
 if make_neutral == 1:
     os.system('%s grompp -f %s/%s -p %s/top.top -c %s/box_ordered.gro -o temporary.tpr .maxwarn 1 >out 2>err' % (args.gromacs_command, path_mdp, mdp_min, path_output))
     with open('err', 'r') as infile:
