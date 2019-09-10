@@ -14,7 +14,7 @@ DAT=	*.dat
 DB	= $(LIQUIDS)/DATABASE/molecules.sqlite3.dat 
 MYVI	= ../bibtex/myvi
 RM	= /bin/rm -f
-PDF	= virtual_cytoplasm_v2.pdf #virtual_cytoplasm-supporting.pdf
+PDF	= virtual_cytoplasm_v2.pdf $(EPLOTS)  #virtual_cytoplasm-supporting.pdf
 
 all:	$(PDF)
 
@@ -34,7 +34,7 @@ hb.pdf: $(DAT)
 rg.pdf: $(DAT)
 	python3 barplots.py -prop rg -xlabel crowders -ylabel nm -title "Gyration Radius"
 
-diff_singles.pdf, diff_cyto.pdf, diff_cyto_over_singles.pdf:
+diff_singles.pdf diff_cyto.pdf diff_cyto_over_singles.pdf: $(DAT)
 	python3 diff_plots.py	
 # fig.pdf: $(XVG) 
 # 		(cd ANALYSIS; ./figures.py )

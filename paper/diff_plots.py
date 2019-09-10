@@ -22,6 +22,7 @@ for i in range(0, len(order_s_b)):
 plt.errorbar(atom_s_b, avg_cyto, ste_cyto, marker='o', markersize=10, linestyle=' ')
 plt.xlabel('# atoms', fontsize=12)
 plt.ylabel('$D_{cyto} (10^{-5} cm^2/s)$', fontsize=12)
+plt.text(-5000,0.018,'B',fontsize=14)
 plt.savefig('diff_cyto.pdf', bbox_inches="tight")
 plt.close()
 
@@ -36,6 +37,7 @@ for i in range(0, len(order_s_b)):
 plt.errorbar(atom_s_b, avg_sing, ste_sing, marker='o', markersize=10, linestyle=' ')
 plt.xlabel('# atoms', fontsize=12)
 plt.ylabel('$D_{0} (10^{-5} cm^2/s)$', fontsize=12)
+plt.text(-5000,0.14, 'A',fontsize=14)
 plt.savefig('diff_singles.pdf', bbox_inches="tight")
 plt.close()
 
@@ -49,6 +51,7 @@ for i in range(0, len(avg_sing)):
 plt.errorbar(atom_s_b, AVG, STD, marker='o', markersize=10, linestyle=' ')
 plt.xlabel('# atoms', fontsize=12)
 plt.ylabel('$D_{cyto}/D_{0}$', fontsize=12)
+plt.text(-5000,0.2,'C',fontsize=14)
 plt.savefig('diff_cyto_over_singles.pdf', bbox_inches="tight")
 plt.close()
 
