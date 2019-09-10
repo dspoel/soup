@@ -2,7 +2,7 @@
 # Makefile for plots $Id: Makefile,v 1.11 2013/12/16 20:11:39 spoel Exp $
 #
 
-EPLOTS  = sasa.pdf rmsd.pdf hb.pdf rg.pdf #rdf_RNA_metabolites.pdf avclust.pdf nclust.pdf
+EPLOTS  = sasa.pdf rmsd.pdf hb.pdf diff_singles.pdf diff_cyto.pdf diff_cyto_over_singles.pdf  #rg.pdf  #rdf_RNA_metabolites.pdf avclust.pdf nclust.pdf rmsf.pdf
 # SPLOTS  = rdf_2kim.pdf rdf_2k57.pdf rdf_ub.pdf
 SPLOTS  = fig.pdf 
 TABS    = tbl.tex # tbl_liquids_corr.tex 
@@ -34,6 +34,8 @@ hb.pdf: $(DAT)
 rg.pdf: $(DAT)
 	python3 barplots.py -prop rg -xlabel crowders -ylabel nm -title "Gyration Radius"
 
+diff_singles.pdf, diff_cyto.pdf, diff_cyto_over_singles.pdf:
+	python3 diff_plots.py	
 # fig.pdf: $(XVG) 
 # 		(cd ANALYSIS; ./figures.py )
 
