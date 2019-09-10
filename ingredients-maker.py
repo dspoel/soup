@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
             with open('temporary_body', 'w') as outfile:
                 for item in text_list[line_start[0] : line_end[0]-2]:
-                    outfile.write("%s" % item)
+                    outfile.write("%s\n" % item)
 
             with open('temporary_header', 'w') as outfile:
                 outfile.write('[ moleculetype ]\n')
@@ -137,7 +137,7 @@ if __name__ == '__main__':
             with open('temporary_footer', 'w') as outfile:
                 outfile.write('#ifdef POSRES\n')
                 outfile.write('#include "crowder_n%s_posres.itp"\n' % (str(n)))
-                outfile.write('#endif')
+                outfile.write('#endif\n')
 
             os.system('cat temporary_header temporary_body temporary_footer > crowder_n%s/crowder_n%s.itp' % (str(n), str(n)))
             if os.path.isfile('crowder_n%s/crowder_n%s.itp' % (str(n), str(n))):
@@ -197,7 +197,7 @@ if __name__ == '__main__':
                             outfile.write(line)
             os.system('cp temp.top crowder_n%s.top' % (str(n)))
             with open('crowder_n%s.top' % (str(n)), 'a') as outfile:
-                outfile.write('SOL\t%s' % (str(water_number)))
+                outfile.write('SOL\t%s\n' % (str(water_number)))
             
             print('\tAdding counter-ions to neutralize the charges')
             os.system('%s grompp -f %s/%s -c removed_water_shell.gro -p crowder_n%s.top -o ions_neutralize.tpr -maxwarn 1 >/dev/null 2>/dev/null' % (args.gromacs_command, path_mdp, mdp_min, str(n)))
