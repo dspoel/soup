@@ -244,15 +244,48 @@ D/D0 for all crowders
 
 \subsubsection{Structural integrity of the crowders}
 RMSD and SASA plots, show that the crowders didn't unfold
+\begin{figure}
+\includegraphics[scale=0.6]{rmsd.pdf}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.6]{sasa.pdf}
+\end{figure}
 
 \subsubsection{Structural dynamics}
 RMSF. Are there differences between the soup and single sim.?
+
+\begin{figure}
+\includegraphics[scale=0.6]{rmsf.pdf}
+\end{figure}
+
+
+\subsubsection{Olygomers under crowded condition}
+\begin{figure}
+\includegraphics[scale=0.6]{hb.pdf}
+\end{figure}
+
 
 \subsubsection{Aggregation}
 We observed aggregation of the metabolites that contain phosphate, ATP and FBP, with Mg2+ that was used as initially used as counter-ion for ATP and tRNA. After running simulations of small boxes containing just these metabolites and Mg2+, we found that completely protonating their phosphate groups can prevent aggregation. Thus, we advise caution when dealing with small molecules that are highly charged, such as ATP and FBP. Trial simulations with small boxes in which these metabolites are in high concentration to verify if they'll aggregate with Mg2+ or other charged species that are present in the box. In the specific case of ATP and FBP modeled with GAFF in boxes containing Mg2+, we advise that they should be completely protonated even though that is not their physiological protonation state. The topology and structure files we are providing for ATP and FBP on github are already protonated.
 
 < FIGURE SHOWING THE AGGREGATION >
 < FIGURE SHOWING THAT PROTONATED PHOSPHATE DOESN'T AGGREGATE >
+
+
+
+\begin{figure}
+\includegraphics[scale=0.6]{rdf_RNA_metabolites.pdf}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.6]{avclust.pdf}
+\end{figure}
+
+
+\begin{figure}
+\includegraphics[scale=0.6]{nclust.pdf}
+\end{figure}
 
 
 
