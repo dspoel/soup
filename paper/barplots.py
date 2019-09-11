@@ -12,18 +12,13 @@ def parseArguments():
     parser.add_argument("-prop", "--prop",  type=str,  default="")
     parser.add_argument("-title", "--title",  type=str,  default="")
     parser.add_argument("-ylabel", "--ylabel",  type=str,  default="")
-    parser.add_argument("-xlabel", "--xlabel",  type=str,  default="crowder")
+    parser.add_argument("-xlabel", "--xlabel",  type=str,  default="")
     
     args = parser.parse_args()
     return args
 
 
-men_means, men_std = (20, 35, 30, 35, 27), (2, 3, 4, 1, 2)
-women_means, women_std = (25, 32, 34, 20, 25), (3, 5, 2, 3, 3)
-
-
-
-
+crowder_name=["TufA", "MetE", "IcdA", "AhpC", "CspC", "Ppa ", "GapA", "Eno", "RNA$^{Phe}$"]
 def autolabel(rects, xpos='center'):
     """
     Attach a text label above each bar in *rects*, displaying its height.
@@ -44,8 +39,9 @@ def autolabel(rects, xpos='center'):
     #                 ha=ha[xpos], va='bottom')
 
 if __name__ == '__main__':
-    olygomers = ('1', '3', '4', '6', '7', '8')
-    crowders =('1', '2', '3', '4', '5', '6', '7', '8')
+    oligomers = (crowder_name[0],crowder_name[2],crowder_name[3],crowder_name[5],crowder_name[6],crowder_name[7])
+    protein_name =crowder_name[0:8]
+
     args  = parseArguments()
     singles_mean, singles_std, cyto_mean, cyto_std = [], [], [], []
     for env in ["singles", "cyto"]:
@@ -76,10 +72,12 @@ if __name__ == '__main__':
     ax.set_xlabel(args.xlabel)
     ax.set_title(args.title)
     ax.set_xticks(ind)
-    if args.prop != "hb":
-        ax.set_xticklabels(crowders)
+    if args.prop == "hb":
+        ax.set_xticklabels(oligomers)
+    elif args.prop == "msd":
+        ax.set_xticklabels(crowder_name)
     else:
-        ax.set_xticklabels(olygomers)
+        ax.set_xticklabels(protein_name)
 
     ax.legend()
 
