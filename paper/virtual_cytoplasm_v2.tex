@@ -13,18 +13,17 @@
 \newcommand{\figref}[1]{Fig.~\plainref{#1}}
 \newcommand{\tabref}[1]{Table~\plainref{#1}}
 
-\title{Cytoplasm Simulation}
+\title{Making Soup: Preparing and Validating Molecular Simulations of the Bacterial Cytoplasm}
 
-\author{Zahedeh}
+\author{Zahedeh Bashardanesh}
 \affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
 
-
 \author{Leandro Oliveira Bortot}
-\affiliation{Laboratory of Biological Physics, School of Pharmaceutical Sciences of Ribeirão Preto, University of São Paulo, Ribeirão Preto, Brazil}
+\affiliation{Laboratory of Biological Physics, School of Pharmaceutical Sciences of Ribeir{\~a}o Preto, University of S{\~a}o Paulo, Ribeir{\~a}o Preto, Brazil}
 
 \author{David van der Spoel}
 \affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
-\email{aaa@aaa.com}
+\email{david.vanderspoel@icm.uu.se}
 
 
 \begin{document}
@@ -243,9 +242,9 @@ In order to investigate the effects of crowding in the E. coli cytoplasm model o
 D/D0 for all crowders
 
 \begin{figure}
-\includegraphics[scale=0.6]{diff_singles.pdf} &
-\includegraphics[scale=0.6]{diff_cyto.pdf} &
-\includegraphics[scale=0.6]{diff_cyto_over_singles.pdf}
+\includegraphics[scale=0.5]{diff_singles.pdf} \\
+\includegraphics[scale=0.5]{diff_cyto.pdf} \\
+\includegraphics[scale=0.5]{diff_cyto_over_singles.pdf}
 \caption{A) Diffusion coefficient of crowders from single molecule simulations.  B) Diffusion coefficient of crowders from cytoplasm simulations. C) The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis.}
 \end{figure}
 
@@ -268,7 +267,7 @@ RMSD and SASA plots, show that the crowders didn't unfold
 RMSF. Are there differences between the soup and single sim.?
 
 \begin{figure}
-\includegraphics[scale=0.6]{rmsf.pdf}
+\includegraphics[width=0.5\textwidth]{rmsf.pdf}
 \caption{Root mean squared fluctuations of 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues of each chain of crowders.}
 \end{figure}
 
@@ -316,7 +315,7 @@ We observed aggregation of the metabolites that contain phosphate, ATP and FBP, 
 \section*{Discussion}\label{sec:dissc}
  
 
-\bibliography{../bibtex/library}
+\bibliography{library}
 
 
  
