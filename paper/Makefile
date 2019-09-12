@@ -3,7 +3,7 @@
 #
 
 EPLOTS  = sasa.pdf rmsd.pdf hb.pdf msd.pdf rmsf.pdf diff_cyto_over_singles.pdf #rg.pdf 
-PLOTS = rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf
+PLOTS = rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf shrinking_volume.pdf shrinking_density.pdf
 SPLOTS  = fig.pdf
 TABS    = tbl.tex # tbl_liquids_corr.tex 
 MKEPS	= xmgrace -hardcopy -hdevice EPS -printfile 

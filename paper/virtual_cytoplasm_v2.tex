@@ -179,7 +179,12 @@ In order to do this, the droplets around each component are also constructed ite
 
 After all droplets are successfully inserted in a simulation box by the iterative process described above, we proceed to add ions to neutralize the net charge of the system and to reach the desired ionic strength. Then, we perform energy minimization and a short simulation step of 500ps in which all molecules of the box are free to move. In this step the box shrinks to its optimum size. In our case, the simulation box shrank from the initial L=35nm to L=22.9nm. From this point, the system is ready to be submitted to the default simulation steps such as thermalization and production run (please check the materials section for details about the parameters we used).
 
-< SHRINKING PLOTS SHOWING BOX VOLUME/DENSITY ? >
+\begin{figure}
+\includegraphics[scale=0.6]{shrinking_volume.pdf} 
+\includegraphics[scale=0.6]{shrinking_density.pdf} 
+\caption{A) The volume of the box with length size of $L=35 \,\, nm$ reduces during the energy minimization in the first $300 \,\, ps$ B) The density of the same box increases within the first $300\,\, ps$. The repeated experiments are shown in different colors. }
+\end{figure}
+
 
 
 Python scripts and all topology and structure files necessary to perform all these steps are available at github.com/dspoel... The cytoplasm model that we built here can be used as a tool to answer many research questions about the effects of crowding on specific systems of interest. With the files we are providing here it is possible, for example, to add a probe protein to investigate the effect of crowding on it, to add new macromolecular or small crowders, add new solvents and change the biomolecular concentration to increase or decrease the intensity of the crowding effect.
@@ -194,7 +199,6 @@ In order to investigate the effects of crowding in the E. coli cytoplasm model o
 D/D0 for all crowders
 
 \begin{figure}
-
 \includegraphics[scale=0.6]{msd.pdf}
 \caption{Diffusion coefficient of crowders from single molecule simulations (blue bars) and cytoplasm simulations (orange bars).}
 \end{figure}
@@ -252,7 +256,7 @@ We observed aggregation of the metabolites that contain phosphate, ATP and FBP, 
 
 \begin{figure}
 \includegraphics[scale=0.6]{rdf_mg.pdf}
-\caption{Radial distribution function showing the probability of finding a metabolite or an RNA around MG2+.}
+\caption{Radial distribution function (rdf) showing the probability of finding a metabolite or an RNA around MG2+. The inset plot shows the rdf for short distance ($ r < 0.6 \,\, nm$)}
 \end{figure}
 
 
