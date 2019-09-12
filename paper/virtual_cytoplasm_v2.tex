@@ -243,11 +243,16 @@ In order to investigate the effects of crowding in the E. coli cytoplasm model o
 D/D0 for all crowders
 
 \begin{figure}
-\includegraphics[scale=0.6]{diff_singles.pdf} &
-\includegraphics[scale=0.6]{diff_cyto.pdf} &
-\includegraphics[scale=0.6]{diff_cyto_over_singles.pdf}
-\caption{A) Diffusion coefficient of crowders from single molecule simulations.  B) Diffusion coefficient of crowders from cytoplasm simulations. C) The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis.}
+\includegraphics[scale=0.6]{msd.pdf}
+\caption{Diffusion coefficient of crowders from single molecule simulations (blue bars) and cytoplasm simulations (orange bars).}
 \end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.6]{diff_cyto_over_singles.pdf}
+\caption{The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis.}
+\end{figure}
+
+
 
 \subsubsection{Structural integrity of the crowders}
 RMSD and SASA plots, show that the crowders didn't unfold
@@ -255,12 +260,12 @@ RMSD and SASA plots, show that the crowders didn't unfold
 
 \begin{figure}
 \includegraphics[scale=0.6]{rmsd.pdf}
-\caption{Root mean squared displacement of 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars).}
+\caption{Root mean squared displacement (rmsd) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average rmsd for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 \end{figure}
 
 \begin{figure}
 \includegraphics[scale=0.6]{sasa.pdf}
-\caption{Solvent accessible surface area of 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars).}
+\caption{Solvent accessible surface area (sasa) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average sasa for each protein in single molecule simulation is over number of chains of proteins and three replica. The average sasa for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 
 \end{figure}
 
@@ -269,14 +274,14 @@ RMSF. Are there differences between the soup and single sim.?
 
 \begin{figure}
 \includegraphics[scale=0.6]{rmsf.pdf}
-\caption{Root mean squared fluctuations of 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues of each chain of crowders.}
+\caption{Root mean squared fluctuations (rmsf) for 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues for each chain of proteins. The average rmsf for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 \end{figure}
 
 
-\subsubsection{Olygomers under crowded condition}
+\subsubsection{Oligomers under crowded condition}
 \begin{figure}
 \includegraphics[scale=0.6]{hb.pdf}
-\caption{Intramolecular hydrogen bonds for crowders that appear as olygomers from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The cytoplasm data are not correct!}
+\caption{Intramolecular hydrogen bonds (hb) for oligomers from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average hydrogen bonds for each oligomer in single molecule simulation is over three replica. The average hydrogen bonds for each oligomer in cytoplasm simulation is over number of appearance of the oligomer in three replica. The error bars show the standard errors.}
 \end{figure}
 
 
