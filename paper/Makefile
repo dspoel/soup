@@ -2,9 +2,9 @@
 # Makefile for plots $Id: Makefile,v 1.11 2013/12/16 20:11:39 spoel Exp $
 #
 
-EPLOTS  = sasa.pdf rmsd.pdf hb.pdf msd.pdf rmsf.pdf diff_cyto_over_singles.pdf rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf #rg.pdf 
-# SPLOTS  = rdf_2kim.pdf rdf_2k57.pdf rdf_ub.pdf
-SPLOTS  = fig.pdf 
+EPLOTS  = sasa.pdf rmsd.pdf hb.pdf msd.pdf rmsf.pdf diff_cyto_over_singles.pdf #rg.pdf 
+PLOTS = rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf
+SPLOTS  = fig.pdf
 TABS    = tbl.tex # tbl_liquids_corr.tex 
 MKEPS	= xmgrace -hardcopy -hdevice EPS -printfile 
 MKPDF	= xmgrace -hardcopy -hdevice PDF -printfile 
@@ -18,7 +18,7 @@ PDF	= virtual_cytoplasm_v2.pdf $(EPLOTS)  #virtual_cytoplasm-supporting.pdf
 
 all:	$(PDF)
 
-virtual_cytoplasm_v2.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) #tbl.tex
+virtual_cytoplasm_v2.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) $(PLOTS)  #tbl.tex
 			pdflatex virtual_cytoplasm_v2
 			pdflatex virtual_cytoplasm_v2
 			bibtex virtual_cytoplasm_v2
