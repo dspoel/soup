@@ -42,7 +42,21 @@ if __name__ == '__main__':
     oligomers = (crowder_name[0],crowder_name[2],crowder_name[3],crowder_name[5],crowder_name[6],crowder_name[7])
     protein_name =crowder_name[0:8]
 
-    args  = parseArguments()
+    args   = parseArguments()
+    ylabel = args.ylabel
+    if len(ylabel) == 0:
+        if args.prop == "sasa":
+            ylabel = "\$nm^{2}\$"
+        elif args.prop == "rmsd" or args.prop == "rg":
+            ylabel = "\$nm\$"
+        elif args.prop == "msd":
+            ylabel = '\$D (10^{-5} cm^2/s)\$'
+        elif args.prop == "hb":
+            ylabel = "#HB"
+        else:
+            print("Unknown property " + args.prop)
+            exit(1)
+        
     singles_mean, singles_std, cyto_mean, cyto_std = [], [], [], []
     for env in ["singles", "cyto"]:
         with open("%s_%s.dat" % (args.prop, env), 'r') as infile:

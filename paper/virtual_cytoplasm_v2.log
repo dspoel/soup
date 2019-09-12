@@ -1,0 +1,612 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.6)  11 SEP 2019 16:20
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**virtual_cytoplasm_v2.tex
+(./virtual_cytoplasm_v2.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(./achemso.cls
+Document Class: achemso 2019-02-14 v3.12a Submission to ACS journals
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count87
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\acs@bib@file=\write3
+\c@bibnote=\count88
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count89
+\Gm@cntv=\count90
+\c@Gm@tempcnt=\count91
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks16
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen111
+\captionmargin@=\dimen112
+\captionwidth=\dimen113
+\caption@tempdima=\dimen114
+\caption@indent=\dimen115
+\caption@parindent=\dimen116
+\caption@hangindent=\dimen117
+)
+\c@ContinuedFloat=\count92
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count93
+\float@exts=\toks17
+\float@box=\box26
+\@float@everytoks=\toks18
+\@floatcapt=\box27
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count94
+))
+\Gin@req@height=\dimen118
+\Gin@req@width=\dimen119
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\acs@author@cnt=\count95
+\acs@affil@cnt=\count96
+\acs@affil@alt@cnt=\count97
+\acs@footnote@cnt=\count98
+\acs@affil@marker@cnt=\count99
+\acs@space@pre@title=\skip43
+\acs@space@post@title=\skip44
+\acs@space@post@author=\skip45
+\acs@space@post@address=\skip46
+\acs@space@post@email=\skip47
+\acs@maketitle@width=\skip48
+\@float@every@scheme=\toks19
+\c@scheme=\count100
+\@float@every@chart=\toks20
+\c@chart=\count101
+\@float@every@graph=\toks21
+\c@graph=\count102
+\@float@every@table=\toks22
+\acs@collect@toks=\toks23
+\acs@collect@empty@toks=\toks24
+\acs@tocentry@height=\skip49
+\acs@tocentry@width=\skip50
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/achemso/achemso-jacsat.cfg
+File: achemso-jacsat.cfg 2016/05/10 v3.10c achemso configuration: J. Am. Chem. 
+Soc.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip51
+\bibsep=\skip52
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count103
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/achemso/natmove.sty
+Package: natmove 2010/01/15 v1.1a Automatic citation moving with natbib
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mciteplus/mciteplus.sty
+Package: mciteplus 2013/09/13 v1.2 enhanced mcite
+\@mcitetmptoksA=\toks25
+\@mcitetmpdima=\dimen120
+\@mcitetmpdimb=\dimen121
+\@mcitetmpcnta=\count104
+\@mcitetmpcntb=\count105
+\c@mcitebibitemcount=\count106
+\c@mcitesubitemcount=\count107
+
+** mciteplus: Detected natbib.sty. Invoking hooks.
+))
+! Missing = inserted for \ifnum.
+<to be read again> 
+                   -
+l.4 \usepackage
+               {amsmath}
+? 
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
+\@mathmargin=\skip53
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks26
+\ex@=\dimen122
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen123
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count108
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count109
+\leftroot@=\count110
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count111
+\DOTSCASE@=\count112
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen124
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count113
+\c@MaxMatrixCols=\count114
+\dotsspace@=\muskip11
+\c@parentequation=\count115
+\dspbrk@lvl=\count116
+\tag@help=\toks27
+\row@=\count117
+\column@=\count118
+\maxfields@=\count119
+\andhelp@=\toks28
+\eqnshift@=\dimen125
+\alignsep@=\dimen126
+\tagshift@=\dimen127
+\tagwidth@=\dimen128
+\totwidth@=\dimen129
+\lineht@=\dimen130
+\@envbody=\toks29
+\multlinegap=\skip54
+\multlinetaggap=\skip55
+\mathdisplay@stack=\toks30
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 144.
+)
+(./virtual_cytoplasm_v2.aux)
+\openout1 = `virtual_cytoplasm_v2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+\openout3 = `acs-virtual_cytoplasm_v2.bib'.
+
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.2698pt, 469.75539pt, 72.2698pt)
+* v-part:(T,H,B)=(72.2698pt, 650.43037pt, 72.2698pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75539pt
+* \textheight=650.43037pt
+* \oddsidemargin=-0.00018pt
+* \evensidemargin=-0.00018pt
+* \topmargin=-37.00018pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen131
+\scratchbox=\box30
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen132
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks32
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Missing character: There is no Ã in font cmti12!
+Missing character: There is no £ in font cmti12!
+Missing character: There is no Ã in font cmti12!
+Missing character: There is no £ in font cmti12!
+Missing character: There is no Ã in font cmti12!
+Missing character: There is no £ in font cmti12!
+
+
+Package natbib Warning: Citation `reckel2007' on page 1 undefined on input line
+ 55.
+
+
+Package natbib Warning: Citation `pielak2008' on page 1 undefined on input line
+ 55.
+
+
+Package natbib Warning: Citation `ignatova2004' on page 1 undefined on input li
+ne 55.
+
+
+Package natbib Warning: Citation `xie2008' on page 1 undefined on input line 55
+.
+
+
+Package natbib Warning: Citation `English2011' on page 1 undefined on input lin
+e 55.
+
+
+Package natbib Warning: Citation `Spiga2014a' on page 1 undefined on input line
+ 56.
+
+
+Package natbib Warning: Citation `Harada2012a' on page 1 undefined on input lin
+e 56.
+
+
+Package natbib Warning: Citation `Nawrocki2017a' on page 1 undefined on input l
+ine 56.
+
+
+Package natbib Warning: Citation `Mcguffee2010' on page 1 undefined on input li
+ne 56.
+
+
+Package natbib Warning: Citation `Yu2016a' on page 1 undefined on input line 56
+.
+
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `Chys2013' on page 2 undefined on input line 6
+9.
+
+
+Package natbib Warning: Citation `Best2014a' on page 2 undefined on input line 
+92.
+
+
+Package natbib Warning: Citation `Abascal2005b' on page 2 undefined on input li
+ne 92.
+
+
+Package natbib Warning: Citation `Essmann1995a' on page 2 undefined on input li
+ne 92.
+
+
+Package natbib Warning: Citation `Hess2008b' on page 2 undefined on input line 
+92.
+
+
+Package natbib Warning: Citation `Bussi2007a' on page 2 undefined on input line
+ 92.
+
+
+Package natbib Warning: Citation `Parrinello1981a' on page 2 undefined on input
+ line 92.
+
+[2]
+
+Package natbib Warning: Citation `Allen1987a' on page 3 undefined on input line
+ 105.
+
+
+Package natbib Warning: Citation `Yeh2004' on page 3 undefined on input line 10
+5.
+
+
+Package natbib Warning: Citation `Dong1996' on page 3 undefined on input line 1
+31.
+
+
+Package natbib Warning: Citation `Bennett2009' on page 3 undefined on input lin
+e 131.
+
+
+Package natbib Warning: Citation `Link1997' on page 3 undefined on input line 1
+31.
+
+
+Package natbib Warning: Citation `Mcguffee2010' on page 3 undefined on input li
+ne 131.
+
+
+Package natbib Warning: Citation `ref_prot_abundance' on page 3 undefined on in
+put line 137.
+
+[3]
+
+Package natbib Warning: Citation `Byrne2015' on page 4 undefined on input line 
+165.
+
+[4]
+
+Package natbib Warning: Citation `Abel1996' on page 5 undefined on input line 1
+89.
+
+
+Package natbib Warning: Citation `Ferrer2004' on page 5 undefined on input line
+ 190.
+
+
+Package natbib Warning: Citation `Mesecar2000' on page 5 undefined on input lin
+e 191.
+
+
+Package natbib Warning: Citation `Parsonage2005' on page 5 undefined on input l
+ine 192.
+
+
+Package natbib Warning: Citation `Schindelin1994' on page 5 undefined on input 
+line 193.
+
+
+Package natbib Warning: Citation `Kankare1996' on page 5 undefined on input lin
+e 194.
+
+
+Package natbib Warning: Citation `ShinXXX' on page 5 undefined on input line 19
+5.
+
+
+Package natbib Warning: Citation `Kuhnel2001' on page 5 undefined on input line
+ 196.
+
+
+Package natbib Warning: Citation `Byrne2015' on page 5 undefined on input line 
+198.
+
+[5] [6] [7] <msd.pdf, id=38, 419.52483pt x 302.1408pt>
+File: msd.pdf Graphic file (type pdf)
+ <use msd.pdf>
+Package pdftex.def Info: msd.pdf used on input line 246.
+(pdftex.def)             Requested size: 251.71683pt x 181.28586pt.
+
+<diff_cyto_over_singles.pdf, id=39, 422.86543pt x 317.49503pt>
+File: diff_cyto_over_singles.pdf Graphic file (type pdf)
+
+<use diff_cyto_over_singles.pdf>
+Package pdftex.def Info: diff_cyto_over_singles.pdf used on input line 251.
+(pdftex.def)             Requested size: 253.7212pt x 190.49847pt.
+ <rmsd.pdf, id=40, 413.1416pt x 301.81143pt>
+File: rmsd.pdf Graphic file (type pdf)
+
+<use rmsd.pdf>
+Package pdftex.def Info: rmsd.pdf used on input line 262.
+(pdftex.def)             Requested size: 247.88687pt x 181.08824pt.
+ <sasa.pdf, id=41, 416.65474pt x 301.81143pt>
+File: sasa.pdf Graphic file (type pdf)
+ <use sasa.pdf>
+Package pdftex.def Info: sasa.pdf used on input line 267.
+(pdftex.def)             Requested size: 249.99477pt x 181.08824pt.
+
+<rmsf.pdf, id=42, 714.87659pt x 1076.98737pt>
+File: rmsf.pdf Graphic file (type pdf)
+ <use rmsf.pdf>
+Package pdftex.def Info: rmsf.pdf used on input line 276.
+(pdftex.def)             Requested size: 428.92926pt x 646.1974pt.
+
+
+LaTeX Warning: Float too large for page by 32.96703pt on input line 278.
+
+<hb.pdf, id=43, 422.7086pt x 301.81143pt>
+File: hb.pdf Graphic file (type pdf)
+ <use hb.pdf>
+Package pdftex.def Info: hb.pdf used on input line 283.
+(pdftex.def)             Requested size: 253.6271pt x 181.08824pt.
+ [8 <./msd.pdf>] [9 <./diff_cyto_over_singles.pdf> <./rmsd.pdf
+
+pdfTeX warning: pdflatex (file ./rmsd.pdf): PDF inclusion: multiple pdfs with p
+age group included in a single page
+>] <rdf_RNA_metabolites.pdf, id=172, 413.1416pt x 327.20317pt>
+File: rdf_RNA_metabolites.pdf Graphic file (type pdf)
+
+<use rdf_RNA_metabolites.pdf>
+Package pdftex.def Info: rdf_RNA_metabolites.pdf used on input line 297.
+(pdftex.def)             Requested size: 247.88687pt x 196.32341pt.
+ <avclust.pdf, id=173, 419.52483pt x 315.53458pt>
+File: avclust.pdf Graphic file (type pdf)
+
+<use avclust.pdf>
+Package pdftex.def Info: avclust.pdf used on input line 302.
+(pdftex.def)             Requested size: 251.71683pt x 189.3222pt.
+ <nclust.pdf, id=174, 424.55574pt x 315.53458pt>
+File: nclust.pdf Graphic file (type pdf)
+
+<use nclust.pdf>
+Package pdftex.def Info: nclust.pdf used on input line 308.
+(pdftex.def)             Requested size: 254.7354pt x 189.3222pt.
+
+No file virtual_cytoplasm_v2.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[10 <./sasa.pdf>] [11 <./rmsf.pdf>] [12 <./hb.pdf> <./rdf_RNA_metabolites.pdf
+
+pdfTeX warning: pdflatex (file ./rdf_RNA_metabolites.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>] [13 <./avclust.pdf> <./nclust.pdf
+
+pdfTeX warning: pdflatex (file ./nclust.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+>] [14] (./virtual_cytoplasm_v2.aux) ) 
+Here is how much of TeX's memory you used:
+ 5174 strings out of 493014
+ 78755 string characters out of 6133352
+ 151194 words of memory out of 5000000
+ 8631 multiletter control sequences out of 15000+600000
+ 12632 words of font info for 45 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,13n,94p,1258b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmss12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti12.pfb>
+Output written on virtual_cytoplasm_v2.pdf (14 pages, 462871 bytes).
+PDF statistics:
+ 461 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+

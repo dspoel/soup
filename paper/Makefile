@@ -18,20 +18,25 @@ PDF	= virtual_cytoplasm_v2.pdf $(EPLOTS)  #virtual_cytoplasm-supporting.pdf
 
 all:	$(PDF)
 
-virtual_cytoplasm.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) #tbl.tex
+virtual_cytoplasm_v2.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) #tbl.tex
+			pdflatex virtual_cytoplasm_v2
+			pdflatex virtual_cytoplasm_v2
+			bibtex virtual_cytoplasm_v2
+			pdflatex virtual_cytoplasm_v2
 virtual_cytoplasm-supporting.pdf:	virtual_cytoplasm-supporting.tex $(SPLOTS)
 
 
 sasa.pdf: $(DAT)
-	python3 barplots.py -prop sasa  -ylabel \"\$nm^2\$\"
+	python3 barplots.py -prop sasa
+
 rmsd.pdf: $(DAT)
-	python3 barplots.py -prop rmsd  -ylabel \"\$nm\$\"
+	python3 barplots.py -prop rmsd
 
 hb.pdf: $(DAT)
-	python3 barplots.py -prop hb -ylabel \#HB 
+	python3 barplots.py -prop hb
 
 rg.pdf: $(DAT)
-	python3 barplots.py -prop rg -ylabel \"\$nm\$\"	
+	python3 barplots.py -prop rg 
 
 msd.pdf: $(DAT)
 	python3 barplots.py -prop msd  -ylabel D
