@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.6)  11 SEP 2019 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.6)  12 SEP 2019 09:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**virtual_cytoplasm_v2.tex
+**virtual_cytoplasm_v2
 (./virtual_cytoplasm_v2.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
@@ -249,18 +249,18 @@ Package color Info: Driver file: pdftex.def on input line 144.
 (./virtual_cytoplasm_v2.aux)
 \openout1 = `virtual_cytoplasm_v2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 \openout3 = `acs-virtual_cytoplasm_v2.bib'.
 
 
@@ -358,51 +358,44 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Missing character: There is no Ã in font cmti12!
-Missing character: There is no £ in font cmti12!
-Missing character: There is no Ã in font cmti12!
-Missing character: There is no £ in font cmti12!
-Missing character: There is no Ã in font cmti12!
-Missing character: There is no £ in font cmti12!
-
 
 Package natbib Warning: Citation `reckel2007' on page 1 undefined on input line
- 55.
+ 49.
 
 
 Package natbib Warning: Citation `pielak2008' on page 1 undefined on input line
- 55.
+ 49.
 
 
 Package natbib Warning: Citation `ignatova2004' on page 1 undefined on input li
-ne 55.
+ne 49.
 
 
-Package natbib Warning: Citation `xie2008' on page 1 undefined on input line 55
+Package natbib Warning: Citation `xie2008' on page 1 undefined on input line 49
 .
 
 
 Package natbib Warning: Citation `English2011' on page 1 undefined on input lin
-e 55.
+e 49.
 
 
 Package natbib Warning: Citation `Spiga2014a' on page 1 undefined on input line
- 56.
+ 50.
 
 
 Package natbib Warning: Citation `Harada2012a' on page 1 undefined on input lin
-e 56.
+e 50.
 
 
 Package natbib Warning: Citation `Nawrocki2017a' on page 1 undefined on input l
-ine 56.
+ine 50.
 
 
 Package natbib Warning: Citation `Mcguffee2010' on page 1 undefined on input li
-ne 56.
+ne 50.
 
 
-Package natbib Warning: Citation `Yu2016a' on page 1 undefined on input line 56
+Package natbib Warning: Citation `Yu2016a' on page 1 undefined on input line 50
 .
 
 [1
@@ -410,203 +403,194 @@ Package natbib Warning: Citation `Yu2016a' on page 1 undefined on input line 56
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package natbib Warning: Citation `Chys2013' on page 2 undefined on input line 6
-9.
+3.
 
 
 Package natbib Warning: Citation `Best2014a' on page 2 undefined on input line 
-92.
+68.
 
 
 Package natbib Warning: Citation `Abascal2005b' on page 2 undefined on input li
-ne 92.
+ne 68.
 
 
 Package natbib Warning: Citation `Essmann1995a' on page 2 undefined on input li
-ne 92.
+ne 68.
 
 
 Package natbib Warning: Citation `Hess2008b' on page 2 undefined on input line 
-92.
+68.
 
 
 Package natbib Warning: Citation `Bussi2007a' on page 2 undefined on input line
- 92.
+ 68.
 
 
 Package natbib Warning: Citation `Parrinello1981a' on page 2 undefined on input
- line 92.
+ line 68.
 
 [2]
 
 Package natbib Warning: Citation `Allen1987a' on page 3 undefined on input line
- 105.
+ 81.
 
 
-Package natbib Warning: Citation `Yeh2004' on page 3 undefined on input line 10
-5.
+Package natbib Warning: Citation `Yeh2004' on page 3 undefined on input line 81
+.
 
 
-Package natbib Warning: Citation `Dong1996' on page 3 undefined on input line 1
-31.
+Package natbib Warning: Citation `Dong1996' on page 3 undefined on input line 8
+9.
 
 
 Package natbib Warning: Citation `Bennett2009' on page 3 undefined on input lin
-e 131.
+e 89.
 
 
-Package natbib Warning: Citation `Link1997' on page 3 undefined on input line 1
-31.
+Package natbib Warning: Citation `Link1997' on page 3 undefined on input line 8
+9.
 
 
 Package natbib Warning: Citation `Mcguffee2010' on page 3 undefined on input li
-ne 131.
-
-
-Package natbib Warning: Citation `ref_prot_abundance' on page 3 undefined on in
-put line 137.
+ne 89.
 
 [3]
 
+Package natbib Warning: Citation `ref_prot_abundance' on page 4 undefined on in
+put line 92.
+
+
 Package natbib Warning: Citation `Byrne2015' on page 4 undefined on input line 
-165.
+120.
 
 [4]
 
 Package natbib Warning: Citation `Abel1996' on page 5 undefined on input line 1
-89.
+40.
 
 
 Package natbib Warning: Citation `Ferrer2004' on page 5 undefined on input line
- 190.
+ 141.
 
 
 Package natbib Warning: Citation `Mesecar2000' on page 5 undefined on input lin
-e 191.
+e 142.
 
 
 Package natbib Warning: Citation `Parsonage2005' on page 5 undefined on input l
-ine 192.
+ine 143.
 
 
 Package natbib Warning: Citation `Schindelin1994' on page 5 undefined on input 
-line 193.
+line 144.
 
 
 Package natbib Warning: Citation `Kankare1996' on page 5 undefined on input lin
-e 194.
+e 145.
 
 
-Package natbib Warning: Citation `ShinXXX' on page 5 undefined on input line 19
-5.
+Package natbib Warning: Citation `ShinXXX' on page 5 undefined on input line 14
+6.
 
 
 Package natbib Warning: Citation `Kuhnel2001' on page 5 undefined on input line
- 196.
+ 147.
 
 
 Package natbib Warning: Citation `Byrne2015' on page 5 undefined on input line 
-198.
+149.
 
 [5] [6] [7] <msd.pdf, id=38, 419.52483pt x 302.1408pt>
 File: msd.pdf Graphic file (type pdf)
  <use msd.pdf>
-Package pdftex.def Info: msd.pdf used on input line 246.
+Package pdftex.def Info: msd.pdf used on input line 198.
 (pdftex.def)             Requested size: 251.71683pt x 181.28586pt.
 
 <diff_cyto_over_singles.pdf, id=39, 422.86543pt x 317.49503pt>
 File: diff_cyto_over_singles.pdf Graphic file (type pdf)
 
 <use diff_cyto_over_singles.pdf>
-Package pdftex.def Info: diff_cyto_over_singles.pdf used on input line 251.
+Package pdftex.def Info: diff_cyto_over_singles.pdf used on input line 203.
 (pdftex.def)             Requested size: 253.7212pt x 190.49847pt.
  <rmsd.pdf, id=40, 413.1416pt x 301.81143pt>
 File: rmsd.pdf Graphic file (type pdf)
 
 <use rmsd.pdf>
-Package pdftex.def Info: rmsd.pdf used on input line 262.
+Package pdftex.def Info: rmsd.pdf used on input line 214.
 (pdftex.def)             Requested size: 247.88687pt x 181.08824pt.
  <sasa.pdf, id=41, 416.65474pt x 301.81143pt>
 File: sasa.pdf Graphic file (type pdf)
  <use sasa.pdf>
-Package pdftex.def Info: sasa.pdf used on input line 267.
+Package pdftex.def Info: sasa.pdf used on input line 219.
 (pdftex.def)             Requested size: 249.99477pt x 181.08824pt.
 
 <rmsf.pdf, id=42, 714.87659pt x 1076.98737pt>
 File: rmsf.pdf Graphic file (type pdf)
  <use rmsf.pdf>
-Package pdftex.def Info: rmsf.pdf used on input line 276.
+Package pdftex.def Info: rmsf.pdf used on input line 228.
 (pdftex.def)             Requested size: 428.92926pt x 646.1974pt.
 
 
-LaTeX Warning: Float too large for page by 32.96703pt on input line 278.
+LaTeX Warning: Float too large for page by 87.36705pt on input line 230.
 
-<hb.pdf, id=43, 422.7086pt x 301.81143pt>
-File: hb.pdf Graphic file (type pdf)
- <use hb.pdf>
-Package pdftex.def Info: hb.pdf used on input line 283.
-(pdftex.def)             Requested size: 253.6271pt x 181.08824pt.
- [8 <./msd.pdf>] [9 <./diff_cyto_over_singles.pdf> <./rmsd.pdf
+[8 <./msd.pdf>] [9 <./diff_cyto_over_singles.pdf> <./rmsd.pdf
 
 pdfTeX warning: pdflatex (file ./rmsd.pdf): PDF inclusion: multiple pdfs with p
 age group included in a single page
->] <rdf_RNA_metabolites.pdf, id=172, 413.1416pt x 327.20317pt>
+>] <hb.pdf, id=172, 422.7086pt x 301.81143pt>
+File: hb.pdf Graphic file (type pdf)
+ <use hb.pdf>
+Package pdftex.def Info: hb.pdf used on input line 235.
+(pdftex.def)             Requested size: 253.6271pt x 181.08824pt.
+ [10 <./sasa.pdf>]
+[11 <./rmsf.pdf>] <rdf_RNA_metabolites.pdf, id=251, 413.1416pt x 327.20317pt>
 File: rdf_RNA_metabolites.pdf Graphic file (type pdf)
 
 <use rdf_RNA_metabolites.pdf>
-Package pdftex.def Info: rdf_RNA_metabolites.pdf used on input line 297.
+Package pdftex.def Info: rdf_RNA_metabolites.pdf used on input line 249.
 (pdftex.def)             Requested size: 247.88687pt x 196.32341pt.
- <avclust.pdf, id=173, 419.52483pt x 315.53458pt>
+ <avclust.pdf, id=252, 419.52483pt x 315.53458pt>
 File: avclust.pdf Graphic file (type pdf)
 
 <use avclust.pdf>
-Package pdftex.def Info: avclust.pdf used on input line 302.
+Package pdftex.def Info: avclust.pdf used on input line 254.
 (pdftex.def)             Requested size: 251.71683pt x 189.3222pt.
- <nclust.pdf, id=174, 424.55574pt x 315.53458pt>
-File: nclust.pdf Graphic file (type pdf)
-
-<use nclust.pdf>
-Package pdftex.def Info: nclust.pdf used on input line 308.
-(pdftex.def)             Requested size: 254.7354pt x 189.3222pt.
 
 No file virtual_cytoplasm_v2.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-[10 <./sasa.pdf>] [11 <./rmsf.pdf>] [12 <./hb.pdf> <./rdf_RNA_metabolites.pdf
+[12 <./hb.pdf>] [13 <./rdf_RNA_metabolites.pdf> <./avclust.pdf
 
-pdfTeX warning: pdflatex (file ./rdf_RNA_metabolites.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
->] [13 <./avclust.pdf> <./nclust.pdf
-
-pdfTeX warning: pdflatex (file ./nclust.pdf): PDF inclusion: multiple pdfs with
- page group included in a single page
->] [14] (./virtual_cytoplasm_v2.aux) ) 
+pdfTeX warning: pdflatex (file ./avclust.pdf): PDF inclusion: multiple pdfs wit
+h page group included in a single page
+>] (./virtual_cytoplasm_v2.aux) ) 
 Here is how much of TeX's memory you used:
- 5174 strings out of 493014
- 78755 string characters out of 6133352
- 151194 words of memory out of 5000000
- 8631 multiletter control sequences out of 15000+600000
+ 5169 strings out of 493014
+ 78686 string characters out of 6133352
+ 150301 words of memory out of 5000000
+ 8627 multiletter control sequences out of 15000+600000
  12632 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,94p,1258b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmss12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmti12.pfb>
-Output written on virtual_cytoplasm_v2.pdf (14 pages, 462871 bytes).
+ 60i,13n,94p,1269b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmss12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti12.pfb>
+Output written on virtual_cytoplasm_v2.pdf (13 pages, 446749 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
+ 420 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

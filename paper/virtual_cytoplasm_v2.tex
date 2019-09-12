@@ -30,11 +30,6 @@
 
 \maketitle
 
-%\begin{affiliations}
-%\item 
-%  \item Department of Biological Science and Engineering, School of Chemistry and Biological Engineering, University of Science and Technology Beijing, 100083 Beijing, China
-%\end{affiliations}
-
 \begin{abstract}
 %For Nature, the abstract is really an introductory paragraph set
 %in bold type.  This paragraph must be ``fully referenced'' and
@@ -69,24 +64,6 @@ The proteins and tRNA were downloaded from Protein Data Bank (PDB). We looked fo
 
 \subsection*{Molecular Dynamics Simulation}
 
-% General Simulation setup:
-% \begin{itemize}
-% \item Force Field
-% \item Water model
-% \item Gromacs
-% \item Temperature and pressure
-% \item (details of soup box)
-% \item Minimization 
-% \item Equilibration
-% \item Production
-% \end{itemize}
-
-% \begin{itemize}
-% \item Box building
-% \item Droplets
-% \item Shrinking
-% \end{itemize}
-
  
 {\bf General Simulation Setup: }The proteins were simulated at 30\% biomolecular mass fraction in  a physiological salt concentration (0.15M NaCl). For all simulations, Amber99SB-ws force field was used~\cite{Best2014a} in combination with the TIP4P/2005 water model~\cite{Abascal2005b}. Electrostatic interactions were treated using the particle mesh Ewald algorithm~\cite{Essmann1995a}. All chemical bonds were constrained at their equilibrium length using the LINCS algorithm~\cite{Hess2008b} allowing an integration time step of 2 fs. Temperature was controlled at 310 K using the v-rescale algorithm~\cite{Bussi2007a} and a coupling time of 0.5 ps. The pressure was controlled at 1 bar using the Parrinello-Rahman algorithm~\cite{Parrinello1981a} with a time constant of 10 ps.  
 
@@ -103,34 +80,13 @@ Before any analysis the periodic boundary condition (pbc) artifacts have been re
 
 A Mean Square Displacement (MSD) analysis was used to calculate the translational diffusion coefficient~\cite{Allen1987a}. The diffusion coefficients were extracted by a linear fit to MSD analysis by averaging blocks with a length of $10 \,ns$. In principle diffusion coefficient needs to be corrected for finite size effects~\cite{Yeh2004} but due to relatively large simulation boxes this correction is negligible.
 
-% We followed the Lipari-Szabo approach to calculate the rotational correlation time, using a second order Legendre polynomial $P_2({\mathbf r}_{NH})$ to be able to compare the results to experimental relaxation data~\cite{Lipari1982b}. First the average order parameter $<\!\!S^2\!\!>$ over all ${\mathbf r}_{NH}$ vectors for each protein was determined from trajectories after the biomolecular rotation- and translation-movements were removed. Then the rotational correlation function $C(t)$ of the original trajectories was fitted to 
-% \begin{equation}
-% C(t) ~=~ <\!\!S^2\!\!> \exp(-t/\tau_M) + (1-<\!\!S^2\!\!>)\exp(-t/\tau_T)
-% \end{equation}
-% where $\tau_M$ is the rotational correlation time (tumbling) and $\tau_T = (\tau_M^{-1} + \tau_e^{-1})^{-1}$, where $\tau_e$ is the internal bond movement. 
-
-
-
-
-
-
-
-
-
-
 
 
 
 \section*{Results}
 
-
-
-
 \subsection{Cytoplasm model}
 In this section we describe the rationale behind the composition of our model, which has five fractions: protein, RNA, metabolites, water and ions. We highlight that we didn't add lipids and DNAs to our model because we are considering only elements that are free to diffuse through the cytosol. We gathered data from several sources in order to build a computational model that is representative of the cytoplasm of {\em Escheria coli}~\cite{Dong1996,Bennett2009,Link1997,Mcguffee2010}.
-
-
-
 
 \subsubsection{Protein fraction}
 We selected a group of eight proteins that account for 50\% of the abundance of non-ribosomal proteins in the cytoplasm of Escherichia coli K-12 \cite{ref_prot_abundance}. The two most abundant proteins, TufA and MetE, account for 20\% and 12\% of the total protein count in E.coli K-12, respectively, while the other six proteins contribute with less than 5\% each (Table ~\ref{tbl:protein_fraction}).
@@ -172,10 +128,6 @@ The number of water molecules was calculated according to the desired biomolecul
 
 \subsubsection{Inorganic ions fraction}
 Finally, Mg2+ was used as counter-ions for tRNA and K+ cations were added to neutralize the charges of the simulation box. The number of water molecules was used to calculate the number of K+ and Cl- that were necessary to reach the ionic strength of 0.150 M.
-
-
-
-
 
 
 
@@ -232,7 +184,7 @@ After all droplets are successfully inserted in a simulation box by the iterativ
 
 Python scripts and all topology and structure files necessary to perform all these steps are available at github.com/dspoel... The cytoplasm model that we built here can be used as a tool to answer many research questions about the effects of crowding on specific systems of interest. With the files we are providing here it is possible, for example, to add a probe protein to investigate the effect of crowding on it, to add new macromolecular or small crowders, add new solvents and change the biomolecular concentration to increase or decrease the intensity of the crowding effect.
  
-
+s
 
 \subsection{The effect of crowded systems}
 
@@ -303,29 +255,11 @@ We observed aggregation of the metabolites that contain phosphate, ATP and FBP, 
 \caption{Number of metabolite molecules that form a cluster in cytoplasm simulations.}
 \end{figure}
 
-
-\begin{figure}
-\includegraphics[scale=0.6]{nclust.pdf}
-\caption{Number of clusters that form during the cytoplasm simulations.}
-\end{figure}
-
-
-
-
-
-
-
-
-
  
 \section*{Discussion}\label{sec:dissc}
  
 
 \bibliography{library}
-
-
- 
-
 % \begin{addendum}
 %  \item  
 %  \item[Competing Interests] 
@@ -335,86 +269,3 @@ We observed aggregation of the metabolites that contain phosphate, ATP and FBP, 
 \end{document}
 
 
-% Cytoplasm setup:
-% \begin{itemize}
-% \item Constitutents of the cytoplasm in ratio, (non-ribomosal) protein, (non-ribosomal) RNA and metabolites {\bf review paper}
-% \item Proteins fraction 
-% \item Nucleic Acid fraction
-% \item Metabolites fraction
-% \item Physiological condition of the cell
-% \item Biomolecular fraction 
-% \end{itemize}
-
-% General Simulation setup:
-% \begin{itemize}
-% \item Force Field
-% \item Water model
-% \item Gromacs
-% \item Temperature and pressure
-% \item (details of soup box)
-% \item Minimization 
-% \item Equilibration
-% \item Production
-% \end{itemize}
-
-% \begin{itemize}
-% \item Box building
-% \item Droplets
-% \item Shrinking
-% \end{itemize}
-
-
-
-% {\it Cytoplasm Model: }The most abundant non-ribosomal proteins that account for 50\% of the {\em Escherichia coli} xxx cytoplasm's protein composition were chosen for our cytoplasm model~\cite{}. Specifically TufA (pdb 1dg1), MetE (pdb 1u22), IcdA (pdb 1p8f), AhpC(pdb 1yep), CspC (pdb 1mjc), Ppa (pdb 2eip), GapA (pdb 1s7c) and .
-
-
- 
-% The proteins were simulated at 30\% biomolecular mass fraction in  a physiological salt concentration (0.15M NaCl).
-
-
-% For all simulations the Amber99sb-ildn force field was used~\cite{Hornak2006, Lindorff2010} in combination with the TIP4P/2005 water model~\cite{Abascal2005b}. Electrostatic interactions were treated using the particle mesh Ewald algorithm~\cite{Essmann1995a} and XXXX. All chemical bonds were constrained at their equilibrium length using the LINCS algorithm~\cite{Hess2008b} allowing an integration time step of 2 fs. Temperature was controlled at 310 K using the v-rescale algorithm~\cite{Bussi2007a} and a coupling time of 0.5 ps. The pressure was controlled at 1 bar using the Parrinello-Rahman algorithm~\cite{Parrinello1981a} with a time constant of 10 ps.  
-
-% Among proteins, (the corrections)
-% The metabolites structures have been prepared by ... .
-
-
-
-
-% For tRNA and metabolites the vector ... was used.
-
-
-
-% \begin{table}
-% \centering
-% \caption{Proteins PDB ID}
-% \label{tbl:pdb}
-% \begin{tabular}{lcc}
-% \hline
-% Protein (pdb)  \\
-% \hline
-% crowder\_n1 & 1dg1~\cite{Abel1996}   \\ 
-% crowder\_n2 & 1u22~\cite{Ferrer2004} \\
-% crowder\_n3 & 1p8f~\cite{Mesecar2000} \\
-% crowder\_n4 & 1yep~\cite{Parsonage2005}\\
-% crowder\_n5 & 1mjc~\cite{Schindelin1994}\\
-% crowder\_n6 & 2eip~\cite{Kankare1996}\\
-% crowder\_n7 & 1s7c~\cite{ShinXXX}\\
-% crowder\_n8 & 1sl4~\cite{Guo2004d}\\
-% crowder\_n9 & 1wz2~\cite{FukunagaXXX}\\
-% \hline
-% \end{tabular}
-% \end{table}
-
-
-
-
-% Cytoplasm setup:
-% \begin{itemize}
-% \item Constitutents of the cytoplasm in ratio, (non-ribomosal) protein, (non-ribosomal) RNA and metabolites {\bf review paper}
-% \item Proteins fraction 
-% \item Nucleic Acid fraction
-% \item Metabolites fraction
-% \item Physiological condition of the cell
-% \item Biomolecular fraction 
-% \end{itemize}
- 
