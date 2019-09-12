@@ -27,19 +27,19 @@ virtual_cytoplasm-supporting.pdf:	virtual_cytoplasm-supporting.tex $(SPLOTS)
 
 
 sasa.pdf: $(DAT)
-	python3 barplots.py -prop sasa  -ylabel \"\$nm^2\$\"
+	python3 barplots.py -prop sasa
 rmsd.pdf: $(DAT)
-	python3 barplots.py -prop rmsd  -ylabel \"\$nm\$\"
+	python3 barplots.py -prop rmsd
 
 
 hb.pdf: $(DAT)
 	python3 barplots.py -prop hb
 
 rg.pdf: $(DAT)
-	python3 barplots.py -prop rg -ylabel \"\$nm\$\"	
+	python3 barplots.py -prop rg
 
 msd.pdf: $(DAT)
-	python3 barplots.py -prop msd  -ylabel D
+	python3 barplots.py -prop msd
 
 diff_cyto_over_singles.pdf: $(DAT)
 	python3 diff_plots.py	
