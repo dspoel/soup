@@ -15,11 +15,13 @@
 
 \title{Making Soup: Preparing and Validating Molecular Simulations of the Bacterial Cytoplasm}
 
-\author{Zahedeh Bashardanesh}
-\affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
 
 \author{Leandro Oliveira Bortot}
 \affiliation{Laboratory of Biological Physics, School of Pharmaceutical Sciences of Ribeir{\~a}o Preto, University of S{\~a}o Paulo, Ribeir{\~a}o Preto, Brazil}
+
+\author{Zahedeh Bashardanesh}
+\affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
+
 
 \author{David van der Spoel}
 \affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
@@ -180,8 +182,8 @@ In order to do this, the droplets around each component are also constructed ite
 After all droplets are successfully inserted in a simulation box by the iterative process described above, we proceed to add ions to neutralize the net charge of the system and to reach the desired ionic strength. Then, we perform energy minimization and a short simulation step of 500ps in which all molecules of the box are free to move. In this step the box shrinks to its optimum size. In our case, the simulation box shrank from the initial L=35nm to L=22.9nm. From this point, the system is ready to be submitted to the default simulation steps such as thermalization and production run (please check the materials section for details about the parameters we used).
 
 \begin{figure}
-\includegraphics[scale=0.6]{shrinking_volume.pdf} 
-\includegraphics[scale=0.6]{shrinking_density.pdf} 
+\includegraphics[scale=0.7]{shrinking_volume.pdf} 
+\includegraphics[scale=0.7]{shrinking_density.pdf} 
 \caption{A) The volume of the box with length size of $L=35 \,\, nm$ reduces during the energy minimization in the first $300 \,\, ps$ B) The density of the same box increases within the first $300\,\, ps$. The repeated experiments are shown in different colors. }
 \end{figure}
 
