@@ -2,7 +2,7 @@
 # Makefile for plots $Id: Makefile,v 1.11 2013/12/16 20:11:39 spoel Exp $
 #
 
-EPLOTS  = sasa.pdf rmsd.pdf hb.pdf msd.pdf diff_cyto_over_singles.pdf  #rg.pdf  #rdf_RNA_metabolites.pdf avclust.pdf nclust.pdf rmsf.pdf
+EPLOTS  = sasa.pdf rmsd.pdf hb.pdf msd.pdf rmsf.pdf diff_cyto_over_singles.pdf rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf #rg.pdf 
 # SPLOTS  = rdf_2kim.pdf rdf_2k57.pdf rdf_ub.pdf
 SPLOTS  = fig.pdf 
 TABS    = tbl.tex # tbl_liquids_corr.tex 
@@ -26,22 +26,22 @@ virtual_cytoplasm_v2.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) #tbl.tex
 virtual_cytoplasm-supporting.pdf:	virtual_cytoplasm-supporting.tex $(SPLOTS)
 
 
-sasa.pdf: $(DAT)
+sasa.pdf: $(DAT) barplots.py
 	python3 barplots.py -prop sasa
-rmsd.pdf: $(DAT)
+
+rmsd.pdf: $(DAT) barplots.py
 	python3 barplots.py -prop rmsd
 
-
-hb.pdf: $(DAT)
+hb.pdf: $(DAT) barplots.py
 	python3 barplots.py -prop hb
 
-rg.pdf: $(DAT)
+rg.pdf: $(DAT) barplots.py
 	python3 barplots.py -prop rg
 
-msd.pdf: $(DAT)
+msd.pdf: $(DAT) barplots.py
 	python3 barplots.py -prop msd
 
-diff_cyto_over_singles.pdf: $(DAT)
+diff_cyto_over_singles.pdf: $(DAT) diff_plots.py
 	python3 diff_plots.py	
 
 

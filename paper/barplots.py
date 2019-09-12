@@ -38,6 +38,7 @@ def autolabel(rects, xpos='center'):
     #                 textcoords="offset points",  # in both directions
     #                 ha=ha[xpos], va='bottom')
 
+
 if __name__ == '__main__':
     oligomers = (crowder_name[0],crowder_name[2],crowder_name[3],crowder_name[5],crowder_name[6],crowder_name[7])
     protein_name =crowder_name[0:8]
@@ -46,11 +47,11 @@ if __name__ == '__main__':
     ylabel = args.ylabel
     if len(ylabel) == 0:
         if args.prop == "sasa":
-            ylabel = "\$nm^{2}\$"
+            ylabel = "$nm^{2}$"
         elif args.prop == "rmsd" or args.prop == "rg":
-            ylabel = "\$nm\$"
+            ylabel = "$nm$"
         elif args.prop == "msd":
-            ylabel = '\$D (10^{-5} cm^2/s)\$'
+            ylabel = '$D (10^{-5} cm^2/s)$'
         elif args.prop == "hb":
             ylabel = "#HB"
         else:
@@ -82,7 +83,7 @@ if __name__ == '__main__':
                     label='Cyto.')
     
     # # Add some text for labels, title and custom x-axis tick labels, etc.
-    ax.set_ylabel(args.ylabel)
+    ax.set_ylabel(ylabel)
     ax.set_xlabel(args.xlabel)
     ax.set_title(args.title)
     ax.set_xticks(ind)
