@@ -47,9 +47,14 @@
 
 Biomolecules move and function in an environment densely packed with high concentrations of macromolecules. The presence of macromolecules leads to steric effect due to excluded volume effect and intermolecular attrative/repulsive forces due to distributed charges on the surface of macromolecules.
 
-Structure and dynamics of biomolecules are well characterized {\em in vitro}, however how these features differ {\em in vivo} remains unclear. 
-Investigating biomolecular properties {\em in vivo} is possible through development in the fields of nuclear magnetic resonance~\cite{reckel2007,pielak2008}, or fluoroscence spectroscopies~\cite{ignatova2004,xie2008,English2011}.
-An alternative is to use computational models and simulations techniques. Biomolecular simulations are often carried out under dilute conditions or simple models of macromolecular crowdings~\cite{Spiga2014a,Harada2012a,Nawrocki2017a}. However, more attemps in modeling bacterial cytoplasm have been made recently~\cite{Mcguffee2010,Yu2016a}. 
+Structure and dynamics of biomolecules are well characterized {\em in vitro}, however these studies {\em in vivo} are still evolving. 
+Investigating biomolecular properties {\em in vivo} is possible through developments in the fields of nuclear magnetic resonance~\cite{reckel2007,pielak2008}, or fluoroscence spectroscopies~\cite{ignatova2004,xie2008,English2011}.
+An alternative method is to use computational models and simulation techniques. Biomolecular simulations are often carried out under dilute conditions or simple models of macromolecular crowdings~\cite{Spiga2014a,Harada2012a,Nawrocki2017a}. However, more attemps in modeling bacterial cytoplasm have been made recently~\cite{Mcguffee2010,Yu2016a}. 
+
+\begin{itemize}
+   \item How a computational model can be useful
+   \item From a simple extrapolation in time, it has been estimated that the simulation of an {\em E. coli} bacterium would be possible in 25 years from now for one nanosecond with $10^{11}$ atoms~\cite{vanGunsteren2006a}
+\end{itemize}
 
 Here we report on a model of {\em Escherichia coli} cytoplasm at atomistic level. The challenges in modeling and simulation with Molecular Dynamics are pointed and discussed and solutions are provided. 
 
@@ -271,6 +276,17 @@ We observed aggregation of the metabolites that contain phosphate, ATP and FBP, 
  
 \section*{Discussion}\label{sec:dissc}
  
+ \begin{itemize}
+  \item Use of force field should be taken with care due to aggregation that was reported repeatedly. We used AMBER scaled force field for protein water interaction. In other atomistic model of Mycoplasma genitalium, the CHARRM scaled protein water interaction was used for the same reason.
+  \item No significant structural changes (such as unfoldin or partial unfolding) can be seen from properties such as sasa (fig 5), and gyration radius  (WE HAVEN'T ADD THIS FIG, SHALL WE?).
+  \item intramoleclar protein protein interactions are not affected by the presence of crowders. This shows for oligomers (1,3,4,6,7,8 NAME THEM), the crowding doesn't cause dissociation of chains. 
+  \item  intermolecular protein protein interactions can be seen in forms of  rmsd (fig 4) and rmsf (fig 6). As proteins interact with their environment, their structure flutuate more than in dilute cases. However, the effect is not large enough to cause unfolding (fig 5, and gyration)
+  \item rmsf in all cases are higher for crowders in cytoplasm than in dilute codition
+  \item AREN'T RMSD AND RMSF CORRELATED? 
+  \item Diffusion coefficient is significantly different, and it's independent of the size of the proteins (D_cyto/D_single plot in Supp. Info.). Based on the observations above (sasa, gyration, rmsd, rmsf) the drop is, to a greater amount, due to the excluded volume effect, and to a lesser amount, due electristatic interactions that has been compromised because of choice of force field. 
+  \item the greater drop in diffusion coefficient of RNA is due to confinement of RNA by metabolites (fig 9 and 10).
+  \item NOT SURE ABOUT THIS: THE FACT THAT METABOLITES ARE POLYMERIZED DOES NOT SABOTAGE THE WHOLE SIMULATION AND WE STIL COULD ANALYSE THE SIMULATION AND GET MEANINGFUL OUTCOME, AND THIS WOULD NOT (MOST PROBABLY) BE AFFECTED BY NON-CLUSTERED METABOLITE. INDEED WE DID NOT ANALYZE CHEMICAL OR DYNAMIC PROPERTIES OF METABOLITES
+ \end{itemize}
 
 \bibliography{library}
 % \begin{addendum}
