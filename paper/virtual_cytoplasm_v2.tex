@@ -3,6 +3,11 @@
 % \usepackage{amssymb,amsmath,graphics,epsfig}
 \usepackage{amsmath}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{upgreek}
 \setkeys{acs}{super = true}
 \setcitestyle{super,open={},close={}}
 \def\citenumfont{}
@@ -18,6 +23,7 @@
 
 \author{Leandro Oliveira Bortot}
 \affiliation{Laboratory of Biological Physics, School of Pharmaceutical Sciences of Ribeir{\~a}o Preto, University of S{\~a}o Paulo, Ribeir{\~a}o Preto, Brazil}
+
 
 \author{Zahedeh Bashardanesh}
 \affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
@@ -93,48 +99,45 @@ A Mean Square Displacement (MSD) analysis was used to calculate the translationa
 \section*{Results}
 
 \subsection{Cytoplasm model}
-In this section we describe the rationale behind the composition of our model, which has five fractions: protein, RNA, metabolites, water and ions. We highlight that we didn't add lipids and DNAs to our model because we are considering only elements that are free to diffuse through the cytosol. We gathered data from several sources in order to build a computational model that is representative of the cytoplasm of {\em Escheria coli}~\cite{Dong1996,Bennett2009,Link1997,Mcguffee2010}.
+In this section we describe the rationale behind the composition of our model, which has five fractions: protein, RNA, metabolites, water and ions. We highlight that we didn't add lipids and DNA to our model because we are considering only elements that are free to diffuse through the cytosol. We gathered data from several sources in order to build a computational model that is representative of the cytoplasm of {\em Escheria coli}~\cite{Dong1996,Bennett2009,Link1997,Mcguffee2010}.
 
 \subsubsection{Protein fraction}
-We selected a group of eight proteins that account for 50\% of the abundance of non-ribosomal proteins in the cytoplasm of Escherichia coli K-12 \cite{ref_prot_abundance}. The two most abundant proteins, TufA and MetE, account for 20\% and 12\% of the total protein count in E.coli K-12, respectively, while the other six proteins contribute with less than 5\% each (Table ~\ref{tbl:protein_fraction}).
-
-
+We selected a group of eight proteins that account for 50\% of the abundance of non-ribosomal proteins in the cytoplasm of {\em Escherichia coli} \cite{ref_prot_abundance}. The two most abundant proteins, TufA and MetE, account for about 20\% and 12\% of the total protein abundance in \em{E. coli}, respectively, while the other six proteins contribute with less than 5\% each (Table ~\ref{tbl:protein_fraction}). Their crystallogaphic structures were used to insert them in the cytoplasm model. The number of copies of each protein in the model was calculated as the rounded up fold increase in their abundance when compared to the least abundant protein, which was set to have the copy number of 1. Then, this number was divided by the oligomeric state of each protein. This was done because the original oligomeric state for each protein was kept as reported in their crystallogaphic structure.
 
 \begin{table}
 \centering
-\begin{tabular}{lcc}
+\begin{tabular}{ l c c }
 \hline
-Protein & Abundance in E.Coli K12 \\ 
+\multirow{2}{*}{Protein} & 	\multicolumn{2}{c}{Fraction [\%]} \\
+& Absolute & Cumulative \\ 
 \hline
-TufA	 & 20 \\
-MetE	 & 12 \\
-IcdA	 & 5 \\
-AhpC	 & 4 \\
-CspC	 & 4 \\
-Ppa & 3 \\
-GapA	 & 2 \\
-Eno & 2 \\
+TufA & 19.7 & 19.7 \\
+MetE & 11.6 & 31.4 \\
+IcdA & 4.7  & 36.1 \\
+AhpC & 4.1  & 40.2 \\
+CspC & 4.0  & 44.2 \\
+Ppa  & 2.9  & 47.0 \\
+GapA & 2.1  & 49.1 \\
+Eno  & 1.9  & 51.1 \\
 \hline
 \end{tabular}
-\caption{Protein fraction}
+\caption{Absolute and cumulative fraction of the total abundance of non-ribosomal proteins in the cytosol of {\em E. coli} K12 to which each protein that was selected to compose our cytoplasm model corresponds to.}
 \label{tbl:protein_fraction}
 \end{table}
 
 
 \subsubsection{RNA fraction}
-In order to build the RNA fraction of our cytoplasm model, we consider the following data:
-Since 74\% of the dry weight of non-ribosomal RNAs is composed by tRNA, we chose to model the RNA presence with tRNA molecules.
-The protein and RNA content of the total dry weight of \textit{E.coli} is 55\% and 2.9\%, respectively. That is, the total RNA weight corresponds to 5\% of the total protein weight. We incorporated this data in our model by considering the tRNA(Phe) molecule as a representative of RNAs due to the availability of a recent crystallographic structure~\cite{Byrne2015}. The correct number of copies were added to the simulation box to account for the correct protein/RNA weight ratio (Table ).
+Transporter RNAs (tRNAs) account for 74\% of the dry weight of non-ribosomal RNAs. Thus, we chose to model the RNA presence in the cytoplasm with tRNA molecules. Specifically, we considered the tRNA(Phe) molecule as a representative of tRNAs due to the availability of a recent crystallographic structure~\cite{Byrne2015}.
+The protein and RNA content of the total dry weight of \textit{E.coli} is 55\% and 2.9\%, respectively. That is, the total RNA weight corresponds to 5\% of the total protein weight. This protein/RNA weight ratio was used to calculate the correct number of tRNA(Phe) molecules that were added to the cytoplasm model \colorbox{red!50}{(Table XXX)}.
 
 \subsubsection{Metabolites fraction}
-The total number of metabolite molecules was calculated considering data showing that the number of metabolite molecules in the cytoplasm of \textit{E. coli} is about 42.86 times higher than the number of proteins. We considered the most abundant molecule as representative of each metabolite class, i.e. Glutamate for amino acids, ATP for nucleotides, FBP for central carbon intermediates and Glutathione redox cofactors. The copy number for each molecule was calculated from the ratio of their experimentally observed concentration in {\em E. coli}.
+We considered the most abundant molecules of each metabolite class as representatives, i.e. Glutamate for amino acids, ATP for nucleotides, FBP for central carbon intermediates and Glutathione redox cofactors ~\cite{metabolite_proportion}. The total number of molecules was calculated considering data showing that the number of metabolite molecules in the cytoplasm of \textit{E. coli} is about 42.86 times higher than the number of proteins ~\cite{metabolite_proportion}. The copy number for each molecule was calculated from the ratios between their experimentally observed concentration in \em{E. coli} ~\cite{metabolite_proportion}.
 
 \subsubsection{Water fraction}
-The number of water molecules was calculated according to the desired biomolecular concentration, which ranges from XX to YY in biological systems such as E. coli cytoplasm. In our case, we choose the biomolecular concentration of 30\%, that is, the number of molecules necessary to reach a ratio of total biomolecular mass to water mass of 30\%.
-
+The number of water molecules was calculated according to the desired biomolecular concentration, which is a parameter of the cytoplasm model. This number ranges from \colorbox{red!50}{XX to YY} in biological systems such as \textit{E. coli} cytoplasm. In our case, we choose the biomolecular concentration of 30\%, that is, the number of molecules necessary to reach a ratio of total biomolecular mass to water mass of 30\% was inserted into the cytoplasm model.
 
 \subsubsection{Inorganic ions fraction}
-Finally, Mg2+ was used as counter-ions for tRNA and K+ cations were added to neutralize the charges of the simulation box. The number of water molecules was used to calculate the number of K+ and Cl- that were necessary to reach the ionic strength of 0.150 M.
+Finally, Mg\textsuperscript{2+} was used as counter-ions for tRNA and ATP. KCl was added to neutralize the charges of the simulation box and to reach the ionic strength of 0.150 mol/L by substution of randomly selected water molecules.
 
 
 
@@ -167,114 +170,182 @@ Inorganic Ion & K$^{+}$ & 4602\\
   & Cl$^{-}$ & 1320\\
 \hline
 \end{tabular}
-\caption{Cytoplasm Components}
+\caption{Number of copies for each component of the cytoplasm model built at the biomolecular fraction of 30\%}
 \label{tbl:soup_components}
 \end{table}
 
 
 
 \subsection{Building the simulation box}
-All components can be put in the same simulation box by inserting each of them in random orientations in a cubic box of side L that is initially empty. However, that is not a trivial process. We need to use a box size that is big enough to allow the random insertions to succeed without structural overlapping and without creating artificial interactions between the elements, that is, we need L to be big enough so that different elements are not placed too close from each other. On the other hand, as the box gets bigger, there will be more space between the components and the system will be harder to equilibrate due to larger variations in box size.
+All components can be put in the same simulation box by inserting each of them in random orientations in a cubic box of side $L$ that is initially empty. However, that is not a trivial process. We need to use a box size that is big enough to allow the random insertions to succeed without structural overlapping and without creating artificial interactions between the elements by placing them too close from each other. On the other hand, as the box gets bigger, it gets harder to equilibrate the system because the empty space between the components will induce the barostat to reduce the box volume quickly during the simulation.
 
-We devised an iterative process that solves both problems simultaneously. We start with a box size L that is too small to allow all systems to fit in the box by random insertion. In our case, we started with L=30nm. Then, we allow 100 insertion trials for each element. If all trials fail for any of them, we increase the box by a dL step of 1nm and start again until all insertions succeed. In our case, all insertions succeeded after increasing L to 35nm. Additionally, instead of adding only the protein, RNA or metabolite molecules in the empty box in each trial, we actually add a droplet of water and counter ions in which the molecule of interest is embedded. Such droplets are taken from molecular dynamics simulations in which each component was previously simulated. The benefits of using such droplets are threefold: i. it prevents artificial contacts between the components as consequence of packing in the simulation box because the water droplet acts as natural protecting layer. ii. it is a natural way to place water molecules and counter-ions in the simulation box around each component. iii. the components are already pre-equilibrated, which will help us to perform the equilibration of the whole simulation box.
+We devised an iterative process that solves both problems simultaneously. We start with a box size $L$ that is too small to allow all components to fit in the box by random insertion. In our case, we started with $L = 30$ nm. Then, we allow 100 insertion trials for each element. If all trials fail for any of them, we start the whole process again with an empty cubic box that is larger by a step size $dL$ of 1 nm. We repeat this process until all insertions succeed. In our case, all insertions succeeded after increasing $L$ to 35 nm. Additionally, instead of adding only the protein, RNA or metabolite molecules in the empty box in each trial, we actually add a droplet of water and counter ions in which the molecule of interest is embedded. Such droplets are taken from molecular dynamics simulations in which each component was previously equilibrated. The benefits of using such droplets are threefold: \textit{i.} it acts as natural protecting layer that prevents artificial contacts between the components that could be created due to the random insertions. \textit{ii.} it is a natural way to place water molecules and counter-ions in the simulation box around each component. \textit{iii.} the components are already pre-equilibrated, which will help us to perform the equilibration of the whole cytoplasm model.
 
-In order to do this, the droplets around each component are also constructed iteractively. The number of water molecules that we must place in the simulation box is known. However, we don't know the thickness of the water layer around each component, l, that accounts for such amount of water molecules. Since l depends on a series of factors such as the shape, size and abundancy of each element, we define it iteratively. We start by taking a droplet of thickness l=3A around all elements and counting the number of water that we would add to the box. If it is smaller than the number we need, l is increased by dl=1A. If it is larger, we take a step back and reduce dl by 10 times. We can carry this process until an arbitrary precision cutoff is satisfied.
-
-
-< IMAGE SHOWING DROPLETS, l, dl, THE EMPTY BOX AND INSERTIONS, L, dL >
+In order to do this, the droplets around each component are also constructed iteractively. The number of water molecules that we must place in the simulation box is known from the desired biomolecular fraction, which is a parameter of the model, and the total biomolecular mass of the system. However, we don't know the thickness of the water layer around each component, $l$, that accounts for such amount of water molecules. Since $l$ depends on a series of factors such as the shape, size and abundancy of each element, we define it iteratively. We start by taking a droplet of thickness $l$ = 3 \r{A} around all elements and counting the number of water molecules that we would add to the box with such droplets. If it is smaller than the number we need, $l$ is increased by $dl$ = 1 \r{A}. If it is larger, we reduce the droplet thickness by $dl$, reduce $dl$ by 10 times and then increate $l$ with the new smaller $dl$. We can carry this process until an arbitrary precision cutoff, such as 5\%, is satisfied.
 
 
-After all droplets are successfully inserted in a simulation box by the iterative process described above, we proceed to add ions to neutralize the net charge of the system and to reach the desired ionic strength. Then, we perform energy minimization and a short simulation step of 500ps in which all molecules of the box are free to move. In this step the box shrinks to its optimum size. In our case, the simulation box shrank from the initial L=35nm to L=22.9nm. From this point, the system is ready to be submitted to the default simulation steps such as thermalization and production run (please check the materials section for details about the parameters we used).
+After all droplets are successfully inserted in a simulation box by the iterative process described above, we proceed to add ions to neutralize the net charge of the system and to reach the desired ionic strength. Then, we perform energy minimization and a short simulation step of 500ps in which all molecules of the box are free to move. In this step the box shrinks to its optimum size. In our case, the simulation box shrank from the initial box size of 35 nm to 22.9 nm, which correspond to a volume change from 42875 nm\textsuperscript{3} to 12009 nm\textsuperscript{3}. From this point, the system is ready to be submitted to the default simulation steps such as thermalization and production run (please check the materials section for details about the parameters we used).
 
-\begin{figure}
-\includegraphics[scale=0.7]{shrinking_volume.pdf} 
-\includegraphics[scale=0.7]{shrinking_density.pdf} 
+\begin{figure}[H]
+\includegraphics[scale=0.5]{shrinking_volume.pdf} 
+\includegraphics[scale=0.5]{shrinking_density.pdf} 
 \caption{A) The volume of the box with length size of $L=35 \,\, nm$ reduces during the energy minimization in the first $300 \,\, ps$ B) The density of the same box increases within the first $300\,\, ps$. The repeated experiments are shown in different colors. }
 \end{figure}
 
 
 
-Python scripts and all topology and structure files necessary to perform all these steps are available at github.com/dspoel... The cytoplasm model that we built here can be used as a tool to answer many research questions about the effects of crowding on specific systems of interest. With the files we are providing here it is possible, for example, to add a probe protein to investigate the effect of crowding on it, to add new macromolecular or small crowders, add new solvents and change the biomolecular concentration to increase or decrease the intensity of the crowding effect.
- 
+Python scripts and all topology and structure files necessary to enable any researcher to build its own cytoplasm models are publicly available at github.com/dspoel/soup. Such models can be used as tools that answer many research questions about the effects of crowding on specific systems of interest. With the files we are providing it is possible, for example, to add a probe protein to investigate the effect of crowding on it, to add new macromolecular or small crowders, verify the effects of different temperatures and change the biomolecular concentration to increase or decrease the intensity of the crowding effect.
+
+
+
+
+
+
+
+
+
 
 
 \subsection{The effect of crowded systems}
 
-In order to investigate the effects of crowding in the E. coli cytoplasm model on the behavior of its elements, we constructed three boxes that have different orientations for each of its elements and submitted each to molecular dynamics simulations of 1 us. We also performed 200 ns molecular dynamics simulations for each isolated element (please check the materials section for details about the parameters).
+In order to investigate the effects of crowding in the \textit{E. coli} cytoplasm model on the structural integrity and dynamics of its elements, we constructed three completely independent cytoplasm models that have different orientations for each of its elements. We submitted these systems, each composed by more than 1.5 million atoms, to molecular dynamics simulations of \SI{1}{\micro\second}. We also performed \SI{200}{\nano\second} molecular dynamics simulations for each isolated element in order to represent the non-crowded, i.e. dilute, environment (please check the materials section for details about the parameters).
+
+
+
+
+
+
+
+
+% -------------------- TRANSLATIONAL DIFFUSION --------------------
 
 \subsubsection{Translational diffusion}
-D/D0 for all crowders
 
-\begin{figure}
-\includegraphics[scale=0.6]{msd.pdf}
-\caption{Diffusion coefficient of crowders from single molecule simulations (blue bars) and cytoplasm simulations (orange bars).}
+Under crowded conditions, molecules are constrained to a smaller volume due to collisions with the other components of the crowded environment. This extent of this effect is evident when we compare the translational diffusion constant of each component in the cytoplasm model, $D_{cytoplasm}$, and in a dilute system, $D_{dilute}$ (Figure ~\ref{fig:translational_diffusion}A). The ration of these quantities is independent of the protein size and is always close to 0.13 (Figure ~\ref{fig:translational_diffusion}B). However, the effect of crowding over the translation diffusion of tRNA is two times higher, indicating that its movement is specially constrained in the crowded environment.
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{msd.pdf}
+\includegraphics[scale=0.5]{diff_cyto_over_singles.pdf}
+\caption{A)Diffusion coefficient of crowders from single molecule simulations (blue bars) and cytoplasm simulations (orange bars). B) The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis. \colorbox{blue!50}{ $<<$ Change the x-axis of D/D0 plot to kDa $>>$ }}
+\label{fig:translational_diffusion}
 \end{figure}
 
-\begin{figure}
-\includegraphics[scale=0.6]{diff_cyto_over_singles.pdf}
-\caption{The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis.}
+\colorbox{green!50}{ Are we going to calculate and discuss rotational diffusion? }
+
+
+
+
+
+
+
+
+
+% -------------------- tRNA IS AN OUTLIER DUE TO AGGREGATION --------------------
+
+\subsubsection{tRNA is aggregating}
+After inspecting the trajectories of the cytoplasm models, we found that the reason why the translational diffusion constant for tRNA was reduced to a greater extent than for the other components of the cytoplasm model is that it is forming aggregates with Mg$^{2+}$, ATP and FBP (Figure ~\ref{fig:tRNA_aggregation}). Thus, in the next sections we will ignore the RNA molecules in the analyses about the structural integrity of the crowders. Additionally, in the last section we will further investigate such aggregation and we will show a way to prevent it.
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{rdf_RNA_metabolites.pdf}
+\caption{Radial distribution function showing the probability of finding metabolites or cations around RNA molecules in the cytoplasm model.}
+\label{fig:tRNA_aggregation}
 \end{figure}
 
 
 
-\subsubsection{Structural integrity of the crowders}
-RMSD and SASA plots, show that the crowders didn't unfold
+% -------------------- STRUCTURAL INTEGRITY OF SINGLE CHAINS --------------------
 
+\subsubsection{Structural integrity of individual chains}
+The structure of the individual chains of the crowders that were used in our cytoplasm model were not affected to a great extent by the crowded environment. The solvent accessible surface area (SASA) value for all crowders in the cytoplasm model is within 5\% of its value under the dilute condition. The root mean square deviation (RMSD) considering only their C$\upalpha$ atoms show a similar behavior, except for TufA, MetE and IcdA, which have RMSD values 105, 25 and 33\% higher in the crowded environment than in the dilute condition. Visual inspection of their trajectories showed that there is partial unfolding of their N- or C-terminal residues \colorbox{red!50}{DESCRIBE CONF. CHANGES}.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{sasa.pdf}
+\includegraphics[scale=0.5]{rmsd.pdf}
 
-\begin{figure}
-\includegraphics[scale=0.6]{rmsd.pdf}
-\caption{Root mean squared displacement (rmsd) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average rmsd for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
+\caption{A) Solvent accessible surface area (sasa) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average sasa for each protein in single molecule simulation is over number of chains of proteins and three replica. The average sasa for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors. B) Root mean squared displacement (rmsd) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average rmsd for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 \end{figure}
 
-\begin{figure}
-\includegraphics[scale=0.6]{sasa.pdf}
-\caption{Solvent accessible surface area (sasa) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average sasa for each protein in single molecule simulation is over number of chains of proteins and three replica. The average sasa for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 
-\end{figure}
+% -------------------- STRUCTURAL INTEGRITY OF OLIGOMERS --------------------
+
+\subsubsection{Structural integrity of oligomers}
+
+\colorbox{red!50}{WE STILL NEED TO MAKE THIS PLOT}
+
+%\begin{figure}[H]
+%\includegraphics[scale=0.5]{hb.pdf}
+%\caption{Intramolecular hydrogen bonds (hb) for oligomers from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average hydrogen bonds for each oligomer in single molecule simulation is over three replica. The average hydrogen bonds for each oligomer in cytoplasm simulation is over number of appearance of the oligomer in three replica. The error bars show the standard errors.}
+%\end{figure}
+
+
+
+
+
+
+
+
+
+% -------------------- STRUCTURAL DYNAMICS --------------------
+
 
 \subsubsection{Structural dynamics}
-RMSF. Are there differences between the soup and single sim.?
+Proteins are slighly more flexible in the crowded environment. Root mean square fluction (RMSF) calculations show that the flexibility profile of the proteins is not affected by crowding, except in the cases in which there are conformational changes, TufA ... as shown before (Figure ~\ref{fig:rmsf}). This is in agreement with our results showing that the structural integrity of the proteins is not significantly affected. In addition to that, our results show that the proteins are slighly more flexible in the crowded environment than in the dilute condition (Figure ~\ref{fig:rmsf}). This is likely due to the nonspecific interations and collisions that often happen under crowding conditions \cite{aasd}.
 
-\begin{figure}
-\includegraphics[scale=0.6]{rmsf.pdf}
-\caption{Root mean squared fluctuations (rmsf) for 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues for each chain of proteins. The average rmsf for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{rmsf.pdf}
+\caption{Root mean squared fluctuations (rmsf) for 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues for each chain of proteins. The average rmsf for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors. \colorbox{blue!50}{$<<$ Make this plot dividing the plots in 2 columns and 4 rows to save space$>>$}}
+\label{fig:rmsf}
 \end{figure}
 
 
-\subsubsection{Oligomers under crowded condition}
-\begin{figure}
-\includegraphics[scale=0.6]{hb.pdf}
-\caption{Intramolecular hydrogen bonds (hb) for oligomers from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average hydrogen bonds for each oligomer in single molecule simulation is over three replica. The average hydrogen bonds for each oligomer in cytoplasm simulation is over number of appearance of the oligomer in three replica. The error bars show the standard errors.}
-\end{figure}
-
-
-\subsubsection{Aggregation}
-We observed aggregation of the metabolites that contain phosphate, ATP and FBP, with Mg2+ that was used as initially used as counter-ion for ATP and tRNA. After running simulations of small boxes containing just these metabolites and Mg2+, we found that completely protonating their phosphate groups can prevent aggregation. Thus, we advise caution when dealing with small molecules that are highly charged, such as ATP and FBP. Trial simulations with small boxes in which these metabolites are in high concentration to verify if they'll aggregate with Mg2+ or other charged species that are present in the box. In the specific case of ATP and FBP modeled with GAFF in boxes containing Mg2+, we advise that they should be completely protonated even though that is not their physiological protonation state. The topology and structure files we are providing for ATP and FBP on github are already protonated.
-
-< FIGURE SHOWING THE AGGREGATION >
-< FIGURE SHOWING THAT PROTONATED PHOSPHATE DOESN'T AGGREGATE >
 
 
 
-\begin{figure}
-\includegraphics[scale=0.6]{rdf_RNA_metabolites.pdf}
-\caption{Radial distribution function showing the probability of finding a metabolite around RNA molecules.}
-\end{figure}
+% -------------------- AVOIDING AGGREGATION --------------------
 
-\begin{figure}
-\includegraphics[scale=0.6]{rdf_mg.pdf}
+\subsubsection{Aggregation can be avoided by protonating the metabolites}
+
+The initial detection of aggregation in our cytoplasm model was due to the outlier behavior of the translational diffusion constant of tRNA when compared to the other crowders. However, tRNA is not causing such phenomenon. Instead, it is triggered by the exaggerated interaction between the phosphate-containing metabolites, ATP and FBP, with Mg$^{2+}$. tRNA gets involved in the aggregates because Mg$^{2+}$ is present in the box only as counter-ion for ATP and tRNA, and so tRNA is one of the few "sources" of Mg$^{2+}$ in the whole system. We looked for ways of avoind aggregation with simulations of small systems composed by these metabolites in high concentration, Mg$^{2+}$ and water (please check the methods section for details about the parameters we used).
+
+We found that completely protonating the phosphate groups of ATP and FBP is enough prevent their aggregation with Mg$^{2+}$ (Figure ~\ref{fig:avoiding_aggregation}). While RDFs show that ATP$^{-3}$ and FBP$^{-4}$ aggregate around Mg$^{2+}$, this is not observed for ATPH\textsubscript{3} and FBPH\textsubscript{4}. \colorbox{red!50}{We further tested this hypothesis by simulating a system composed by tRNA, FBP, ATP and Mg$^{2+}$. In this setup, protonating ATP and FBP was also enough to avoid aggregation with Mg$^{2+}$ and the metabolites didn't aggregated around tRNA, which acts as a source of Mg$^{2+}$.}
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{rdf_mg.pdf}
 \caption{Radial distribution function (rdf) showing the probability of finding a metabolite or an RNA around MG2+. The inset plot shows the rdf for short distance ($ r < 0.6 \,\, nm$)}
+\label{fig:avoiding_aggregation}
 \end{figure}
 
-
-
-\begin{figure}
-\includegraphics[scale=0.6]{avclust.pdf}
-\caption{Number of metabolite molecules that form a cluster in cytoplasm simulations. The solid colored lines are the average of three replica (shown in grey).}
-\end{figure}
 
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ % -------------------- DISCUSSION --------------------
+ 
 \section*{Discussion}\label{sec:dissc}
+
+
+ In the specific case of ATP and FBP modeled with GAFF in boxes containing Mg$^{2+}$, we advise that they should be completely protonated even though that is not their physiological protonation state. The topology and structure files we are providing for ATP and FBP on github are already protonated.
+
+
+\colorbox{blue!50}{ $<<$ Discuss the translational diffusion results: } 
+
+\colorbox{blue!50}{what is the meaning of the straight line in D/D0? Is this expected? }
+
+\colorbox{blue!50}{Is this in agreement/disagreement with which models/theories? $>>$ }
+
+
+
+ 
+ 
  
  \begin{itemize}
   \item Use of force field should be taken with care due to aggregation that was reported repeatedly. We used AMBER scaled force field for protein water interaction. In other atomistic model of Mycoplasma genitalium, the CHARRM scaled protein water interaction was used for the same reason.
@@ -282,12 +353,26 @@ We observed aggregation of the metabolites that contain phosphate, ATP and FBP, 
   \item intramoleclar protein protein interactions are not affected by the presence of crowders. This shows for oligomers (1,3,4,6,7,8 NAME THEM), the crowding doesn't cause dissociation of chains. 
   \item  intermolecular protein protein interactions can be seen in forms of  rmsd (fig 4) and rmsf (fig 6). As proteins interact with their environment, their structure flutuate more than in dilute cases. However, the effect is not large enough to cause unfolding (fig 5, and gyration)
   \item rmsf in all cases are higher for crowders in cytoplasm than in dilute codition
+  \item RMSFs for cyto have higher statistical error ! (even if we have more copies in cyto.) e.g. crowder-n5
   \item AREN'T RMSD AND RMSF CORRELATED? 
   \item Diffusion coefficient is significantly different, and it's independent of the size of the proteins (D cyto/D single plot in Supp. Info.). Based on the observations above (sasa, gyration, rmsd, rmsf) the drop is, to a greater amount, due to the excluded volume effect, and to a lesser amount, due electristatic interactions that has been compromised because of choice of force field. 
   \item the greater drop in diffusion coefficient of RNA is due to confinement of RNA by metabolites (fig 9 and 10).
   \item NOT SURE ABOUT THIS: THE FACT THAT METABOLITES ARE POLYMERIZED DOES NOT SABOTAGE THE WHOLE SIMULATION AND WE STIL COULD ANALYSE THE SIMULATION AND GET MEANINGFUL OUTCOME, AND THIS WOULD NOT (MOST PROBABLY) BE AFFECTED BY NON-CLUSTERED METABOLITE. INDEED WE DID NOT ANALYZE CHEMICAL OR DYNAMIC PROPERTIES OF METABOLITES
  \end{itemize}
 
+ 
+ 
+ 
+ 
+ 
+% -------------------- CONCLUSIONS --------------------
+
+\section*{Conclusions}\label{sec:dissc}
+
+ 
+ 
+ 
+ 
 \bibliography{library}
 % \begin{addendum}
 %  \item  
