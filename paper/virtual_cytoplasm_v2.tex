@@ -229,11 +229,11 @@ Under crowded conditions, molecules are constrained to a smaller volume due to c
 \begin{figure}[H]
 \includegraphics[scale=0.5]{msd.pdf}
 \includegraphics[scale=0.5]{diff_cyto_over_singles.pdf}
-\caption{A)Diffusion coefficient of crowders from single molecule simulations (blue bars) and cytoplasm simulations (orange bars). B) The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis. \colorbox{blue!50}{ $<<$ Change the x-axis of D/D0 plot to kDa $>>$ }}
+\caption{A)Diffusion coefficient of crowders from single molecule simulations (blue bars) and cytoplasm simulations (orange bars). B) The ratio between diffusion coefficient obtained from cytoplasm to single molecule simulations. The crowders are sorted according to their sizes on the x-axis.}
 \label{fig:translational_diffusion}
 \end{figure}
 
-\colorbox{green!50}{ Are we going to calculate and discuss rotational diffusion? }
+% \colorbox{green!50}{ Are we going to calculate and discuss rotational diffusion? No, not now at least.}
 
 
 
@@ -272,12 +272,12 @@ The structure of the individual chains of the crowders that were used in our cyt
 
 \subsubsection{Structural integrity of oligomers}
 
-\colorbox{red!50}{WE STILL NEED TO MAKE THIS PLOT}
+% \colorbox{red!50}{WE STILL NEED TO MAKE THIS PLOT}
 
-%\begin{figure}[H]
-%\includegraphics[scale=0.5]{hb.pdf}
-%\caption{Intramolecular hydrogen bonds (hb) for oligomers from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average hydrogen bonds for each oligomer in single molecule simulation is over three replica. The average hydrogen bonds for each oligomer in cytoplasm simulation is over number of appearance of the oligomer in three replica. The error bars show the standard errors.}
-%\end{figure}
+\begin{figure}[H]
+\includegraphics[scale=0.5]{oligomer.pdf}
+\caption{Inter-chain hydrogen bonds (hb) for oligomers from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average hydrogen bonds for each oligomer in single molecule simulation is over number of chains and three replica. The average hydrogen bonds for each oligomer in cytoplasm simulation is over number of appearance of the chain in the oligomer in three replica. The error bars show the standard errors.}
+\end{figure}
 
 
 
@@ -295,8 +295,8 @@ Proteins are slighly more flexible in the crowded environment. Root mean square 
 
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{rmsf.pdf}
-\caption{Root mean squared fluctuations (rmsf) for 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues for each chain of proteins. The average rmsf for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors. \colorbox{blue!50}{$<<$ Make this plot dividing the plots in 2 columns and 4 rows to save space$>>$}}
+\includegraphics[scale=0.5]{rmsf_2cols.pdf}
+\caption{Root mean squared fluctuations (rmsf) for 8 crowders from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). x-axis shows the residues for each chain of proteins. The average rmsf for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 \label{fig:rmsf}
 \end{figure}
 
@@ -340,10 +340,13 @@ We found that completely protonating the phosphate groups of ATP and FBP is enou
 
 
 \colorbox{blue!50}{ $<<$ Discuss the translational diffusion results: } 
-
 \colorbox{blue!50}{what is the meaning of the straight line in D/D0? Is this expected? }
-
 \colorbox{blue!50}{Is this in agreement/disagreement with which models/theories? $>>$ }
+
+Diffusion coefficient of crowders from single molecules to cytoplasm are decreased in a range of 84\% (Ppa) to 93\% (tRNA) (Fig.~\ref{fig:translational_diffusion} A). The straight (fitted) line with the slope very close to zero  ($m = 0.00028$) shows that the drop in diffusion coefficient is independent of the size of proteins. The largest drop of diffusion coefficient corresponds to tRNA and we found that the aggregation of ATP$^{-3}$ and FBP$^{-4}$ around Mg$^{2+}$ which was used as cation for tRNA leads to its confinement. In fact, by removing diffusion coefficient of tRNA from the data points the slope of the line decreases by half ($m=0.00014$).
+
+
+
 
 
 

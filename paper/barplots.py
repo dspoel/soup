@@ -52,7 +52,7 @@ if __name__ == '__main__':
             ylabel = "$nm$"
         elif args.prop == "msd":
             ylabel = '$D (10^{-5} cm^2/s)$'
-        elif args.prop == "hb":
+        elif args.prop == "oligomer" or args.prop == "hb":
             ylabel = "#HB"
         else:
             print("Unknown property " + args.prop)
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     ax.set_xlabel(args.xlabel)
     ax.set_title(args.title)
     ax.set_xticks(ind)
-    if args.prop == "hb":
+    if args.prop == "oligomer" or args.prop == "hb":
         ax.set_xticklabels(oligomers)
     elif args.prop == "msd":
         ax.set_xticklabels(crowder_name)
