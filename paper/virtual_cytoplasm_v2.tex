@@ -102,7 +102,7 @@ A Mean Square Displacement (MSD) analysis was used to calculate the translationa
 In this section we describe the rationale behind the composition of our model, which has five fractions: protein, RNA, metabolites, water and ions. We highlight that we didn't add lipids and DNA to our model because we are considering only elements that are free to diffuse through the cytosol. We gathered data from several sources in order to build a computational model that is representative of the cytoplasm of {\em Escheria coli}~\cite{Dong1996,Bennett2009,Link1997,Mcguffee2010}.
 
 \subsubsection{Protein fraction}
-We selected a group of eight proteins that account for 50\% of the abundance of non-ribosomal proteins in the cytoplasm of {\em Escherichia coli} \cite{ref_prot_abundance}. The two most abundant proteins, TufA and MetE, account for about 20\% and 12\% of the total protein abundance in {\em E. coli}, respectively, while the other six proteins contribute with less than 5\% each (Table ~\ref{tbl:protein_fraction}). Their crystallogaphic structures were used to insert them in the cytoplasm model. The number of copies of each protein in the model was calculated as the rounded up fold increase in their abundance when compared to the least abundant protein, which was set to have the copy number of 1. Then, this number was divided by the oligomeric state of each protein. This was done because the original oligomeric state for each protein was kept as reported in their crystallogaphic structure.
+We selected a group of eight proteins that account for 50\% of the abundance of non-ribosomal proteins in the cytoplasm of {\em Escherichia coli} \cite{Link1997}. The two most abundant proteins, TufA and MetE, account for about 20\% and 12\% of the total protein abundance in {\em E. coli}, respectively, while the other six proteins contribute with less than 5\% each (Table~\ref{tbl:protein_fraction}). Their crystallogaphic structures were used to insert them in the cytoplasm model. The number of copies of each protein in the model was calculated as the rounded up fold increase in their abundance when compared to the least abundant protein, which was set to have the copy number of 1. Then, this number was divided by the oligomeric state of each protein. This was done because the original oligomeric state for each protein was kept as reported in their crystallogaphic structure.
 
 \begin{table}
 \centering
@@ -131,7 +131,7 @@ Transporter RNAs (tRNAs) account for 74\% of the dry weight of non-ribosomal RNA
 The protein and RNA content of the total dry weight of \textit{E.coli} is 55\% and 2.9\%, respectively. That is, the total RNA weight corresponds to 5\% of the total protein weight. This protein/RNA weight ratio was used to calculate the correct number of tRNA(Phe) molecules that were added to the cytoplasm model \colorbox{red!50}{(Table XXX)}.
 
 \subsubsection{Metabolites fraction}
-We considered the most abundant molecules of each metabolite class as representatives, i.e. Glutamate for amino acids, ATP for nucleotides, FBP for central carbon intermediates and Glutathione redox cofactors ~\cite{metabolite_proportion}. The total number of molecules was calculated considering data showing that the number of metabolite molecules in the cytoplasm of \textit{E. coli} is about 42.86 times higher than the number of proteins ~\cite{metabolite_proportion}. The copy number for each molecule was calculated from the ratios between their experimentally observed concentration in {\em E. coli} ~\cite{metabolite_proportion}.
+We considered the most abundant molecules of each metabolite class as representatives, i.e. Glutamate for amino acids, ATP for nucleotides, FBP for central carbon intermediates and Glutathione redox cofactors~\cite{Bennett2009}. The total number of molecules was calculated considering data showing that the number of metabolite molecules in the cytoplasm of \textit{E. coli} is about 42.86 times higher than the number of proteins~\cite{Bennett2009}. The copy number for each molecule was calculated from the ratios between their experimentally observed concentration in {\em E. coli}~\cite{Bennett2009}.
 
 \subsubsection{Water fraction}
 The number of water molecules was calculated according to the desired biomolecular concentration, which is a parameter of the cytoplasm model. This number ranges from \colorbox{red!50}{XX to YY} in biological systems such as \textit{E. coli} cytoplasm. In our case, we choose the biomolecular concentration of 30\%, that is, the number of molecules necessary to reach a ratio of total biomolecular mass to water mass of 30\% was inserted into the cytoplasm model.
@@ -224,7 +224,7 @@ In order to investigate the effects of crowding in the \textit{E. coli} cytoplas
 
 \subsubsection{Translational diffusion}
 
-Under crowded conditions, molecules are constrained to a smaller volume due to collisions with the other components of the crowded environment. This extent of this effect is evident when we compare the translational diffusion constant of each component in the cytoplasm model, $D_{cyto}$, and in a dilute system, $D_{dil}$ (Figure ~\ref{fig:translational_diffusion}A). The ration of these quantities is independent of the protein size and is always close to 0.13 (Figure ~\ref{fig:translational_diffusion}B). However, the effect of crowding over the translation diffusion of tRNA is two times higher, indicating that its movement is specially constrained in the crowded environment.
+Under crowded conditions, molecules are constrained to a smaller volume due to collisions with the other components of the crowded environment. This extent of this effect is evident when we compare the translational diffusion constant of each component in the cytoplasm model, $D_{cyto}$, and in a dilute system, $D_{dil}$ (Figure~\ref{fig:translational_diffusion}A). The ration of these quantities is independent of the protein size and is always close to 0.13 (Figure~\ref{fig:translational_diffusion}B). However, the effect of crowding over the translation diffusion of tRNA is two times higher, indicating that its movement is specially constrained in the crowded environment.
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{msd.pdf}
@@ -246,7 +246,7 @@ Under crowded conditions, molecules are constrained to a smaller volume due to c
 % -------------------- tRNA IS AN OUTLIER DUE TO AGGREGATION --------------------
 
 \subsubsection{tRNA is aggregating}
-After inspecting the trajectories of the cytoplasm models, we found that the reason why the translational diffusion constant for tRNA was reduced to a greater extent than for the other components of the cytoplasm model is that it is forming aggregates with Mg$^{2+}$, ATP and FBP (Figure ~\ref{fig:tRNA_aggregation}). Thus, in the next sections we will ignore the RNA molecules in the analyses about the structural integrity of the crowders. Additionally, in the last section we will further investigate such aggregation and we will show a way to prevent it.
+After inspecting the trajectories of the cytoplasm models, we found that the reason why the translational diffusion constant for tRNA was reduced to a greater extent than for the other components of the cytoplasm model is that it is forming aggregates with Mg$^{2+}$, ATP and FBP (Figure~\ref{fig:tRNA_aggregation}). Thus, in the next sections we will ignore the RNA molecules in the analyses about the structural integrity of the crowders. Additionally, in the last section we will further investigate such aggregation and we will show a way to prevent it.
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{rdf_RNA_metabolites.pdf}
@@ -291,7 +291,7 @@ The structure of the individual chains of the crowders that were used in our cyt
 
 
 \subsubsection{Structural dynamics}
-Proteins are slighly more flexible in the crowded environment. Root mean square fluction (RMSF) calculations show that the flexibility profile of the proteins is not affected by crowding, except in the cases in which there are conformational changes, TufA ... as shown before (Figure ~\ref{fig:rmsf}). This is in agreement with our results showing that the structural integrity of the proteins is not significantly affected. In addition to that, our results show that the proteins are slighly more flexible in the crowded environment than in the dilute condition (Figure ~\ref{fig:rmsf}). This is likely due to the nonspecific interations and collisions that often happen under crowding conditions \cite{aasd}.
+Proteins are slighly more flexible in the crowded environment. Root mean square fluction (RMSF) calculations show that the flexibility profile of the proteins is not affected by crowding, except in the cases in which there are conformational changes, TufA ... as shown before (Figure~\ref{fig:rmsf}). This is in agreement with our results showing that the structural integrity of the proteins is not significantly affected. In addition to that, our results show that the proteins are slighly more flexible in the crowded environment than in the dilute condition (Figure~\ref{fig:rmsf}). This is likely due to the nonspecific interations and collisions that often happen under crowding conditions \cite{aasd}.
 
 
 \begin{figure}[H]
@@ -310,7 +310,7 @@ Proteins are slighly more flexible in the crowded environment. Root mean square 
 
 The initial detection of aggregation in our cytoplasm model was due to the outlier behavior of the translational diffusion constant of tRNA when compared to the other crowders. However, tRNA is not causing such phenomenon. Instead, it is triggered by the exaggerated interaction between the phosphate-containing metabolites, ATP and FBP, with Mg$^{2+}$. tRNA gets involved in the aggregates because Mg$^{2+}$ is present in the box only as counter-ion for ATP and tRNA, and so tRNA is one of the few "sources" of Mg$^{2+}$ in the whole system. We looked for ways of avoind aggregation with simulations of small systems composed by these metabolites in high concentration, Mg$^{2+}$ and water (please check the methods section for details about the parameters we used).
 
-We found that completely protonating the phosphate groups of ATP and FBP is enough prevent their aggregation with Mg$^{2+}$ (Figure ~\ref{fig:avoiding_aggregation}). While RDFs show that ATP$^{-3}$ and FBP$^{-4}$ aggregate around Mg$^{2+}$, this is not observed for ATPH\textsubscript{3} and FBPH\textsubscript{4}. \colorbox{red!50}{We further tested this hypothesis by simulating a system composed by tRNA, FBP, ATP and Mg$^{2+}$. In this setup, protonating ATP and FBP was also enough to avoid aggregation with Mg$^{2+}$ and the metabolites didn't aggregated around tRNA, which acts as a source of Mg$^{2+}$.}
+We found that completely protonating the phosphate groups of ATP and FBP is enough prevent their aggregation with Mg$^{2+}$ (Figure~\ref{fig:avoiding_aggregation}). While RDFs show that ATP$^{-3}$ and FBP$^{-4}$ aggregate around Mg$^{2+}$, this is not observed for ATPH\textsubscript{3} and FBPH\textsubscript{4}. \colorbox{red!50}{We further tested this hypothesis by simulating a system composed by tRNA, FBP, ATP and Mg$^{2+}$. In this setup, protonating ATP and FBP was also enough to avoid aggregation with Mg$^{2+}$ and the metabolites didn't aggregated around tRNA, which acts as a source of Mg$^{2+}$.}
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{rdf_mg.pdf}
@@ -335,15 +335,23 @@ We found that completely protonating the phosphate groups of ATP and FBP is enou
  
 \section*{Discussion}\label{sec:dissc}
 
+\begin{itemize}
+  \item Use of force field should be taken with care due to aggregation that was reported repeatedly. We used AMBER scaled force field for protein water interaction. In other atomistic model of Mycoplasma genitalium, the CHARRM scaled protein water interaction was used for the same reason.
+\end{itemize}
 
  In the specific case of ATP and FBP modeled with GAFF in boxes containing Mg$^{2+}$, we advise that they should be completely protonated even though that is not their physiological protonation state. The topology and structure files we are providing for ATP and FBP on github are already protonated.
 
 
 \colorbox{blue!50}{ $<<$ Discuss the translational diffusion results: } 
+
+
+Diffusion coefficient of crowders from single molecules to cytoplasm are decreased in a range of 84\% (Ppa) to 93\% (tRNA) (Fig.~\ref{fig:translational_diffusion} A). The fitted line with the slope close to zero  ($m = 0.00028$) shows that the drop in diffusion coefficient is independent of the size of the proteins. The largest drop of diffusion coefficient corresponds to tRNA and we found that the aggregation of ATP$^{-3}$ and FBP$^{-4}$ around Mg$^{2+}$ which was used as cation for tRNA leads to its confinement. In fact, by removing diffusion coefficient of tRNA from the data points the slope of the line decreases by half ($m=0.00014$). Our finding on the drop of diffusion coefficient is closely in line with {\em in vivo}. The translational diffusion coefficient of Green Fluorescent Protein (GFP) in {\em E. coli} that was measured by fluorescence revovery after photobleaching (FRAP) was decreased 90\% comparing to {\em in vitro} measurement~\cite{Elowitz1999,Konopka2006}.
+
 \colorbox{blue!50}{what is the meaning of the straight line in D/D0? Is this expected? }
+
 \colorbox{blue!50}{Is this in agreement/disagreement with which models/theories? $>>$ }
 
-Diffusion coefficient of crowders from single molecules to cytoplasm are decreased in a range of 84\% (Ppa) to 93\% (tRNA) (Fig.~\ref{fig:translational_diffusion} A). The straight (fitted) line with the slope very close to zero  ($m = 0.00028$) shows that the drop in diffusion coefficient is independent of the size of proteins. The largest drop of diffusion coefficient corresponds to tRNA and we found that the aggregation of ATP$^{-3}$ and FBP$^{-4}$ around Mg$^{2+}$ which was used as cation for tRNA leads to its confinement. In fact, by removing diffusion coefficient of tRNA from the data points the slope of the line decreases by half ($m=0.00014$).
+HARD SPHERE THEORETICAL MODEL PREDICTs THE DROP IN DIFFUSION COEFFICIENT AS A FUNCTION OF VOLUME AVAILABLE TO PARTICLES. THEREFORE, THE VOLUME AVAILABLE TO OUR PROTEINS IN OUR MODEL WOULD BE THE SAME IF THE SIMULATION IS LONG ENOUGH FOR ALL PROTEINS TO SPAN THE WHOLE SPACE. 
 
 
 
@@ -354,15 +362,11 @@ Diffusion coefficient of crowders from single molecules to cytoplasm are decreas
  
  
  \begin{itemize}
-  \item Use of force field should be taken with care due to aggregation that was reported repeatedly. We used AMBER scaled force field for protein water interaction. In other atomistic model of Mycoplasma genitalium, the CHARRM scaled protein water interaction was used for the same reason.
   \item No significant structural changes (such as unfoldin or partial unfolding) can be seen from properties such as sasa (fig 5), and gyration radius  (WE HAVEN'T ADD THIS FIG, SHALL WE?).
-  \item intramoleclar protein protein interactions are not affected by the presence of crowders. This shows for oligomers (1,3,4,6,7,8 NAME THEM), the crowding doesn't cause dissociation of chains. 
+  \item inter-chain hydrogen interactions. 
   \item  intermolecular protein protein interactions can be seen in forms of  rmsd (fig 4) and rmsf (fig 6). As proteins interact with their environment, their structure flutuate more than in dilute cases. However, the effect is not large enough to cause unfolding (fig 5, and gyration)
   \item rmsf in all cases are higher for crowders in cytoplasm than in dilute codition
   \item RMSFs for cyto have higher statistical error ! (even if we have more copies in cyto.) e.g. crowder-n5
-  \item AREN'T RMSD AND RMSF CORRELATED? 
-  \item Diffusion coefficient is significantly different, and it's independent of the size of the proteins (D cyto/D single plot in Supp. Info.). Based on the observations above (sasa, gyration, rmsd, rmsf) the drop is, to a greater amount, due to the excluded volume effect, and to a lesser amount, due electristatic interactions that has been compromised because of choice of force field. 
-  \item the greater drop in diffusion coefficient of RNA is due to confinement of RNA by metabolites (fig 9 and 10).
   \item NOT SURE ABOUT THIS: THE FACT THAT METABOLITES ARE POLYMERIZED DOES NOT SABOTAGE THE WHOLE SIMULATION AND WE STIL COULD ANALYSE THE SIMULATION AND GET MEANINGFUL OUTCOME, AND THIS WOULD NOT (MOST PROBABLY) BE AFFECTED BY NON-CLUSTERED METABOLITE. INDEED WE DID NOT ANALYZE CHEMICAL OR DYNAMIC PROPERTIES OF METABOLITES
  \end{itemize}
 
