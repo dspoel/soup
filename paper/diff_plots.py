@@ -59,7 +59,7 @@ plt.plot([m / 1000. for m in mass_sorted], z[1] + [z[0]*m / 1000. for m in mass_
 plt.xlabel('$kDa$', fontsize=12)
 plt.ylabel('$D_{cyto}/D_{dil}$', fontsize=12)
 # plt.text(-5000,0.2,'C',fontsize=14)
-plt.ylim([0, .5])
+plt.ylim([0, .25])
 plt.savefig('diff_cyto_over_singles.pdf', bbox_inches="tight")
 plt.close()
 
