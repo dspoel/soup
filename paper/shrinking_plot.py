@@ -11,7 +11,8 @@ fs=16
 y = [15000, 20000, 25000, 30000, 35000, 40000]
 ylbl =["15", "20", "25", "30", "35", "40"]
 
-for prop in ["volume", "density"]:
+# for prop in ["volume", "density"]:
+for prop in ["volume"]:
 	fig, ax = plt.subplots()
 	fig.set_figheight(height)
 	fig.set_figwidth(width)
