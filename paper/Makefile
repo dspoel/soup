@@ -2,14 +2,14 @@
 # Makefile for plots $Id: Makefile,v 1.11 2013/12/16 20:11:39 spoel Exp $
 #
 
-EPLOTS  = sasa.pdf rmsd.pdf hb.pdf oligomer.pdf msd.pdf  diff_cyto_over_singles.pdf #rg.pdf 
-PLOTS = rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf shrinking_volume.pdf shrinking_density.pdf rmsf.pdf
+EPLOTS  = sasa.pdf rmsd.pdf hb.pdf oligomer.pdf msd.pdf  diff_cyto_over_singles.pdf shrinking_volume.pdf #rg.pdf 
+PLOTS = rdf_RNA_metabolites.pdf avclust.pdf rdf_mg.pdf  shrinking_density.pdf rmsf.pdf
 SPLOTS  = fig.pdf
 TABS    = tbl.tex # tbl_liquids_corr.tex 
 MKEPS	= xmgrace -hardcopy -hdevice EPS -printfile 
 MKPDF	= xmgrace -hardcopy -hdevice PDF -printfile 
 MKPNG	= xmgrace -hardcopy -hdevice PNG -printfile
-XVG = 	xvg
+XVG = 	*.xvg
 DAT=	*.dat
 DB	= $(LIQUIDS)/DATABASE/molecules.sqlite3.dat 
 MYVI	= ../bibtex/myvi
@@ -47,6 +47,8 @@ msd.pdf: $(DAT) barplots.py
 diff_cyto_over_singles.pdf: $(DAT) diff_plots.py
 	python3 diff_plots.py	
 
+shrinking_volume.pdf: $(XVG) shrinking_plot.py 
+	python3 shrinking_plot.py 
 
 %.pdf:	%.tex
 	pdflatex $<

@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-fs = 14
+fs=16
 
 
 def parseArguments():

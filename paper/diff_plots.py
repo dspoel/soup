@@ -14,7 +14,7 @@ order_s_b=[5, 9, 2, 1, 8, 3, 6, 7, 4] #smallest to biggest
  
 mass_crowder = [84320.000,  83764.400,  91489.800,  184409.000,  7271.120,  115920.600,  141602.400,  90884.000,  23761.100] #  146.124,  504.164,  336.080,  306.318]
 mass_sorted = sorted(mass_crowder)
-fs = 14
+fs=16
 
 avg_cyto, ste_cyto =[],[]
 for i in range(0, len(order_s_b)):
