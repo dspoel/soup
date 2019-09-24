@@ -14,7 +14,7 @@ order_s_b=[5, 9, 2, 1, 8, 3, 6, 7, 4] #smallest to biggest
  
 mass_crowder = [84320.000,  83764.400,  91489.800,  184409.000,  7271.120,  115920.600,  141602.400,  90884.000,  23761.100] #  146.124,  504.164,  336.080,  306.318]
 mass_sorted = sorted(mass_crowder)
-
+fs = 14
 
 avg_cyto, ste_cyto =[],[]
 for i in range(0, len(order_s_b)):
@@ -24,8 +24,8 @@ for i in range(0, len(order_s_b)):
 				avg_cyto.append(float(line.split()[1]))
 				ste_cyto.append(float(line.split()[2]))
 # plt.errorbar(atom_s_b, avg_cyto, ste_cyto, marker='o', markersize=10, linestyle=' ')
-# plt.xlabel('# atoms', fontsize=12)
-# plt.ylabel('$D_{cyto} (10^{-5} cm^2/s)$', fontsize=12)
+# plt.xlabel('# atoms', fontsize=fs)
+# plt.ylabel('$D_{cyto} (10^{-5} cm^2/s)$', fontsize=fs)
 # plt.text(-5000,0.018,'B',fontsize=14)
 # plt.savefig('diff_cyto.pdf', bbox_inches="tight")
 # plt.close()
@@ -39,8 +39,8 @@ for i in range(0, len(order_s_b)):
 				avg_sing.append(float(line.split()[1]))
 				ste_sing.append(float(line.split()[2]))
 # plt.errorbar(atom_s_b, avg_sing, ste_sing, marker='o', markersize=10, linestyle=' ')
-# plt.xlabel('# atoms', fontsize=12)
-# plt.ylabel('$D_{0} (10^{-5} cm^2/s)$', fontsize=12)
+# plt.xlabel('# atoms', fontsize=fs)
+# plt.ylabel('$D_{0} (10^{-5} cm^2/s)$', fontsize=fs)
 # plt.text(-5000,0.14, 'A',fontsize=14)
 # plt.savefig('diff_singles.pdf', bbox_inches="tight")
 # plt.close()
@@ -56,9 +56,10 @@ z = np.polyfit([m / 1000. for m in mass_sorted], AVG, 1)
 
 plt.errorbar([m / 1000. for m in mass_sorted] , AVG, STD , marker='o', markersize=10, linestyle=' ')
 plt.plot([m / 1000. for m in mass_sorted], z[1] + [z[0]*m / 1000. for m in mass_sorted], color='black')
-plt.xlabel('$kDa$', fontsize=12)
-plt.ylabel('$D_{cyto}/D_{dil}$', fontsize=12)
-# plt.text(-5000,0.2,'C',fontsize=14)
+plt.xlabel('$kDa$', fontsize=fs)
+plt.ylabel('$D_{cyto}/D_{dil}$', fontsize=fs)
+plt.text(-35,0.25,'B',fontsize=fs+2)
+plt.tick_params(labelsize=fs-2);
 plt.ylim([0, .25])
 plt.savefig('diff_cyto_over_singles.pdf', bbox_inches="tight")
 plt.close()
