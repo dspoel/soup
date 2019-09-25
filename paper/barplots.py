@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-
+fs=16
 
 
 def parseArguments():
@@ -18,7 +18,7 @@ def parseArguments():
     return args
 
 
-crowder_name=["TufA", "MetE", "IcdA", "AhpC", "CspC", "Ppa ", "GapA", "Eno", "RNA$^{Phe}$"]
+crowder_name=["TufA", "MetE", "IcdA", "AhpC", "CspC", "Ppa ", "GapA", "Eno", "tRNA$^{Phe}$"]
 def autolabel(rects, xpos='center'):
     """
     Attach a text label above each bar in *rects*, displaying its height.
@@ -47,9 +47,11 @@ if __name__ == '__main__':
     ylabel = args.ylabel
     if len(ylabel) == 0:
         if args.prop == "sasa":
-            ylabel = "$nm^{2}$"
-        elif args.prop == "rmsd" or args.prop == "rg":
-            ylabel = "$nm$"
+            ylabel = "SASA ($nm^{2}$)"
+        elif args.prop == "rmsd": 
+            ylabel = "RMSD ($nm$)"
+        elif args.prop == "rg":
+            ylabel = "Rg ($nm$)"
         elif args.prop == "msd":
             ylabel = '$D (10^{-5} cm^2/s)$'
         elif args.prop == "oligomer" or args.prop == "hb":
@@ -83,19 +85,25 @@ if __name__ == '__main__':
                     label='Cyto.')
     
     # # Add some text for labels, title and custom x-axis tick labels, etc.
-    ax.set_ylabel(ylabel)
-    ax.set_xlabel(args.xlabel)
-    ax.set_title(args.title)
+    deg=30
+    ax.set_ylabel(ylabel, fontsize = fs)
+    ax.set_xlabel(args.xlabel, fontsize = fs)
+    # ax.set_title(args.title)
     ax.set_xticks(ind)
     if args.prop == "oligomer" or args.prop == "hb":
-        ax.set_xticklabels(oligomers)
+        ax.set_xticklabels(oligomers, fontsize = fs, rotation=deg,  ha='right')
     elif args.prop == "msd":
-        ax.set_xticklabels(crowder_name)
+        ax.set_xticklabels(crowder_name, fontsize = fs, rotation=deg)
+        plt.text(-2.25,0.135,'A', fontsize=fs+2)
     else:
-        ax.set_xticklabels(protein_name)
+        ax.set_xticklabels(protein_name, fontsize = fs, rotation=deg)
+        if args.prop == "sasa":
+            plt.text(-2., 360,'A', fontsize=fs+2)
+        elif args.prop == "rmsd":
+            plt.text(-2., 0.48,'B', fontsize=fs+2)
 
-    ax.legend()
-
+    ax.legend(fontsize = fs)
+    ax.tick_params(labelsize=fs-2);
     autolabel(rects1, "left")
     autolabel(rects2, "right")
    
