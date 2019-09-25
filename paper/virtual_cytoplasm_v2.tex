@@ -8,6 +8,7 @@
 \usepackage{siunitx}
 \usepackage{float}
 \usepackage{upgreek}
+\usepackage{soul}
 \setkeys{acs}{super = true}
 \setcitestyle{super,open={},close={}}
 \def\citenumfont{}
@@ -254,7 +255,7 @@ After inspecting the trajectories of the cytoplasm models, we found that the rea
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{rdf_RNA_metabolites.pdf}
-\caption{Radial distribution function showing the probability of finding metabolites or cations around RNA molecules in the cytoplasm model.\color{red}\textbf{I SUBMITTED NEW RDF CALCULATIONS CENTERED AROUND tRNA BECAUSE I DIDN'T FIND THE XVG FILES THAT WERE USED TO GENERATE THIS PLOT}}
+\caption{Radial distribution function showing the probability of finding metabolites or cations around RNA molecules in the cytoplasm model.}
 \label{fig:tRNA_aggregation}
 \end{figure}
 
@@ -268,7 +269,7 @@ The structure of the individual chains of the crowders that were used in our cyt
 \includegraphics[scale=0.5]{sasa.pdf}
 \includegraphics[scale=0.5]{rmsd.pdf}
 
-\caption{A) Solvent accessible surface area (sasa) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average sasa for each protein in single molecule simulation is over number of chains of proteins and three replica. The average sasa for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors. B) Root mean squared displacement (rmsd) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average rmsd for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
+\caption{A) Solvent accessible surface area (sasa) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). \st{The average sasa for each protein in single molecule simulation is over number of chains of proteins and three replica. The average sasa for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica.} The average bar value for single molecule simulations shows the sum over sasa of each protein chains averaged over the number of replica minus the sasa of the whole proein averaged over the number of replica. The average bar value for cytoplasm simulation shows the sum over sasa of each protein chains averaged over the number of replica and the abundancy of the protein minus the sasa of the whole proein averaged over the number of replica and the abundancy of the protein. The error bars show the standard errors. B) Root mean squared displacement (rmsd) for 8 proteins from single molecule simulation (blue bars) and cytoplasm simulation (orange bars). The average rmsd for each protein in single molecule simulation is over number of chains of proteins and three replica. The average rmsd for each protein in cytoplasm simulation are over number of chains of proteins, number of appearance and three replica. The error bars show the standard errors.}
 \label{fig:structural_integrity_chain}
 \end{figure}
 
@@ -319,7 +320,7 @@ We found that completely protonating the phosphate groups of ATP and FBP is enou
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{rdf_mg.pdf}
-\caption{Radial distribution function (rdf) showing the probability of finding a metabolite or an RNA around MG2+. The inset plot shows the rdf for short distance ($ r < 0.6 \,\, nm$)}
+\caption{Radial distribution function (rdf) showing the probability of finding a metabolite or an RNA around MG2+. The inset plot shows the rdf for short distance ($ r < 0.7 \,\, nm$)}
 \label{fig:avoiding_aggregation}
 \end{figure}
 

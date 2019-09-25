@@ -98,7 +98,7 @@ if __name__ == '__main__':
     else:
         ax.set_xticklabels(protein_name, fontsize = fs, rotation=deg)
         if args.prop == "sasa":
-            plt.text(-2., 360,'A', fontsize=fs+2)
+            plt.text(-2., 160,'A', fontsize=fs+2)
         elif args.prop == "rmsd":
             plt.text(-2., 0.48,'B', fontsize=fs+2)
 
