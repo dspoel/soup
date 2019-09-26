@@ -47,7 +47,7 @@ if __name__ == '__main__':
     ylabel = args.ylabel
     if len(ylabel) == 0:
         if args.prop == "sasa":
-            ylabel = "SASA ($nm^{2}$)"
+            ylabel = "Interface Area ($nm^{2}$)"
         elif args.prop == "rmsd": 
             ylabel = "RMSD ($nm$)"
         elif args.prop == "rg":
@@ -98,6 +98,7 @@ if __name__ == '__main__':
     else:
         ax.set_xticklabels(protein_name, fontsize = fs, rotation=deg)
         if args.prop == "sasa":
+            ax.set_xticklabels(oligomers, fontsize = fs, rotation=deg)
             plt.text(-2., 160,'A', fontsize=fs+2)
         elif args.prop == "rmsd":
             plt.text(-2., 0.48,'B', fontsize=fs+2)
