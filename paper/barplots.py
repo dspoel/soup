@@ -47,7 +47,7 @@ if __name__ == '__main__':
     ylabel = args.ylabel
     if len(ylabel) == 0:
         if args.prop == "sasa":
-            ylabel = "Interface Area ($nm^{2}$)"
+            ylabel = "Chain Interface Area ($nm^{2}$)"
         elif args.prop == "rmsd": 
             ylabel = "RMSD ($nm$)"
         elif args.prop == "rg":

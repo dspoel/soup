@@ -28,13 +28,50 @@ for prop in ["volume"]:
 	if prop == "volume":
 		plt.ylabel('%s ($10^3 nm^3$)' % prop, fontsize=fs)
 		plt.yticks(y, ylbl)
-		plt.text(-120,43100,'A', fontsize=fs)
+		plt.text(-120,43100,'B', fontsize=fs)
 	else:
 		plt.ylabel('%s ($kg/m^3$)' % prop, fontsize=fs)
-		plt.text(-80,1150,'B', fontsize=fs)
+		# plt.text(-80,1150,'B', fontsize=fs)
 
 	plt.legend(fontsize=fs)
 	plt.tick_params(labelsize=fs-2);
 	plt.savefig('shrinking_%s.pdf' % prop, bbox_inches="tight")
 	plt.close()
 	# plt.plot(v, label=("replica %s" %(str(rep)) )
+
+
+import matplotlib.image as mpimg
+fig = plt.figure()
+# print(fig.get_size_inches())
+pic = ['box_big.png', 'box_small_.png']
+x1=[0, 0]
+x2=[0, 1000]
+x3=[1000, 1000]
+x4=[1000, 0]
+image = mpimg.imread(pic[0])
+ax1 = fig.add_subplot(121)
+plt.imshow(image)
+plt.axis('off')
+plt.text(-100,-5, 'A', fontsize = fs)
+plt.plot(x1,x2, 'k-')
+plt.plot(x2,x3, 'k-')
+plt.plot(x4,x1, 'k-')
+plt.axis('off')
+
+image = mpimg.imread(pic[1])
+ax2 = fig.add_subplot(122)
+plt.imshow(image)
+# plt.title('After')
+plt.axis('off')
+# plt.plot(x1,x2, 'k-')
+plt.plot(x2,x3, 'k-')
+plt.plot(x3,x4, 'k-')
+plt.plot(x4,x1, 'k-')
+plt.axis('off')
+fig.subplots_adjust(wspace=-.1, hspace=0)
+# plt.tight_layout()
+plt.savefig('box.pdf',bbox_inches="tight")
+plt.close()
+
+
+# plt.show()
