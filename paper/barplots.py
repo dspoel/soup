@@ -99,9 +99,9 @@ if __name__ == '__main__':
         ax.set_xticklabels(protein_name, fontsize = fs, rotation=deg)
         if args.prop == "sasa":
             ax.set_xticklabels(oligomers, fontsize = fs, rotation=deg)
-            plt.text(-2., 160,'A', fontsize=fs+2)
+            plt.text(-2., 160,'B', fontsize=fs+2)
         elif args.prop == "rmsd":
-            plt.text(-2., 0.48,'B', fontsize=fs+2)
+            plt.text(-2., 0.48,'A', fontsize=fs+2)
 
     ax.legend(fontsize = fs)
     ax.tick_params(labelsize=fs-2);

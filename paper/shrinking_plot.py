@@ -28,7 +28,7 @@ for prop in ["volume"]:
 	if prop == "volume":
 		plt.ylabel('%s ($10^3 nm^3$)' % prop, fontsize=fs)
 		plt.yticks(y, ylbl)
-		plt.text(-120,43100,'B', fontsize=fs)
+		plt.text(-120,47000,'B', fontsize=fs)
 	else:
 		plt.ylabel('%s ($kg/m^3$)' % prop, fontsize=fs)
 		# plt.text(-80,1150,'B', fontsize=fs)
@@ -52,7 +52,7 @@ image = mpimg.imread(pic[0])
 ax1 = fig.add_subplot(121)
 plt.imshow(image)
 plt.axis('off')
-plt.text(-100,-5, 'A', fontsize = fs)
+plt.text(-100,-50, 'A', fontsize = fs)
 plt.plot(x1,x2, 'k-')
 plt.plot(x2,x3, 'k-')
 plt.plot(x4,x1, 'k-')

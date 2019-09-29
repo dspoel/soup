@@ -14,6 +14,7 @@ order_s_b=[5, 9, 2, 1, 8, 3, 6, 7, 4] #smallest to biggest
  
 mass_crowder = [84320.000,  83764.400,  91489.800,  184409.000,  7271.120,  115920.600,  141602.400,  90884.000,  23761.100] #  146.124,  504.164,  336.080,  306.318]
 mass_sorted = sorted(mass_crowder)
+mass_sorted2 = sorted(mass_crowder[0:8])
 fs=16
 
 avg_cyto, ste_cyto =[],[]
@@ -52,15 +53,17 @@ for i in range(0, len(avg_sing)):
 	STD.append((avg_cyto[i]/avg_sing[i])* math.sqrt( (ste_cyto[i]/avg_cyto[i])**2 + (ste_sing[i]/avg_sing[i])**2 ) )
 
 z = np.polyfit([m / 1000. for m in mass_sorted], AVG, 1)
-# z = np.polyfit([m / 1000. for m in mass_sorted], AVG[0:1]+AVG[2:9], 1)
+z2 = np.polyfit([m / 1000. for m in mass_sorted2], AVG[0:1]+AVG[2:9], 1)
 
-plt.errorbar([m / 1000. for m in mass_sorted] , AVG, STD , marker='o', markersize=10, linestyle=' ')
-plt.plot([m / 1000. for m in mass_sorted], z[1] + [z[0]*m / 1000. for m in mass_sorted], color='black')
+plt.errorbar([m / 1000. for m in mass_sorted] , AVG, STD , marker='o', markersize=10, linestyle=' ', label="data points")
+plt.plot([m / 1000. for m in mass_sorted], z[1] + [z[0]*m / 1000. for m in mass_sorted], color='black', label="fitted w outlier")
+plt.plot([m / 1000. for m in mass_sorted2], z2[1] + [z2[0]*m / 1000. for m in mass_sorted2], color='k', linestyle='--', label="fitted w/o outlier")
 plt.xlabel('$kDa$', fontsize=fs)
 plt.ylabel('$D_{cyto}/D_{dil}$', fontsize=fs)
 plt.text(-35,0.25,'B',fontsize=fs+2)
 plt.tick_params(labelsize=fs-2);
 plt.ylim([0, .25])
+plt.legend(loc = 2, fontsize=fs)
 plt.savefig('diff_cyto_over_singles.pdf', bbox_inches="tight")
 plt.close()
 
