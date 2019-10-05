@@ -20,8 +20,8 @@ all:	$(PDF)
 
 virtual_cytoplasm_v2.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) $(PLOTS)  #tbl.tex
 			pdflatex virtual_cytoplasm_v2
-			pdflatex virtual_cytoplasm_v2
 			bibtex virtual_cytoplasm_v2
+			pdflatex virtual_cytoplasm_v2
 			pdflatex virtual_cytoplasm_v2
 virtual_cytoplasm-supporting.pdf:	virtual_cytoplasm-supporting.tex $(SPLOTS)
 
