@@ -50,6 +50,8 @@ if __name__ == '__main__':
             ylabel = "Chain Interface Area ($nm^{2}$)"
         elif args.prop == "rmsd": 
             ylabel = "RMSD ($nm$)"
+        elif args.prop == "msf": 
+            ylabel = "MSF ($nm^2$)"
         elif args.prop == "rg":
             ylabel = "Rg ($nm$)"
         elif args.prop == "msd":
@@ -80,7 +82,7 @@ if __name__ == '__main__':
     
     fig, ax = plt.subplots()
     rects1 = ax.bar(ind - width/2, singles_mean, width, yerr=singles_std,
-                    label='Sing.')
+                    label='Dilute')
     rects2 = ax.bar(ind + width/2, cyto_mean, width, yerr=cyto_std,
                     label='Cyto.')
     

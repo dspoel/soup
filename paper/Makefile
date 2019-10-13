@@ -2,7 +2,7 @@
 # Makefile for plots $Id: Makefile,v 1.11 2013/12/16 20:11:39 spoel Exp $
 #
 
-EPLOTS  = sasa.pdf rmsd.pdf  msd.pdf  diff_cyto_over_singles.pdf  
+EPLOTS  = sasa.pdf rmsd.pdf  msd.pdf  diff_cyto_over_singles.pdf  msf.pdf
 PLOTS = rdf_RNA_metabolites.pdf rdf_mg.pdf rmsf.pdf shrinking.pdf
 SPLOTS  = fig.pdf
 TABS    = tbl.tex # tbl_liquids_corr.tex 
@@ -25,6 +25,9 @@ virtual_cytoplasm_v2.pdf: virtual_cytoplasm_v2.tex $(EPLOTS) $(PLOTS)  #tbl.tex
 			pdflatex virtual_cytoplasm_v2
 virtual_cytoplasm-supporting.pdf:	virtual_cytoplasm-supporting.tex $(SPLOTS)
 
+
+msf.pdf: $(DAT) barplots.py
+	python3 barplots.py -prop msf
 
 sasa.pdf: $(DAT) barplots.py
 	python3 barplots.py -prop sasa

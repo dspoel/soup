@@ -72,7 +72,7 @@ derived~\cite{Feig2017a}. The \textit{in vivo} microenvironment is
 heterogeneous with high concentrations of many different compounds,
 leading to spatial constrains that directly affects biological
 activities~\citep{ostrowska2019}. This effect, called macromolecular
-crowding, influences the stability of {\color{blue} many} {\bf SOME/MANY} macromolecules
+crowding, influences the stability of many macromolecules
 because the equilibrium is shifted towards a stable native structure
 as a result of the entropic component given by the excluded volume
 effect~\cite{cheung2005}. At the same time, an effective
@@ -132,11 +132,9 @@ system and provide a set of Python scripts and files that anyone can
 use to build its own crowded systems with custom parameters and
 compounds. Additionally, we performed long molecular dynamics
 simulations of our cytoplasm model, reaching \SI{3}{\micro\second} of
-total simulation time. {\color{blue}To the best of our knowledge,} this work is the first to explore the
+total simulation time. To the best of our knowledge, this work is the first to explore the
 structural dynamics of an all-atom explicit solvent cytoplasm model 
-with microsecond scale molecular dynamics simulations. {\bf IS THAT
-  REALLY TRUE? A REFEREE MAY GET ANGRY WHEN READING THIS.} {\color{blue} That's true. We didn't find other all-atom explicit solvent cytoplasm models that were simulated for such a long time. Added "To the best of our knowledge" to the text.}
-
+with microsecond scale molecular dynamics simulations. 
 
 
 \section*{Materials and Methods}
@@ -154,25 +152,21 @@ metabolites were parametrized using the General Amber Force Field
 charges~\cite{Bayly1993a} that were derived from electron density
 calculated at the HF/6-31G* theory level with Gaussian16.  Properties
 of compounds modeled using the GAFF have been evaluated in a number of
-papers~\cite{Caleman2012a,sprenger2015general,Fischer2015a,JZhang2015a,JZhang2015,Spoel2018a}
+papers~\cite{Caleman2012a,sprenger2015general,Fischer2015a,JZhang2015a,Spoel2018a}
 and strengths and weaknesses are well understood. Here, GAFF is used
 for compatibility with the Amber99SB-ws force field~\cite{Best2014a}
-used for the biomolecules. {\bf DESCRIBE WHICH MODELS WERE USED FOR
-  THE IONS.} {\color{blue} it was inserted in the next section with the description of the force field and water model}
+used for the biomolecules.
  
  
  
 \subsection{General simulation setup}
 The cytoplasm model was built at a 30\% biomolecular mass fraction and
-a physiological salt concentration of 0.15 mol/L KCl. {\color{blue} Dropplets containing each component of the model surronded by water and counter-ions were inserted in an empty box in random positions and orientations. Since the volume of this box was initially bigger than what was strictly necessary to accomodate all components, the system was allowed to shrink in a short simulation. Details about how the simulation box was built and optimized are in the results section} {\bf DESCRIBE
-  BRIEFLY HOW COMPOUNDS WERE PLACED IN THE BOX AND THAT THE VOLUME WAS
-  WAY LARGER. DO ALSO WRITE WHETHER MOLECULES WERE ROTATED randomly
-  PRIOR TO PLACEMENT IN THE BOX. ALTERNATIVELY REFER TO RESULTS.}  All
+a physiological salt concentration of 0.15 mol/L KCl. Dropplets containing each component of the model surronded by water and counter-ions were inserted in an empty box in random positions and orientations. Since the volume of this box was initially bigger than what was strictly necessary to accomodate all components, the system was allowed to shrink in a short simulation. Details about how the simulation box was built and optimized are in the results section. All
 simulations were performed with the GROMACS 2018
 package~\cite{Abraham2015a,Pronk2013a} using the Amber99SB-ws force
 field~\cite{Best2014a}, a modified version of the Amber99SB force
 field, in combination with the TIP4P/2005 water
-model~\cite{Abascal2005b} {\color{blue} and improved K$^+$ parameters~\cite{Dang1995a} to avoid the formation of KCl crystals that is observed when using the default parameters of the Amber99SB force field~\cite{Auffinger2007a}}. All interactions were calculated explicitly
+model~\cite{Abascal2005b} and improved K$^+$ parameters~\cite{Dang1995a} to avoid the formation of KCl crystals that is observed when using the default parameters of the Amber99SB force field~\cite{Auffinger2007a}. All interactions were calculated explicitly
 inside a 1 nm radius and long range electrostatic interactions were
 treated using the particle mesh Ewald
 algorithm~\cite{Essmann1995a}. Corrections due to long range effects
@@ -204,8 +198,7 @@ completely different box in which the components of the model are in
 different positions and orientations.
 
 \subsection{Analyses}
-For statistics, the average and standard error {\bf standard error or
-  deviation? \color{blue} standard error} of the three trajectories are reported. For values that
+For statistics, the average and standard error of the three trajectories are reported. For values that
 are specific to each chain, we used the average over the individual
 chains in each trajectory of the replicas. Additionally, since there
 is more than one copy of some crowders in the cytoplasm models,
