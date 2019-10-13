@@ -219,7 +219,7 @@ for cytoplasm system~\cite{Allen1987a}. In principle, diffusion
 coefficient needs to be corrected for finite size
 effects~\cite{Yeh2004} but due to relatively large simulation boxes
 this correction is negligible {\bf NOT FOR PROTEINS THAT DIFFUSE
-  SLOWLY!}. Root Mean Square Deviation (RMSD) and Root Mean Square
+  SLOWLY!}. {\color{blue} The correcion in Yeh2004 is derived for cubic simulation boxes, in our single molecule simulations we have non-cubic boxes, one needs to derive the correction from Eq 11 in Yeh2004. My Mathematica skills are rusty now, could you do that? If you think it's absolutely necessary} Root Mean Square Deviation (RMSD) and Root Mean Square
 Fluctuation (RMSF) calculations considered the C$\upalpha$ atoms only for analysis in each trajectory
 {\bf ARE YOU SURE? THE DEFAULT IS TO TAKE THE AVERAGE STRUCTURE. OR DO
   YOU MEAN THE STRUCTURE FOR FITTING?} {\color{blue} I checked and indeed we used the average structure calculated with the second half of the trajectories. I removed "the reference frame for RMSF was the midpoint of the time interval" from the text. The information about the second half of the trajectory is in the previous paragraph, which is about statistics}. The chain interface area of a given oligomer in a given
@@ -310,10 +310,8 @@ experimentally observed concentration in {\em
 \subsubsection{Water fraction}
 The number of water molecules was calculated according to the desired
 biomolecular concentration, which is a parameter of the cytoplasm
-model. This number ranges from 300 to 400 g/L in biological systems
-such as \textit{E. coli} cytoplasm~\cite{Zimmerman1991}, which {\bf
-  WHAT DOES WHICH CORRESPOND TO?}  corresponds to biomolecular
-concentrations as high as 40\%~\cite{Ellis2003a}. In our case, we
+model. Macromolecular concentration ranges from 300 to 400 g/L in biological systems
+such as \textit{E. coli} cytoplasm~\cite{Zimmerman1991}, the highest concentration corresponds to volume occupation as high as 40\%~\cite{Ellis2003a}. In our case, we
 choose a biomolecular concentration of 30\%, that is, the number of
 molecules necessary to reach a ratio of total biomolecular mass to
 water mass of 30\% was inserted into the cytoplasm model.
