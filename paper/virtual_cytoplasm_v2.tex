@@ -51,12 +51,14 @@ all-atom explicit solvent models of the prokaryote cytoplasm become
 possible. In this work, we build an atomistic model of the cytoplasm
 of \textit{Escherichia coli} composed of 1.5 million atoms and submit
 it to a total of \SI{3}{\micro\second} of molecular dynamics
-simulations. The simulation model is consistent with experimental data
-about the diffusion coefficient and stability of macromolecules under
-crowded conditions. In order to stimulate further work we provide a
-Python script and a set of files that enables any researcher to build
-their own \textit{E. coli} cytoplasm models to address questions
-related to crowding.
+simulations. The properties of biomolecules under crowding conditions
+are compared to those from simulations of the individual compounds
+under dilute conditions.  The simulation model is found to be
+consistent with experimental data about the diffusion coefficient and
+stability of macromolecules under crowded conditions. In order to
+stimulate further work we provide a Python script and a set of files
+that enables other researchers to build their own \textit{E. coli}
+cytoplasm models to address questions related to crowding.
 \end{abstract}
 
 \newpage
@@ -83,21 +85,15 @@ crowders~\cite{Feig2011,miklos2011,Wang2012b}. Additionally, crowding
 affects the structure and dynamics of water around proteins, which has
 a significant effect on their biological
 activities~\cite{Harada2012a,king2013}.
-
 While the structure and dynamics of biomolecules is well characterized
 \textit{in vitro}, the understanding of the influences of crowded
 environments \textit{in vivo} are still evolving.  Techniques such as
 nuclear magnetic resonance~\cite{reckel2007,pielak2008} and
 fluorescence spectroscopy~\cite{ignatova2004,xie2008,English2011} are
 among the most relevant to the field due to their ability to probe
-cells in a non destructive way. Another essential class of methods
-come from computational modeling and simulation. By extrapolating the
-advances in computational power in the last decades to the future, it
-was estimated that the atomistic simulation of an entire
-\textit{Escherichia coli} bacterium for \SI{1}{\nano\second} will be
-possible in 15 years from now~\cite{vanGunsteren2006a}.
-% {\bf THAT WAS 13 YEARS AGO. WHAT IS THE STATE OF THE ART?} {\color{blue} The paper predicts that simulating a whole E. coli bacterium with $10^{11}$ atoms for 1 ns will be possible in 2034, thus the "15 years from now" in our text. That was meant as an introduction to the simulation of big systems. The evolution of computational models to study crowing and the state-of-the-art is discussed in the next paragraph. Maybe we can move this phrase to the beginning of the next paragraph }
+cells in a non destructive way. 
 
+A powerful class of methods is computational modeling and simulation.
 As the available computational power increases, models become
 increasingly complex and are better representations of reality. The
 most simple class of computational models apply Brownian Dynamics
@@ -119,22 +115,34 @@ size of these systems, the simulation times were very short,
 \SI{20}{\nano\second} for the complete model and
 \SI{140}{\nano\second} for a smaller version, precluding an accurate
 characterization of dynamical effects that can take place in such a
-large scale. It was noted already some years ago that even
-{microsecond} simulations may be too short to probe the dynamics of
-large complexes like viruses~\cite{Larsson2012a} since dynamics is
-slower in larger systems in general.
+large scale. It was estimated, by extrapolating the advances in
+computational power in the last decades to the future, that the
+atomistic simulation of an entire \textit{Escherichia coli} bacterium
+(about 10$^{11}$ atoms) for \SI{1}{\nano\second} will be possible
+around the year 2034~\cite{vanGunsteren2006a}. This prediction may be
+too pessimistic, seeing that ``only'' a factor of 50 is lacking
+between the simulations by Feig and co-workers~\cite{Feig2015} (from
+2015) and the target of a whole bacterium for 1 ns. It was noted
+already some years ago, however, that even {microsecond} simulations
+may be too short to probe the dynamics of large complexes like
+viruses~\cite{Larsson2012a,Larsson2012b} since dynamics is slower in
+larger systems in general. Although a meaningful simulation of a
+bacterium at the atomistic level does not seem to be within reach in
+the foreseeable future, simulations of parts of a cell may still be
+useful to adress biological questions.
 
-In this work, we report an all-atom model of part of the cytoplasm of
-\textit{Escherichia coli} was built to reflect the real biological
+In this work, we report on an all-atom model of part of the cytoplasm
+of \textit{Escherichia coli}, built to reflect the real biological
 system, in particular as regards a realistic composition of this
 ``soup''. We discuss the difficulties that arise when building such a
-system and provide a set of Python scripts and files that anyone can
-use to build its own crowded systems with custom parameters and
+system and provide a set of Python scripts and files that can be used
+to build crowded systems with custom parameters and
 compounds. Additionally, we performed long molecular dynamics
 simulations of our cytoplasm model, reaching \SI{3}{\micro\second} of
-total simulation time. To the best of our knowledge, this work is the first to explore the
-structural dynamics of an all-atom explicit solvent cytoplasm model 
-with microsecond scale molecular dynamics simulations. 
+total simulation time. To the best of our knowledge, this work is the
+first to explore the structural dynamics of an all-atom explicit
+solvent cytoplasm model with microsecond scale molecular dynamics
+simulations.
 
 
 \section*{Materials and Methods}
@@ -563,7 +571,7 @@ check the methods section for details).
 
 We found that completely protonating the phosphate groups of ATP and
 FBP is enough to prevent their aggregation with Mg$^{2+}$. While RDFs
-show that ATP$^{-3}$ and FBP$^{-4}$ aggregate around Mg$^{2+}$
+show that ATP$^{3-}$ and FBP$^{4-}$ aggregate around Mg$^{2+}$
 (Fig.~\ref{fig:avoiding_aggregation}A), this is not observed for
 ATPH\textsubscript{3} and
 FBPH\textsubscript{4}(Fig.~\ref{fig:avoiding_aggregation}B-C).  
@@ -574,8 +582,8 @@ FBPH\textsubscript{4}(Fig.~\ref{fig:avoiding_aggregation}B-C).
 \begin{figure}[H]
 \hspace*{-2cm}\includegraphics[scale=0.5]{rdf_mg.pdf}
 \caption{RDFs centered around Mg$^{2+}$ showing the probability of
-  finding A) metabolites in the cytoplasm model, B) ATP$^{-3}$ and
-  ATPH\textsubscript{3} or C) FBP$^{-4}$ and FBPH\textsubscript{4} in
+  finding A) metabolites in the cytoplasm model, B) ATP$^{3-}$ and
+  ATPH\textsubscript{3} or C) FBP$^{4-}$ and FBPH\textsubscript{4} in
   small independent systems (please see the methods section for
   details).}
 \label{fig:avoiding_aggregation}
@@ -585,20 +593,20 @@ FBPH\textsubscript{4}(Fig.~\ref{fig:avoiding_aggregation}B-C).
  
 
 \section*{Discussion}\label{sec:dissc}
-The main difference between the behavior of the macromolecules that
-compose our model in the crowded system and in the dilute condition is
+The main difference in behavior of the macromolecules that
+compose our model between the crowded system and the dilute condition is
 their translational diffusion coefficient, which drops by around
 85\% for the proteins and 93\% for the tRNA
 (Fig.~\ref{fig:translational_diffusion}A). The slope of the line
 generated by fitting a linear regression model to values of
 $D_{cyto}/D_{dil}$ is close to zero (slope $= 0.00028$), showing that
 the drop in diffusion coefficient is independent of the size of the
-macromolecules. We found that the aggregation of ATP$^{-3}$ and
-FBP$^{-4}$ around Mg$^{2+}$, which was used as counter-ion for tRNA,
+macromolecules. We found that the aggregation of ATP$^{3-}$ and
+FBP$^{4-}$ around Mg$^{2+}$, which was used as counter-ion for tRNA,
 leads to an exaggerated confinement of the tRNA molecules.  Therefore,
-tRNA is considered as an outlier in the duffusion calculations. In
+tRNA is considered an outlier in the duffusion calculations. In
 fact, the slope of the linear regression line fitted to
-$D_{cyto}/D_{dil}$ is reduced by by 50\% and gets even closer to zero
+$D_{cyto}/D_{dil}$ is reduced by by 50\% and  even closer to zero
 (slope $= 0.00014$) after removing the diffusion coefficient of tRNA
 from the data. These data are in agreement with experimental results
 showing that the translational diffusion coefficient of Green
@@ -613,7 +621,7 @@ It has been demonstrated that the force fields that are most widely
 used to perform molecular dynamics simulations of macromolecules yield
 different results for highly concentrated amino acid
 solutions~\cite{andrews2013}. Moreover, it has been reported that
-simulations of highly concentrated environment leads to aggregation
+simulations of a highly concentrated environment leads to aggregation
 when additive force fields are used~\cite{Petrov2014a,Abriata2015a,
   Nawrocki2017a} and several approaches have been proposed to
 eliminate this
@@ -633,37 +641,49 @@ we find signs that the increased interaction between protein and water
 may be slightly too strong as it leads to partial unfolding of a
 protein~\cite{Bashardanesh2019a}.
 
-Previous
-all-atom simulations of large scale cytoplasm models used parameters from the CHARMM family of
-force fields~\cite{Yu2016a}. In this work we use a modified version of
-the AMBER FF99SB force field in which the solvent-solute interactions
-are 10\% stronger~\cite{Best2014a} to study crowding effects on a
-cytoplasm model. This force field was chosen because it was corrected
-to reproduce experimental data when there are many proteins in the
-same simulation box. This force field or similarly adjusted one were also used for studying crowding effect on simpler systems of high concentration of proteins~\cite{Nawrocki2017a,nawrocki2019,Bashardanesh2019a}. All-atom explicit solvent molecular dynamics simulations have been reported for large-scale cytoplasm models of
-\textit{Mycoplasma genitalium} composed of 103- and 12-million atoms
-that were simulated for 20 and 60 \SI{}{\nano\second},
-respectively~\cite{Yu2016a}. The cytoplasm model described in this
-work has 1.5 million atoms and was simulated for the total of
-\SI{3}{\micro\second}, an unprecedented time scale to study crowding effects on a heterogeneous cytoplasm model in atomic detail.  
+Previous all-atom simulations of large scale cytoplasm models used
+parameters from the CHARMM family of force fields~\cite{Yu2016a}. In
+this work we use a modified version of the AMBER FF99SB force field in
+which the solvent-solute interactions are 10\%
+stronger~\cite{Best2014a} to study crowding effects on a cytoplasm
+model. This force field was chosen because it was corrected to
+reproduce experimental data when there are many proteins in the same
+simulation box. This force field or similarly adjusted one were also
+used for studying crowding effect on simpler systems of high
+concentration of
+proteins~\cite{Nawrocki2017a,nawrocki2019,Bashardanesh2019a}. All-atom
+explicit solvent molecular dynamics simulations have been reported for
+large-scale cytoplasm models of \textit{Mycoplasma genitalium}
+composed of 103- and 12-million atoms that were simulated for 20 and
+60 \SI{}{\nano\second}, respectively~\cite{Yu2016a}. The cytoplasm
+model described in this work has 1.5 million atoms and was simulated
+for the total of \SI{3}{\micro\second}, an unprecedented time scale to
+study crowding effects on a heterogeneous cytoplasm model in atomic
+detail.
 
 Three crowders (TufA, MetE and IcdA) displayed greater deviation from
 their crystallographic structure in the cytoplasm model when compared
 to the dilute condition, indicating that there was some degree of
 local unfolding
 (Fig.~\ref{fig:structural_integrity_chain}A). Interestingly, oligomers
-were marginally less stable in the cytoplasm model than in the dilute condition.
-(Fig.~\ref{fig:structural_integrity_chain}B) and the flexibility
-profiles calculated considering the C$\upalpha$ for each chain of the
-elements of our cytoplasm model show that, in the crowded condition,
-most of the proteins (TufA, MetE, AhpC, CspC and Ppa) are more flexible than in the dilute condition (Fig.~\ref{fig:rmsf}). This
+were marginally less stable in the cytoplasm model than in the dilute
+condition.  (Fig.~\ref{fig:structural_integrity_chain}B) and the
+flexibility profiles calculated considering the C$\upalpha$ for each
+chain of the elements of our cytoplasm model show that, in the crowded
+condition, most of the proteins (TufA, MetE, AhpC, CspC and Ppa) are
+more flexible than in the dilute condition (Fig.~\ref{fig:rmsf}). This
 is in agreement with previous simulations~\cite{Feig2011} and
 experiment~\cite{miklos2011,Wang2012b} showing that crowders can
 destabilize the native structure of proteins due to the numerous
 unspecific short-lived interactions that are formed between them in a
 crowded environment. A study of protein properties at increasing
 concentration showed only few interactions between proteins of the
-same type~\cite{Bashardanesh2019a}. The only specific interaction we antecipate between the components of our cytoplasm model is between TufA and tRNA (PDB ID 1TTT is an example of such complex)~\cite{nissen1995crystal}. The TufA-tRNA complex is not present in our simulation boxes even after \SI{1}{\micro\second} of simulation starting from random orientations.
+same type~\cite{Bashardanesh2019a}. The only specific interaction we
+antecipate between the components of our cytoplasm model is between
+TufA and tRNA (PDB ID 1TTT is an example of such
+complex)~\cite{nissen1995crystal}. The TufA-tRNA complex is not
+present in our simulation boxes even after \SI{1}{\micro\second} of
+simulation starting from random orientations.
 
 % {\color{blue} We highlight that there are no specific interactions described between the proteins that were used in our cytoplasm model.} {\bf do we expect specific interactions between the proteins in our cyto model? In that case write that with references, otherwise write that there are no known specific interactions between these proteins.} {\color{blue} The only specific interaction we antecipate between the components of the soup is that TufA interacts with tRNA (PDB ID 1TTT is an example of such complex). However, since we are ignoring tRNA in our analyses, I did't mention it. PS: I checked and the TufA-tRNA complex is not present in the last frames of our replicas.}
 
@@ -696,15 +716,16 @@ alternative solution, barring use of polarizable
 models~\cite{Ponder2010a,Lopes2013a,Ghahremanpour2018b,Walz2018a}.
 
 
-To the best of our knowledge, there is only one published study on large scale cytoplasm models that
-included metabolites with all-atom explicit solvent molecular
-dynamics~\cite{Yu2016a}. Although these authors did not report
-aggregation, they mention that the translational diffusion of highly
-charged phosphate-containing metabolites is ``much slower'' than
-expected in their system. They attributed this observation to
-non-specific interactions between such metabolites and proteins. Maybe
-aggregation also contributed to their slower diffusion but it was not
-evident during their \SI{140}{\nano\second} simulation.
+To the best of our knowledge, there is only one published study on
+large scale cytoplasm models that included metabolites with all-atom
+explicit solvent molecular dynamics~\cite{Yu2016a}. Although these
+authors did not report aggregation, they mention that the
+translational diffusion of highly charged phosphate-containing
+metabolites is ``much slower'' than expected in their system. They
+attributed this observation to non-specific interactions between such
+metabolites and proteins. Maybe aggregation also contributed to their
+slower diffusion but it was not evident during their
+\SI{140}{\nano\second} simulation.
 
 %\section*{Conclusions}\label{sec:concl}
 
@@ -738,20 +759,20 @@ in the cytoplasm model than in dilute condition (Figures
 As part of this work we are providing Python scripts with a set of
 structure and topology files that any researcher can use to build
 their own \textit{E. coli} cytoplasm models. Such models can be used
-to investigate research questions about the effects of
-crowding on specific systems of interest or about crowding
-itself. With the files we are providing it is possible, for example,
-to add a probe protein to investigate the effect of crowding on it, to
-add new macromolecular or small crowders, evaluate the effects of
- temperatures and change the biomolecular concentration to
-increase or decrease the intensity of the crowding effect. We
-highlight that, since we have already validated it, researchers can
-take advantage from building their own cytoplasm models even if they
-do not have access to the infrastructure that is necessary to perform
-long molecular dynamics simulations. With modest computatioanal power
-it is possible, for example, to build many independent snapshots of
-the cytoplasm of \textit{E. coli}. All files are publicly available at
-http://github.com/dspoel/soup.
+to investigate research questions about the effects of crowding on
+specific systems of interest or about crowding itself. With the files
+we are providing it is possible, for example, to add a probe protein
+to investigate the effect of crowding on it, to add new macromolecular
+or small crowders, evaluate the effects of temperatures and change the
+biomolecular concentration to increase or decrease the intensity of
+the crowding effect. We highlight that, since we have already
+validated it, researchers can take advantage from building their own
+cytoplasm models even if they do not have access to the infrastructure
+that is necessary to perform long molecular dynamics simulations. With
+modest computatioanal power it is possible, for example, to build many
+independent snapshots of the cytoplasm of \textit{E. coli}. All files
+are publicly available at http://github.com/dspoel/soup facilitating
+contributions to the scripts and data files from other workers in the field.
 
  
 \bibliography{library}
