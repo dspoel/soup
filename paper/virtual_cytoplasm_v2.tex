@@ -95,8 +95,8 @@ come from computational modeling and simulation. By extrapolating the
 advances in computational power in the last decades to the future, it
 was estimated that the atomistic simulation of an entire
 \textit{Escherichia coli} bacterium for \SI{1}{\nano\second} will be
-possible in 15 years from now~\cite{vanGunsteren2006a}. {\bf THAT WAS
-  13 YEARS AGO. WHAT IS THE STATE OF THE ART?} {\color{blue} The paper predicts that simulating a whole E. coli bacterium with $10^{11}$ atoms for 1 ns will be possible in 2034, thus the "15 years from now" in our text. That was meant as an introduction to the simulation of big systems. The evolution of computational models to study crowing and the state-of-the-art is discussed in the next paragraph. Maybe we can move this phrase to the beginning of the next paragraph }
+possible in 15 years from now~\cite{vanGunsteren2006a}.
+% {\bf THAT WAS 13 YEARS AGO. WHAT IS THE STATE OF THE ART?} {\color{blue} The paper predicts that simulating a whole E. coli bacterium with $10^{11}$ atoms for 1 ns will be possible in 2034, thus the "15 years from now" in our text. That was meant as an introduction to the simulation of big systems. The evolution of computational models to study crowing and the state-of-the-art is discussed in the next paragraph. Maybe we can move this phrase to the beginning of the next paragraph }
 
 As the available computational power increases, models become
 increasingly complex and are better representations of reality. The
@@ -202,9 +202,7 @@ For statistics, the average and standard error of the three trajectories are rep
 are specific to each chain, we used the average over the individual
 chains in each trajectory of the replicas. Additionally, since there
 is more than one copy of some crowders in the cytoplasm models,
-average values and standard errors are calculated {\bf DO YOU MEAN THE
-  AVERAGE OVER ALL COPIES? considering each copy of each replica}
-independently {\color{blue} Yes, the averages are calculated over all copies of each crowder in all replicas}. As in the dilute system, separate chains of each copy
+average values and standard errors are calculated considering each copy of each replica. As in the dilute system, separate chains of each copy
 of the crowders were considered as independent samples when running
 analyses that focus on one single chain. The first half of all
 simulations was discarded as equilibration time and analyses used only
@@ -217,12 +215,14 @@ translational diffusion coefficient, which were extracted by a linear
 fit to MSD by averaging blocks with a length of $10\, ns$ for dilute systems and $100\, ns$ 
 for cytoplasm system~\cite{Allen1987a}. In principle, diffusion
 coefficient needs to be corrected for finite size
-effects~\cite{Yeh2004} but due to relatively large simulation boxes
-this correction is negligible {\bf NOT FOR PROTEINS THAT DIFFUSE
-  SLOWLY!}. {\color{blue} The correcion in Yeh2004 is derived for cubic simulation boxes, in our single molecule simulations we have non-cubic boxes, one needs to derive the correction from Eq 11 in Yeh2004. My Mathematica skills are rusty now, could you do that? If you think it's absolutely necessary} Root Mean Square Deviation (RMSD) and Root Mean Square
-Fluctuation (RMSF) calculations considered the C$\upalpha$ atoms only for analysis in each trajectory
-{\bf ARE YOU SURE? THE DEFAULT IS TO TAKE THE AVERAGE STRUCTURE. OR DO
-  YOU MEAN THE STRUCTURE FOR FITTING?} {\color{blue} I checked and indeed we used the average structure calculated with the second half of the trajectories. I removed "the reference frame for RMSF was the midpoint of the time interval" from the text. The information about the second half of the trajectory is in the previous paragraph, which is about statistics}. The chain interface area of a given oligomer in a given
+effects~\cite{Yeh2004,Abraham2018}. Due to relatively large simulation boxes
+this correction is negligible. 
+% {\bf NOT FOR PROTEINS THAT DIFFUSE
+  % SLOWLY!}. {\color{blue} The correcion in Yeh2004 is derived for cubic simulation boxes, in our single molecule simulations we have non-cubic boxes, one needs to derive the correction from Eq 11 in Yeh2004. My Mathematica skills are rusty now, could you do that? If you think it's absolutely necessary} 
+Root Mean Square Deviation (RMSD) and Root Mean Square
+Fluctuation (RMSF) calculations considered the C$\upalpha$ atoms only for analysis in each trajectory.
+% {\bf ARE YOU SURE? THE DEFAULT IS TO TAKE THE AVERAGE STRUCTURE. OR DO  YOU MEAN THE STRUCTURE FOR FITTING?} {\color{blue} I checked and indeed we used the average structure calculated with the second half of the trajectories. I removed "the reference frame for RMSF was the midpoint of the time interval" from the text. The information about the second half of the trajectory is in the previous paragraph, which is about statistics}. 
+The chain interface area of a given oligomer in a given
 frame was calculated as the difference between the solvent exposed
 surface area (SASA) of the oligomer in that frame and the sum of the
 SASAs of each of its chains independently in that same frame. Other
@@ -258,21 +258,20 @@ each protein was kept as reported in their crystallographic structure
 \caption{Protein, PDB ID, number N of proteins in the simulation. 
 Fraction of the total abundance of non-ribosomal proteins in the cytosol of {\em
     E. coli} K12 and oligomeric state of each protein that was
-  selected to compose our cytoplasm model. {\bf WRITE OUT WHOLE
-    PROTEIN NAMES}}
+  selected to compose our cytoplasm model.}
 \label{tbl:protein_fraction}
 \begin{tabular}{ccccc}
 \hline
 Protein & PDB & N & Fraction [\%] & State\\
 \hline
-{\color{blue}Elongation factor TU} (TufA) & 1DG1~\cite{Abel1996}       & 6 & 19.7 &  dimer \\
-{\color{blue}Cobalamin-independent methionine synthase} (MetE) & 1U22~\cite{Ferrer2004}     & 7 & 11.6 &  monomer \\
-{\color{blue}Isocitrate dehydrogenase} (IcdA) & 1P8F~\cite{Mesecar2000}    & 2 & 4.7  &  dimer \\
-{\color{blue}Alkyl hydroperoxide reductase subunit C} (AhpC) & 1YEP~\cite{Parsonage2005}  & 1 & 4.1  &  decamer \\
-{\color{blue}Cold-shock protein} (CspC) & 1MJC~\cite{Schindelin1994} & 3 & 4.0  &  monomer \\
-{\color{blue}Pyrophosphatase} (Ppa)  & 2EIP~\cite{Kankare1996}    & 1 & 2.9  &  hexamer \\
-{\color{blue}Glyceraldehyde 3-phosphate dehydrogenase A} (GapA) & 1S7C~\cite{ShinXXX}        & 1 & 2.1  &  tetramer \\
-{\color{blue}Enolase} (Eno)  & 1E9I~\cite{Kuhnel2001}     & 1 & 1.9  &  dimer \\
+Elongation factor TU (TufA) & 1DG1~\cite{Abel1996}       & 6 & 19.7 &  dimer \\
+Cobalamin-independent methionine synthase (MetE) & 1U22~\cite{Ferrer2004}     & 7 & 11.6 &  monomer \\
+Isocitrate dehydrogenase (IcdA) & 1P8F~\cite{Mesecar2000}    & 2 & 4.7  &  dimer \\
+Alkyl hydroperoxide reductase subunit C (AhpC) & 1YEP~\cite{Parsonage2005}  & 1 & 4.1  &  decamer \\
+Cold-shock protein (CspC) & 1MJC~\cite{Schindelin1994} & 3 & 4.0  &  monomer \\
+Pyrophosphatase (Ppa)  & 2EIP~\cite{Kankare1996}    & 1 & 2.9  &  hexamer \\
+Glyceraldehyde 3-phosphate dehydrogenase A (GapA) & 1S7C~\cite{ShinXXX}        & 1 & 2.1  &  tetramer \\
+Enolase (Eno)  & 1E9I~\cite{Kuhnel2001}     & 1 & 1.9  &  dimer \\
 \hline
 Total &                           & 48& 51.1 & \\
 \hline
@@ -489,10 +488,10 @@ aggregation and we will show a way to prevent it.
 The structure of the individual chains of the crowders that were used
 in our cytoplasm model were not affected to a great extent by the
 crowded environment. The values of their root mean square deviation considering only
-their C$\upalpha$ in the cytoplasm model {\color{blue} increased by less than 11\% when compared to the dilute condition} {\bf WHAT DOES WITHIN 11\% MEAN?}, except for
+their C$\upalpha$ in the cytoplasm model increased by less than 11\% when compared to the dilute condition, except for
 TufA, MetE and IcdA, which have RMSD values 105, 25 and 33\% higher in
-the crowded environment than in the dilute condition {\color{blue}(Fig.~\ref{fig:structural_integrity_chain}A)}. {\bf ARE THERE
-  RMSD PLOTS? REFER TO THEM.} {\color{blue} Visual inspection of the final frames of the simulations of these crowders in the cytoplasm model and in dilute condition revealed that, for TufA, the conformational differences are on the $\upbeta$-hairpin around residues 40-62. This region is called Switch I and is known to be flexible and to display conformational changes due to interactions with the ribosome or other partners~\cite{Abel1996}. For MetE, there are differences in the conformation of the loop around residues 450-460 and in the C-terminal $\upalpha$-helices. This loop is known to be flexible and was not modeled in the crystallographic structure due to such flexibility~\cite{Ferrer2004}. For IcdA, the differences are located at the N-terminal coil formed by residues 1-8.} 
+the crowded environment than in the dilute condition (Fig.~\ref{fig:structural_integrity_chain}A). 
+Visual inspection of the final frames of the simulations of these crowders in the cytoplasm model and in dilute condition revealed that, for TufA, the conformational differences are on the $\upbeta$-hairpin around residues 40-62. This region is called Switch I and is known to be flexible and to display conformational changes due to interactions with the ribosome or other partners~\cite{Abel1996}. For MetE, there are differences in the conformation of the loop around residues 450-460 and in the C-terminal $\upalpha$-helices. This loop is known to be flexible and was not modeled in the crystallographic structure due to such flexibility~\cite{Ferrer2004}. For IcdA, the differences are located at the N-terminal coil formed by residues 1-8.
 
   %{\bf IS THERE A KNOWN PHYSIOLOGICAL REASON FOR THAT?. IS  MetE A MULTIDOMAIN PROTEIN WHERE DOMAINS MOVE WITH RESPECT TO EACH  OTHER?} {\color{blue} The differences of TufA and MetE can be expected from some experimental data, but for IcdA it is just partial unfolding of a short N-terminal coil region.}
 
@@ -522,12 +521,12 @@ chains, the oligomers that undergo the most change is TufA
 
 
 \subsubsection{Structural dynamics}
-{\bf THIS PARAGRAPH REPEATS AND CONTRADICTS ITSELF. IS FLEXIBILITY
-  AFFECTED OR NOT? FROM THE GRAPH I WOULD SAY THE THE FIVE PROTEINS
-  NOTED BELOW ARE MUCH MORE FLEXIBLE, NOT SLIGHTLY. ONE WAY OF
-  QUANTIFYING THIS IS TO COMPUTE THE AVERAGE OF THE MEAN SQUARE
-  FLUCTUATION OVER THE WHOLE PROTEIN, THAT IS BEFORE TAKING SQUARE
-  ROOTS OF COURSE AND PLOTTING THAT IN A BAR GRAPH.} {\color{blue} Overall, flexibility (meaning the values of RMSF for each residue) is affected in some cases, but the flexibility profile (meaning the overall shape of the RMSF plot) is not. Maybe that was the source of the apparent contradiction. I changed the text to clarify that. I also removed words such as "slightly" and "small" from the text.}
+% {\bf THIS PARAGRAPH REPEATS AND CONTRADICTS ITSELF. IS FLEXIBILITY
+%   AFFECTED OR NOT? FROM THE GRAPH I WOULD SAY THE THE FIVE PROTEINS
+%   NOTED BELOW ARE MUCH MORE FLEXIBLE, NOT SLIGHTLY. ONE WAY OF
+%   QUANTIFYING THIS IS TO COMPUTE THE AVERAGE OF THE MEAN SQUARE
+%   FLUCTUATION OVER THE WHOLE PROTEIN, THAT IS BEFORE TAKING SQUARE
+%   ROOTS OF COURSE AND PLOTTING THAT IN A BAR GRAPH.} {\color{blue} Overall, flexibility (meaning the values of RMSF for each residue) is affected in some cases, but the flexibility profile (meaning the overall shape of the RMSF plot) is not. Maybe that was the source of the apparent contradiction. I changed the text to clarify that. I also removed words such as "slightly" and "small" from the text.}
   
 Root mean square fluctuation (RMSF) calculations show that, overall, the shape of residue-wise flexibility profile of the proteins is not affected by crowding, which is in agreement with our results showing that their structural integrity does not change significantly in the cytoplasm model in most cases (Fig.~\ref{fig:rmsf}). Accordingly, we can see significant changes in the shape of the flexibility profile for regions that undergo conformational changes, such as the Switch I $\upbeta$-hairpin of TufA around residues 40-62 and the flexible loop of MetE around residues 450-460 (Fig.~\ref{fig:rmsf}).
 
@@ -567,9 +566,10 @@ FBP is enough to prevent their aggregation with Mg$^{2+}$. While RDFs
 show that ATP$^{-3}$ and FBP$^{-4}$ aggregate around Mg$^{2+}$
 (Fig.~\ref{fig:avoiding_aggregation}A), this is not observed for
 ATPH\textsubscript{3} and
-FBPH\textsubscript{4}(Fig.~\ref{fig:avoiding_aggregation}B-C).  {\bf
-  WERE ANY INTERMEDIATE PROTONATIONS TESTED? E.G. FBPH2(2-) AND ATPH(2-)?
-  COMPLETELY PROTONATING IS UNPHYSICAL AS WELL AT THE PH STUDIED. FOR E COLI THE PH SHOULDBE ROUGHLY 7.4 https://en.wikipedia.org/wiki/Cytosol} {\color{blue}I didn't try intermediate protonations, but this can be done in about 1 week if necessary. The physiological states of FBP and ATP at pH 7.4 would be the ones we used originally in the soup. So, in this sense, any protonated state could be called unphysical or unrealistic. We discuss the tradeoffs of using this unphysical protonated state in the discussion section}
+FBPH\textsubscript{4}(Fig.~\ref{fig:avoiding_aggregation}B-C).  
+% {\bf
+%   WERE ANY INTERMEDIATE PROTONATIONS TESTED? E.G. FBPH2(2-) AND ATPH(2-)?
+%   COMPLETELY PROTONATING IS UNPHYSICAL AS WELL AT THE PH STUDIED. FOR E COLI THE PH SHOULDBE ROUGHLY 7.4 https://en.wikipedia.org/wiki/Cytosol} {\color{blue}I didn't try intermediate protonations, but this can be done in about 1 week if necessary. The physiological states of FBP and ATP at pH 7.4 would be the ones we used originally in the soup. So, in this sense, any protonated state could be called unphysical or unrealistic. We discuss the tradeoffs of using this unphysical protonated state in the discussion section}
 
 \begin{figure}[H]
 \hspace*{-2cm}\includegraphics[scale=0.5]{rdf_mg.pdf}
@@ -606,7 +606,8 @@ Fluorescent Protein (GFP) in {\em E. coli}, as measured by
 fluorescence recovery after photo-bleaching (FRAP), decreased 90\%
 when compared to {\em in vitro}
 measurements~\cite{Elowitz1999,Konopka2006}.
-{\bf IT MAY BE NECESSARY TO DISCUSS RMSF HERE AS WELL} {\color{blue} This first paragraph is focused on validation of the cytoplasm model by comparison with experimental results, which are available for the translational diffusion coefficient. We don't have specific experimental data that we can compare our RMSF data to. Should we add RMSF here anyway? There is a discussion about our RMSF results some paragraphs ahead in which we compare our data with general trends that were experimentally observed.}
+
+% {\bf IT MAY BE NECESSARY TO DISCUSS RMSF HERE AS WELL} {\color{blue} This first paragraph is focused on validation of the cytoplasm model by comparison with experimental results, which are available for the translational diffusion coefficient. We don't have specific experimental data that we can compare our RMSF data to. Should we add RMSF here anyway? There is a discussion about our RMSF results some paragraphs ahead in which we compare our data with general trends that were experimentally observed.}
 
 It has been demonstrated that the force fields that are most widely
 used to perform molecular dynamics simulations of macromolecules yield
@@ -633,31 +634,25 @@ may be slightly too strong as it leads to partial unfolding of a
 protein~\cite{Bashardanesh2019a}.
 
 Previous
-all-atom simulations of {\color{blue} large} scale {\bf WHAT DO YOU MEAN WITH HIGH
-  SCALE?} {\color{blue} corrected to large scale} cytoplasm models used parameters from the CHARMM family of
+all-atom simulations of large scale cytoplasm models used parameters from the CHARMM family of
 force fields~\cite{Yu2016a}. In this work we use a modified version of
 the AMBER FF99SB force field in which the solvent-solute interactions
 are 10\% stronger~\cite{Best2014a} to study crowding effects on a
 cytoplasm model. This force field was chosen because it was corrected
 to reproduce experimental data when there are many proteins in the
-same simulation box. All-atom explicit solvent molecular dynamics
-simulations have been reported for large-scale cytoplasm models of
+same simulation box. This force field or similarly adjusted one were also used for studying crowding effect on simpler systems of high concentration of proteins~\cite{Nawrocki2017a,nawrocki2019,Bashardanesh2019a}. All-atom explicit solvent molecular dynamics simulations have been reported for large-scale cytoplasm models of
 \textit{Mycoplasma genitalium} composed of 103- and 12-million atoms
 that were simulated for 20 and 60 \SI{}{\nano\second},
 respectively~\cite{Yu2016a}. The cytoplasm model described in this
 work has 1.5 million atoms and was simulated for the total of
-\SI{3}{\micro\second}, an unprecedented time scale to study crowding
-effects on a heterogeneous cytoplasm model in atomic detail.  {\bf ADD
-  REFERENCES TO THE NEW FEIG PAPERS AND ZAHEDEHS ACS OMEGA PAPER UNDER
-  REVIEW. WE WILL SEND IN THAT ONE AS SUPPORTING MATERIAL FOR REVIEW
-  ONLY.}
+\SI{3}{\micro\second}, an unprecedented time scale to study crowding effects on a heterogeneous cytoplasm model in atomic detail.  
 
 Three crowders (TufA, MetE and IcdA) displayed greater deviation from
 their crystallographic structure in the cytoplasm model when compared
 to the dilute condition, indicating that there was some degree of
 local unfolding
 (Fig.~\ref{fig:structural_integrity_chain}A). Interestingly, oligomers
-were marginally less stable {\color{blue} in the cytoplasm model} {\bf THAN WHAT? Monomers?} {\color{blue} oligomers in the cytoplasm were marginally less stable than oligomers in the dilute condition. Added "in the cytoplasm model" to the text.}
+were marginally less stable in the cytoplasm model than in the dilute condition.
 (Fig.~\ref{fig:structural_integrity_chain}B) and the flexibility
 profiles calculated considering the C$\upalpha$ for each chain of the
 elements of our cytoplasm model show that, in the crowded condition,
@@ -673,9 +668,11 @@ same type~\cite{Bashardanesh2019a}. {\color{blue} We highlight that there are no
 
 Magnesium cations were added to our cytoplasm model as counter-ions
 for tRNA and ATP. However, as the simulation progressed, FBP and ATP
-aggregated around Mg$^{2+}$ and, by consequence, around tRNA{\bf,
-  effectively removing the counter ions from the RNA. IS THAT
-  CORRECT?} {\color{blue} No, Figure \ref{fig:tRNA_aggregation} shows that Mg$^{2+}$ is still concentrated around tRNA in the soup }. After identifying this problem, we used simulations of
+aggregated around Mg$^{2+}$ and, by consequence, around tRNA
+% {\bf,
+%   effectively removing the counter ions from the RNA. IS THAT
+%   CORRECT?} {\color{blue} No, Figure \ref{fig:tRNA_aggregation} shows that Mg$^{2+}$ is still concentrated around tRNA in the soup }. 
+  After identifying this problem, we used simulations of
 small systems containing only the metabolites, Mg$^{2+}$ and water to
 test different strategies to prevent aggregation in future studies
 using long simulations of cytoplasm models. We found that protonating
@@ -697,8 +694,7 @@ alternative solution, barring use of polarizable
 models~\cite{Ponder2010a,Lopes2013a,Ghahremanpour2018b,Walz2018a}.
 
 
-To the best of our knowledge, {\bf AGAIN CHECK LATEST FEIG PAPERS} {\color{blue} Latest Feig paper is not a cytoplasm model~\cite{nawrocki2019}}
-there is only published study on large scale cytoplasm models that
+To the best of our knowledge, there is only one published study on large scale cytoplasm models that
 included metabolites with all-atom explicit solvent molecular
 dynamics~\cite{Yu2016a}. Although these authors did not report
 aggregation, they mention that the translational diffusion of highly
