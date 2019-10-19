@@ -16,11 +16,11 @@ nstlist				= 10
 rlist				= 1.0
 
 coulombtype			= pme
-rcoulomb			= 0.9
+rcoulomb			= 1.0
 cutoff-scheme		= Verlet
 
 vdw-type			= cut-off
-rvdw 				= 1.4
+rvdw 				= 1.0
 DispCorr			= EnerPres
 
 Tcoupl 				= v-rescale
