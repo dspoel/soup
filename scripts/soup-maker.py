@@ -4,448 +4,360 @@ import argparse, os, glob, math
 import subprocess
 import numpy as np
 
-export GMX_MAXBACKUP=-1
+os.system('export GMX_MAXBACKUP=-1')
+
 
 def parseArguments():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-gmx", "--gromacs_command",  type=str,  default="gmx")
-    # parser.add_argument("-cr_n", "--n", help="crowder index",  type=int,  default=0)
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-gmx", "--gmx_path",  type=str,  default="gmx")
     
-    args = parser.parse_args()
-    return args
+	args = parser.parse_args()
+	return args
 
-box_size_initial=35		# in nm
+
+
+
+box_size_initial=35 #35		# in nm
 box_size_step=2	# nm
 
-droplet_thickness_initial=0.6
-
+droplet_thickness_initial=0.6 #0.6
 droplet_shell_precision=2	# percentage as integer
 
 crowder_total=13
-fraction=0.30
+biomolecular_fraction=0.30
 ionic_strength=0.150	# M
 
-make_droplets=0
-make_box=1
-make_top=1
-make_neutral=1
-make_is=1
-check_fraction=1
+make_droplets = False
+make_box      = False
+make_topology = True
 
-path=os.getcwd()
-path_crowders=path
 path_mdp='mdp'
+path_output='soup'
 
 mdp_min='min.mdp'
 
-path_output='soup_4'
 
-# number of gro files for each crowder
-num_crowder[1]=6
-num_crowder[2]=7
-num_crowder[3]=2
-num_crowder[4]=1
-num_crowder[5]=3
-num_crowder[6]=1
-num_crowder[7]=1
-num_crowder[8]=1
-num_crowder[9]=5
-num_crowder[10]=1436
-num_crowder[11]=144
-num_crowder[12]=225
-num_crowder[13]=255
-crowder_type_arr = []
-crowder_mass = []
+
 # number of gro files for each crowder
 
 
-print('Preliminary steps\n')
-print('\tGathering data about each crowder\n')
+crowders = {}
+for c in range(1,crowder_total+1):
+	crowders[c] = {}
 
-crowder=1
-for crowder in range(1, crowder_total+1):
+crowders[1]['copies']  = 6
+crowders[2]['copies']  = 7
+crowders[3]['copies']  = 2
+crowders[4]['copies']  = 1
+crowders[5]['copies']  = 3
+crowders[6]['copies']  = 1
+crowders[7]['copies']  = 1
+crowders[8]['copies']  = 1
+crowders[9]['copies']  = 5
+crowders[10]['copies'] = 1436
+crowders[11]['copies'] = 144
+crowders[12]['copies'] = 225
+crowders[13]['copies'] = 255
+
+
+
+
+def grp_list( gro ):
 	# Creates a temporary index file to check what type of molecule is the crowder
-	print( 'q\n | gmx make_ndx -f crowder_n%s/npt.1.gro -o temporary.ndx >/dev/null 2>/dev/null ' %(crowder))
-	with open('q.txt', 'w') as outfile:
-            outfile.write("q\n")
-    os.system('%s make_ndx -f crowder_n%s/npt.1.gro -o temporary.ndx < q.txt  >/dev/null 2>/dev/null ' % (gromacs_command, str(n), str(n) ))
-    os.remove('q.txt')
-    with open('temporary.ndx', 'r') as infile:
-        l=[]
-	# Is this crowder a protein, RNA or metabolite?
-        for line in infile:
-            if line.find('[') > -1:
-                l.append(line.strip())
-        if '[ Protein ]' in l:
-            crowder_type = "Protein"
-        elif '[ RNA ]' in l:
-            crowder_type = "RNA"
-        elif '[ Other ]' in l:
-            crowder_type = "Other"            
-        else:
-            print("Unknown type for crowder_n%s" % str(n))
-
-	crowder_type_arr.append(crowder_type)
+#	print( 'q\n | gmx make_ndx -f crowder_n%s/npt.1.gro -o temporary.ndx >/dev/null 2>/dev/null ' %(crowder))
+#	with open('q.txt', 'w') as outfile:
+ #           outfile.write("q\n")
+	os.system('echo "q""\\n" | %s make_ndx -f %s -o temporary.ndx >/dev/null 2>/dev/null' % (gmx_path, gro) )
+	with open('temporary.ndx', 'r') as infile:
+		lines = infile.readlines()
+		grps = [x.split()[1] for x in lines if x[0]=='[']
 	
-	# calculate the mass of each crowder (considering all chains) from the merged itp files
-    with open('crowder_n%s/crowder_n%s.itp' % (str(n), str(n)), 'r') as infile:
-        mass = []
-        for line in infile:
-            if line.find('qtot'):
-                mass.append(float(line[7]))
-    crowder_mass.append(sum(mass))
+	return grps
+	os.remove('temporary.ndx')
 
-print('\tSorting the crowders by mass')
-indices_sorted = np.flip(np.argsort(crowder_mass))+1
+def crowder_type( group_list ):
+	if 'Protein' in group_list:
+		return 'Protein', 'protein'
+	elif 'RNA' in group_list:
+		return 'RNA', 'nucleic acid'
+	elif 'Other' in group_list:
+		return 'Other', 'metabolite'
+	else:
+		return 'Unknown', 'unknown'
 
-print('\tCalculating the biomolecular mass of the soup')
-total_biomol_mass=0
-for crowder in range(1, crowder_total+1):
-    total_biomol_mass = total_biomol_mass + num_crowder[crowder]*crowder_mass[crowder-1]
+def crowder_mass( crowder_id ):
+	with open('crowder_n%d/crowder_n%d.itp' % (crowder_id, crowder_id), 'r') as infile:
+		mass = np.array([float(x.split()[-4]) for x in infile.readlines() if (('qtot' in x.split()) and (x.split()[0]!=';'))]).sum()
+	return mass
+
+def count_waters( gro_file ):
+	waters = 0
+	with open(gro_file, 'r') as infile:
+		for line in infile.readlines():
+			try:
+				words = line.split()
+				if (words[0][-3:]=='SOL') and (words[1][:2]=='OW'):
+					waters += 1
+			except:
+				pass
+	return waters
+            
 
 
-print('\t\tTotal biomolecular mass =%0.3f' % (total_nonwater_mass))
-print('\tCalculating the number of waters necessary to achieve the biomolecular fraction of %.0f %' % str(fraction*100))
-
-water_necessary = (float(total_biomol_mass)/fraction - float(total_biomol_mass))/18.0
-total_water_mass = water_necessary*18.
-
-print('\t\tIt is necessary to add %s water molecules to the final box' % str(water_necessary))
-print('\t\tThat corresponds to %s Da'% str(total_water_mass))
-print('\n')
-print('\n')
-print('\n')
 
 
 
-if make_droplets == 1:
-    print('Making droplets for each crowder')
-    print('\tFinding the optimum droplet shell thickness which comprises a total of %s water molecules for all crowders\n' % str(water_necessary))
-    print('\tThe maximum difference that is allowed between the number of water molecules inside the droplets and the number of molecules we need is %s %' % str(droplet_shell_precision))
-# if [ $make_droplets -eq 1 ]; then
+if __name__=='__main__':
 	
-    ####Zaza: convert the line below
-# 	echo 'thickness[nm] biomol-fract[%] added-perc[%] error-perc[%]' | awk '{printf "\t\t%16s\t%16s\t%16s\t%16s\n",$1,$2,$3,$4}'
-    # print('\t\tthickness[nm] biomol-fract[%]')
+	args  = parseArguments()
+	gmx_path = args.gmx_path
 	
-	droplet_thickness_step=0.1	# nm
-	droplet_thickness=droplet_thickness_initial		# nm
-	droplet_thickness_prev=droplet_thickness
 	
-	ok=0
-    while ok  == 0 :
-        water_total_added = 0
-        for crowder in range(1, crowder_total+1):
-            os.chdir('crowder_n%s' % (str(crowder)))
-			# Generate a box with PBC corrections
-            os.system('echo System | %s trjconv -f npt.1.gro -s npt.1.tpr -pbc atom -ur compact -o eq_pbc.gro >/dev/null 2>/dev/null' % (args.gromacs_command))
-          # Create the index_eq.ndx file containing Crowder + Waters+Ions within a shell around the crowder
-            os.system('%s select -f eq_pbc.gro -on index_droplet.ndx -select "(group %s ) or (same residue as (group "SOL" and within %s of group %s) ) or ( group "Ion" and within %s of group %s )" -s npt.1.tpr >/dev/null 2>dev/null ' % (args.gromacs_command, crowder_type[crowder], str(droplet_thickness), crowder_type[crowder], str(droplet_thickness), crowder_type[crowder]))
-          # Create the gro file with the current droplet          
-            os.system('%s trjconv -f eq_pbc.gro -s npt.1.tpr -o temporary.gro -n index_droplet.ndx >/dev/null 2>dev/null')
-            with open('droplet.gro', 'w') as outfile:
-                outfile.write('droplet, crowder_n%s' % str(crowder))
-
-            with open('temporary.gro', 'r') as infile:
-                remove_k=0
-                remove_cl=0
-                for i, line in enumerate(infile):
-                    if i == 1:
-                        atoms = int(line[0])
-                    if line.find('K      K'):
-                        remove_k = remove_k+1
-                    if line.find('CL      CL'):
-                        remove_cl = remove_cl+1
-            with open('droplet.gro', 'a') as outfile:
-                outfile.write('%s' % str(atoms-remove_cl-remove_k))
-
-			with open('droplet.gro', 'a') as outfile:
-                with open('temporary.gro', 'r') as infile:
-                    for i, line in enumerate(infile):
-                        if i > 1:
-                            if line.find('K        K') < 0 or line.find('CL        CL') < 0:
-                                outfile.write(line)
-			
-            os.remove('index_droplet.ndx')
-			# Number of waters in the droplet
-            water_added_by_one_droplet=0
-            with open('droplet.gro', 'r') as infile:
-                for line in infile:
-                    if line.find(" OW"):
-                        water_added_by_one_droplet=water_added_by_one_droplet+1
-			
-			# Total waters to be added by this crowder
-			water_added_by_this_crowder=water_added_by_one_droplet*num_crowder[crowder]
-			
-			# Update the current number of waters in the soup
-			water_total_added=water_total_added+water_added_by_this_crowder
-			os.chdir('..')
-
-        water_added_perc = (float(water_total_added)/float(water_necessary)) * 100
-        error_perc = water_added_perc - 100
-		error_perc_abs = -1*error_perc
-
-		# Fraction 
-        biomol_fraction = float(total_biomol_mass) / (float(total_biomol_mass) + float(water_total_added)*18.)
+	print('Gathering data about each crowder')
+	
+	
+	for crowder_id in range(1, crowder_total+1):
+		# Creates a temporary index file to check what type of molecule is the crowder
+		grps = grp_list('crowder_n'+str(crowder_id)+'/npt.1.gro')
+		crowders[crowder_id]['type'], crowders[crowder_id]['class'] = crowder_type(grps)
+		crowders[crowder_id]['mass'] = crowder_mass(crowder_id)
 		
-		# Output
-        print("\t\t%0.3f\t%0.3f\t%0.3f\t%0.3f\n" % (float(droplet_thickness), float(biomol_fraction)*100., float(water_added_perc), float(error_perc)))		
+		print('\tCrowder %d is a %s with mass = %.2f Da' % (crowder_id, crowders[crowder_id]['class'], crowders[crowder_id]['mass']) )
+	
+	
+	
+	biomolecular_mass=0
+	for crowder_id in crowders:
+		biomolecular_mass += crowders[crowder_id]['copies'] * crowders[crowder_id]['mass']
+
+	print('')
+	print('\tTotal biomolecular mass = %.2f Da' % (biomolecular_mass))
+	print('\tCalculating the number of waters necessary to achieve the biomolecular fraction of %f %%' % (biomolecular_fraction*100))
+	
+	water_mass = (biomolecular_mass/biomolecular_fraction) - biomolecular_mass
+	water_molecules = int(water_mass / 18)
+	
+	print('\t%d water molecules are necessary to reach the biomolecular fraction of %.1f %%' % (water_molecules, biomolecular_fraction*100))
+	print('')
+	print('')
+	
+	crowders_sorted = sorted( crowders.items() , key= lambda tup: tup[1]['mass'], reverse=True)
+	crowders_order = [x[0] for x in crowders_sorted]
+	
+	if make_droplets:
+		print('Making droplets for each crowder')
+		print('\tFinding the optimum droplet shell thickness which comprises a total of %d water molecules for all crowders\n' % water_molecules)
+		print('\tThe maximum difference that is allowed between the number of water molecules inside the droplets and the number of molecules we need is %d %%' % droplet_shell_precision)
 		
-        if float(error_perc_abs) <= float(droplet_shell_precision) :
-            ok=1
-        else:
-          # If we have missing waters, increase the shell size and try again
-            if float(water_added_perc < 100) :
-                droplet_thickness_prev = float(droplet_thickness)
-            else:
-                droplet_thickness=float(droplet_thickness_prev)
-                droplet_thickness_step=float(droplet_thickness_prev)/10.
-            droplet_thickness=float(droplet_thickness) + float(droplet_thickness_step)
+		droplet_thickness_step=0.1	# nm
+		droplet_thickness=droplet_thickness_initial		# nm
+		droplet_thickness_prev=droplet_thickness
+		
+		
+		while True:
+			water_added_to_the_soup = 0
+			
+			for crowder_id in range(1,crowder_total+1):
+				print('\t\tMaking droplet for crowder %d ... ' % crowder_id, end='')
+				
+				os.chdir('crowder_n%d' % crowder_id)
+				
+				os.system('echo "System" | %s trjconv -f npt.1.gro -s npt.1.tpr -pbc atom -ur compact -o eq_pbc.gro >/dev/null 2>/dev/null' % args.gmx_path)
+				
+				grps = grp_list('npt.1.gro')
+				
+				if 'MG' in grps:
+					grp_mg = 0
+					grp_count = 0
+					for grp in grps:
+						if (grp == 'MG') and (grp_mg == 0):
+							grp_mg = grp_count
+						grp_count += 1
+						
+					os.system('%s select -f eq_pbc.gro -on index_droplet.ndx -select "(group %s ) or (same residue as (group "SOL" and within %f of group %s) ) or (group %d and within %s of group %s )" -s npt.1.tpr >/dev/null 2>/dev/null' % (args.gmx_path, crowders[crowder_id]['type'], droplet_thickness, crowders[crowder_id]['type'], grp_mg, droplet_thickness, crowders[crowder_id]['type']))
+				else:
+					os.system('%s select -f eq_pbc.gro -on index_droplet.ndx -select "(group %s ) or (same residue as (group "SOL" and within %f of group %s) )" -s npt.1.tpr >/dev/null 2>/dev/null' % (args.gmx_path, crowders[crowder_id]['type'], droplet_thickness, crowders[crowder_id]['type']))
+				
+				os.system('%s trjconv -f eq_pbc.gro -s npt.1.tpr -o droplet.gro -n index_droplet.ndx >/dev/null 2>/dev/null' % args.gmx_path)
+				
+				
+				water_added_by_one_droplet = count_waters('droplet.gro')
+				
+				water_added_by_this_crowder = water_added_by_one_droplet * crowders[crowder_id]['copies']
+				
+				water_added_to_the_soup += water_added_by_this_crowder
+				
+				os.chdir('..')
+				print('ok')
+			
+			water_added_perc = float(water_added_to_the_soup/water_molecules)*100
+			error_perc = np.absolute(water_added_perc - 100)
+			
+			current_biomolecular_fraction = biomolecular_mass / (biomolecular_mass + (water_added_to_the_soup*18.0))
+			
+			print('\t\t\tDroplet thickness = %f' % droplet_thickness)
+			print('\t\t\tCurrent biomolecular fraction = %f' % current_biomolecular_fraction)
+			print('\t\t\t%% of water added = %f' % water_added_perc)
+			print('\t\t\t%% error = %f' % error_perc)
+			
+			if error_perc <= droplet_shell_precision:
+				break
+			else:
+				if water_added_perc < 100 :
+					droplet_thickness_prev = droplet_thickness
+				else:
+					droplet_thickness = droplet_thickness_prev
+					droplet_thickness_step = droplet_thickness_step/10
+				
+				droplet_thickness = droplet_thickness + droplet_thickness_step
+		
+		print('')
+		print('\tDroplet shell thickness converged to %.1f nm.' % droplet_thickness)
+		print('\t%d water molecules will be added to the box.' % water_added_to_the_soup)
+		print('\tThis is %.2f %% of the precise number required' % water_added_perc)
+		print('\tThat\'s within the requested error margin of %.2f %%' % droplet_shell_precision)
+		print('')
+		print('')
 
 
-    print('\tDroplet shell thickness converged to %s nm.' % (str(droplet_thickness) ))
-    print('\t %d water molecules will be added to the box. This is %0.2f \% of the precise number required, which is within the requested error margin of %0.2f \%' % (water_total_added, water_added_perc, droplet_shell_precision) )
-    print('\n')     
-    print('\n')     
-    print('\n')     
 
-    os.chdir(path)
+	if make_box:
+		print('Finding the smallest cubic box in which all components of the soup fit')
+		
+		print('\tSorting the crowders by mass')
+		
+		for crowder_id in crowders_order:
+			print('\t\tCrowder %d, mass = %d' % (crowder_id, crowders[crowder_id]['mass']) )
+		print('')
+		
+		try:
+			os.mkdir(path_output)
+		except:
+			pass
+		
+		box_size = box_size_initial
+		ok = False
+		while True:
+			with open('%s/box.gro' % (path_output), 'w') as outfile:
+				outfile.write('Cytoplasm model\n')
+				outfile.write('0\n')
+				outfile.write('%.4f\t%.4f\t%.4f\n' % (box_size, box_size, box_size))
+			print('\tSide lenght = %.4f nm' % box_size)
+			
+			
+			
+			crowder_count = 1
+			for crowder_id in crowders_order:
+				print('\tTrying to add %d copies of crowder number %d ... ' % (crowders[crowder_id]['copies'], crowder_id), end='')
+				os.system('%s insert-molecules -f %s/box.gro -ci crowder_n%d/droplet.gro -o %s/box.gro -nmol %d -try 10 >out 2>err' % (gmx_path, path_output, crowder_id, path_output, crowders[crowder_id]['copies']))
+				with open('err', 'r') as infile:
+					for line in infile.readlines():
+						try:
+							if line.split()[0]=='Added':
+								number_added = int(line.split()[1])
+						except:
+							pass
+				os.remove("err")
+				os.remove("out")
+				print('added %d ...' % number_added, end='')
+				
+				if number_added == crowders[crowder_id]['copies']:
+					print('ok')
+					if crowder_count == crowder_total:
+						ok = True
+						break
+					else:
+						crowder_count += 1
+				else:
+					print('didn\'t fit')
+					box_size = box_size + box_size_step
+					break
+			if ok:
+				break
 
 
-if make_box == 1:
-    print('\tFinding the smallest cubic box in which the soup fits')
-    # Sorts the list of crowders according to their number of atoms from biggest to smallest
-    # This is done because its easier to fit all of them in a box if we start with the biggest
-    os.mkdir(path_output)
-    # escape condition
-    ok=0
-    box_size = float(box_size_initial)
-    while True:
-        # we start with an empty cube with sides $box_size nm
-        with open('%s/box.gro' % (path_output), 'w') as outfile:
-            outfile.write('CYTOPLASM MODEL\n')
-            outfile.write('0\n')
-            outfile.write('%s\t%s\t%s' % (str(box_size), str(box_size), str(box_size)))
-        print('\t\tSide Lenght = %s nm' % (str(box_size)))
 
-        # for each crowder ...
-        crowder_type_count = 1
-        for crowder in indices_sorted:
-            print('\t\t\tTrying to add %s copies of crowder number %s ... ' % (num_crowder[crowder], str(crowder)))
-            os.system('%s insert-molecules -f %s/box.gro -ci crowder_n%s/droplet.gro -o %s/box.gro -nmol %s -try 10 >out 2>err' % (path_output, str(crowder), path_output, str(num_crowder[crowder])))
-            with open('err', 'r') as infile:
-                for line in infile:
-                    if line.find('Added') > -1:
-                        number_added = int(line.strip()[1])
-            os.remove("err")
-            os.remove("out")
-            print('added %s ...' % (str(number_added)))
-            # If we added as many as we wanted ...
-            if number_added == num_crowder[crowder]:
-                print('ok')
-                if crowder_type_count == crowder_total:
-                    # Stops if this is the last crowder
-                    ok=1
-                    break
-                else:
-                    crowder_type_count = crowder_type_count +1
-            else:
-                # If we couln't add as many as we wanted...
-                box_size = box_size + box_size_step
-                print('didn't fit)
-                # Get out of the loop and start again
-                break
-        #If there are no more crowders and everything was ok, stop
-        if ok == 1:
-            break
-
-    print('\tWriting the .gro file for the soup ... ')
-    # Splits the current box by its constituents 
-    K_temp, CL_temp, MG_temp, SOL_temp = [],[],[],[]
-    k_counter = 0
-    cl_counter = 0
-    mg_counter = 0
-    sol_counter = 0
-    with open('%s/box.gro' % (path_output), 'r') as infile:
-        with open('biomol_temp', 'w') as outfile:
-            for line in infile:
-                if line.find("K        K") > -1 :
-                    K_temp.append(line.strip())
-                    k_counter = k_counter + 1
-                if line.find("CL        CL") > -1 :
-                    CL_temp.append(line.strip())
-                    cl_counter = cl_counter + 1
-                if line.find("MG        MG") > -1 :
-                    MG_temp .append(line.strip())
-                    mg_counter = mg_counter + 1
-                if line.find("SOL ") > -1 :
-                    SOL_temp.append(line.strip())
-                    sol_counter = sol_counter + 1
-                else:
-    # 	cat "$path_output"/box.gro | grep -v "K        K" | grep -v "CL      CL" | grep -v "MG      MG" | grep -v "SOL " | tail -n+3 | head -n-1 > biomol_temp
-                    outfile.write(line)
-    
-    with open('k_temp', 'w') as outfile:
-        for line in K_temp:
-            outfile.write(line)
-    with open('cl_temp', 'w') as outfile:
-        for line in CL_temp:
-            outfile.write(line)
-    with open('mg_temp', 'w') as outfile:
-        for line in MG_temp:
-            outfile.write(line)
-    with open('sol_temp', 'w') as outfile:
-        for line in SOL_temp:
-            outfile.write(line)
-    
+if make_topology:
+	print('')
+	print('Writing the .gro file for the soup ... ', end='')
 	
-# 	number_total=$(cat biomol_temp SOL_temp K_temp CL_temp MG_temp | wc -l | awk '{print $1}')
-
-	# Writes a new gro file in the correct order
-    with open('%s/box_ordered.gro' % (path_output), 'r') as infile:
-        infile.write("SOUP\n")
-        infile.write("%s" % str(number_total))
-        with open('biomol_temp', 'r') as outfile:
-            for line in outfile:
-                infile.write(line)
-        with open('k_temp', 'r') as outfile:
-            for line in outfile:
-                infile.write(line)
-        with open('cl_temp', 'r') as outfile:
-            for line in outfile:
-                infile.write(line)
-        with open('mg_temp', 'r') as outfile:
-            for line in outfile:
-                infile.write(line)
-        with open('sol_temp', 'r') as outfile:
-            for line in outfile:
-                infile.write(line)
-        with open('%s/box.gro' % (path_output), 'r') as outfile:
-            for line in outfile:
-                True
-            infile.write(line)
-    os.remove('k_temp')
-    os.remove('cl_temp')
-    os.remove('mg_temp')
-    os.remove('sol_temp')
-    os.remove('biomol_temp')
-    print('ok')
-    print('\n')
-
-
-
-# Writes the topology file
-if make_top == 1:
-    print('\tWriting the topology file for the soup ... ')
-    with open('temporary_top_part_1', 'w') as outfile:
-        outfile.write('; Include forcefield parameters\n' )                  
-        outfile.write('#include "../amber99sbws-dangK.ff/forcefield.itp"\n')
-        outfile.write('#include "../gaff-types.itp"\n')                      
-        outfile.write('\n')                                                
-        outfile.write('; Include chain topologies\n')                       
-
-	with open('temporary_top_part_3', 'w') as outfile:
-        outfile.write('\n')
-        outfile.write('; Include water topology\n')
-        outfile.write('#include "../amber99sbws-dangK.ff/tip4p2005s.itp"\n')
-        outfile.write('\n')
-        outfile.write('; Include topology for ions\n' )  
-        outfile.write('#include "../amber99sbws-dangK.ff/ions.itp"\n')
-        outfile.write('\n')
-        outfile.write('[ system ]\n')
-        outfile.write('; Name\n')
-        outfile.write('E.coli K12 cytoplasm model (aka soup)\n')
-        outfile.write('\n')  
-        outfile.write('[ molecules ]\n' )  
-        outfile.write('; Compound        #mols\n' )
+	sections = ['title', 'atoms', 'biomol', 'sol', 'mg', 'box']
+	gro = {}
+	for grp in sections:
+		gro[grp] = []
 	
-    with open('temporary_top_part_2', 'w') as outfile:
-        for crowder in indices_sorted:
-            outfile.write('#include "crowder_n%s.itp"' % (str(crowder)))
-            outfile.write('crowder_n%s\t%s' % (str(crowder), str(num_crowder[crowder]) ))
-    os.system('cp %s/crowder_n%s/crowder_n%s.itp %s' % (path_crowders, str(crowder),str(crowder), path_output))
-
-    number_OW = float(sol_counter)/4
-	with open('temporary_top_part_4', 'w') as outfile:
-        outfile.write("SOL         %s" % str(number_OW))
-        outfile.write("K         %s" % str(k_counter))
-        outfile.write("CL         %s" % str(cl_counter))
-        outfile.write("MG         %s" % str(mg_counter))
+	with open('%s/box.gro' % path_output , 'r') as infile:
+		lines = infile.readlines()
+		
+		gro['title'].append(lines[0])
+		gro['atoms'].append(lines[1])
+		gro['box'].append(lines[-1])
+		
+		del lines[-1]
+		del lines[:2]
+		
+		for line in lines:
+			words = line.split()
+			if words[0][-3:] == 'SOL':
+				gro['sol'].append(line)
+			elif words[0][-2:] == 'MG' and words[1][:2]=='MG':
+				gro['mg'].append(line)
+			else:
+				gro['biomol'].append(line)
 	
-	os.system('cat temporary_top_part_1 temporary_top_part_2 temporary_top_part_3 temporary_top_part_4 > %s/top.top' % (path_output))
-    os.remove('temporary_top_part_1')
-    os.remove('temporary_top_part_2')
-    os.remove('temporary_top_part_3')
-    os.remove('temporary_top_part_4')
-    print('ok') 
-    print('\n')	
-
-
-
-if make_neutral == 1:
-    os.system('%s grompp -f %s/%s -p %s/top.top -c %s/box_ordered.gro -o temporary.tpr .maxwarn 1 >out 2>err' % (args.gromacs_command, path_mdp, mdp_min, path_output))
-    with open('err', 'r') as infile:
-        for line in infile:
-            if line.find('non-zero total charge') > -1:
-                ions_neutralize = float(line.strip()[-1])
-    os.remove('err')
-    os.remove('out')
-    os.remove('temporary.tpr')
-    if ions_neutralize < 0:
-        mass_ion_neutralize=39.1
-        m1=-1
-        ion_neutralize='K'
-        ions_neutralize=ions_neutralize*m1
-    else:
-        mass_ion_neutralize=35
-        ion_neutralize='Cl'
-    print('\tAdding %s %s to neutralize the net charge of the system ... ' % (str(ions_neutralize), str(ion_neutralize)))
-    os.system('%s grompp -f %s/%s -c %s/box_ordered.gro -p %s/top.top -o %s/ion_neutralize.tpr -maxwarn 1 >/dev/null 2>/dev/null' % (args.gromacs_command, path_mdp, mdp_min, path_output, path_output, path_output))
-
-    if ion_neutralize == 'K':
-        os.system('echo SOL | %s genion -s %s/ion_neutralize.tpr -p %s/top.top -o %s/ion_neutralize.gro -np %s -pname %s >/dev/null 2>/dev/null' % (args.gromacs_command, path_output, path_output, ions_neutralize, ion_neutralize))
-    else:
-        os.system('echo SOL | %s genion -s %s/ion_neutralize.tpr -p %s/top.top -o %s/ion_neutralize.gro -nn %s -nname %s >/dev/null 2>/dev/null' % (args.gromacs_command, path_output, path_output, ions_neutralize, ion_neutralize))
-
-    os.remove('mdout.mdp')
-    print('ok')
-    print('\n')
-
-
-# Ionic Strength
-if make_is == 1:
-    with open('%s/ion_neutralize.gro' % (path_output), 'r') as infile:
-        sol_counter=0
-        for line in infile:
-            if line.find('SOL'):
-                sol_counter = sol_counter+1
-    number_waters = sol_counter/4
-    os.system('%s grompp -f %s/%s -c %s/ion_neutralize.gro -p %s/top.top -o %s/ion_is.tpr -maxwarn 1 >/dev/null 2>/dev/null' % (args.gromacs_command, path_mdp, mdp_min, path_output, path_output, path_output))
-    number_of_ions= ionic_strength*(number_waters/55.555)
-    print('\tAdding %s KCl to achieve ionic strength of %s M ... ' % (str(number_of_ions), str(ionic_strength)))
-    os.system('echo SOL | %s genion -s %s/ion_is.tpr -p %s/top.top -o %s/ion_is.gro -np %s -nn %s -pname K -nname CL >/dev/null 2>/dev/null' % (args.gromacs_command, path_output, path_output, number_of_ions, number_of_ions))
-    os.remove('mdout.mdp')	
-    print('ok')
-    print('\n')
-
-if check_fraction == 1:
-    print('Check fraction')
-# 	final_mass_water=$(grep ^"SOL " "$path_output"/top.top | awk '{print $2*18}')
-# 	final_mass_MG=$(grep ^"MG " "$path_output"/top.top | awk '{sum +=$2} END {print sum*24.3}')
-# 	final_mass_CL=$(grep ^"CL " "$path_output"/top.top | awk '{sum +=$2} END {print sum*35.4}')
-# 	final_mass_K=$(grep ^"K " "$path_output"/top.top | awk '{sum +=$2} END {print sum*39.1}')
-# 	total_nonwater_mass=$(echo "$final_mass_MG" "$final_mass_CL" "$final_mass_K" "$total_biomol_mass"| awk '{printf "%.2f\n", $1+$2+$3+$4}' )
+		with open('%s/box_ordered.gro' % path_output, 'w') as outfile:
+			for grp in sections:
+				for line in gro[grp]:
+					outfile.write(line)
+	print('ok')
+		
+		
+	print('Writing the topology file for the soup ... ', end='')
+	num_sol = int(len(gro['sol'])/4)
+	num_mg  = int(len(gro['mg']))
+	with open('%s/topology.top' % path_output, 'w') as outfile:
+		outfile.write('; Include forcefield parameters\n' )                  
+		outfile.write('#include "../amber99sbws-dangK.ff/forcefield.itp"\n')
+		outfile.write('#include "../gaff-types.itp"\n')                      
+		outfile.write('\n')                                                
+		outfile.write('; Include chain topologies\n')
+		for crowder_id in crowders_order:
+			outfile.write('#include "crowder_n%d.itp"\n' % crowder_id)
+			os.system('cp crowder_n%d/*.itp %s/' % (crowder_id, path_output) )
+		outfile.write('\n')
+		outfile.write('; Include water topology\n')
+		outfile.write('#include "../amber99sbws-dangK.ff/tip4p2005s.itp"\n')
+		outfile.write('\n')
+		outfile.write('; Include topology for ions\n' )  
+		outfile.write('#include "../amber99sbws-dangK.ff/ions.itp"\n')
+		outfile.write('\n')
+		outfile.write('[ system ]\n')
+		outfile.write('; Name\n')
+		outfile.write('E.coli K12 cytoplasm model\n')
+		outfile.write('\n')  
+		outfile.write('[ molecules ]\n' )  
+		outfile.write('; Compound        #mols\n' )
+		for crowder_id in crowders_order:
+			outfile.write('crowder_n%d\t%d\n' % (crowder_id, crowders[crowder_id]['copies']) )
+		outfile.write('SOL\t%d\n' % num_sol )
+		outfile.write('MG\t%d\n' % num_mg )
+	print('ok')
+	print('')
+	print('')
 	
-# 	echo "final_mass_water: " "$final_mass_water"
-# 	echo "final_mass_K: " "$final_mass_K"
-# 	echo "final_mass_MG: " "$final_mass_MG"
-# 	echo "final_mass_CL: " "$final_mass_CL"
-# 	echo "total_nonwater_mass: " "$total_nonwater_mass"
 	
-# 	nonwater_mass_fraction=$(echo "$total_nonwater_mass" "$final_mass_water"  | awk '{printf "%.2f\n", $1/($1+$2)}' )
-# 	biomol_fraction=$(echo $total_biomol_mass $final_mass_water $final_mass_MG $final_mass_CL $final_mass_K | awk '{printf "%.2f\n", $1/($1+$2+$3+$4+$5)}' )
 	
-# 	echo
-# 	echo "nonwater     mass fraction = ""$nonwater_mass_fraction"
-# 	echo "biomolecular mass fraction = ""$biomol_fraction"
-# fi
+	print('Neutralizing charges in the box with K+ or Cl- ... ', end='')
+	os.chdir(path_output)
+	os.system('%s grompp -f ../mdp/%s -p topology.top -c box_ordered.gro -o ion_neutralize.tpr -maxwarn 1 >/dev/null 2>/dev/null' % (args.gmx_path, mdp_min))
+	os.system('echo SOL | %s genion -s ion_neutralize.tpr -p topology.top -o ion_neutralize.gro -pname K -nname CL -pq 1 -nq -1 -neutral >/dev/null 2>/dev/null' % args.gmx_path)
+	os.remove('mdout.mdp')
+	print('ok')
+	
+	
+	print('Adding KCl to reach the ionic strength of %f mol/L ... ' % ionic_strength , end='' )
+	num_kcl = int(ionic_strength * (num_sol/55.555))
+	os.system('%s grompp -f ../mdp/%s -p topology.top -c ion_neutralize.gro -o ion_ionicstrength.tpr -maxwarn 1 >/dev/null 2>/dev/null' % (args.gmx_path, mdp_min))
+	os.system('echo SOL | %s genion -s ion_ionicstrength.tpr -p topology.top -o ion_ionicstrength.gro -pname K -nname CL -pq 1 -nq -1 -np %d -nn %d >/dev/null 2>/dev/null' % (args.gmx_path, num_kcl, num_kcl))
+	os.remove('mdout.mdp')
+	print('ok')
