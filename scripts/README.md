@@ -10,7 +10,7 @@ Script to make input files for each of the components of the soup.
 make_analogs.py
 ===============
 
-Script to make analogs.
+Script to make amino acid analogs. Needs an input file but which one?
 
 soup_maker.py
 =============
