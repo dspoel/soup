@@ -6,4 +6,4 @@ In order to study the cytoplasm of a cell one can use a variety of experimental 
 
 The main work is done here by a few scripts, located in the aptly named scripts directory. They are described briefly in the README.md in that directory.
 
-A preprint of the article descirbing this work will be made available on chemrxiv.
+A preprint of the article describing this work will be made available on chemrxiv.
