@@ -17,11 +17,11 @@ technical corrections listed below:
 
 MANUSCRIPT
 - Please remove "et al." from your references and list all authors' names.
-ANSWER:
+ANSWER: Done.
 
 - Update the publication information in Reference 56 and Reference 73 when
 available.
-ANSWER:
+ANSWER: Done.
 
 - Please include a Table of Contents graphic on the very last page of
 your manuscript.  This graphic, in conjunction with the manuscript
@@ -49,7 +49,7 @@ ANSWER:
   manuscript to meet this requirement. See
   http://pubs.acs.org/page/4authors/funder_options.html for complete
   instructions.
-ANSWER:
+ANSWER: Funding information is and was present.
 
 - ORCID: Authors submitting manuscript revisions are required to
   provide their own validated ORCID iDs before completing the
@@ -190,7 +190,7 @@ experiment to aggregate or not to aggregate. Moreover, increasing the
 protein-water interactions as done in Amber03-ws may abolish protein
 aggregation almost completely.
 
-ANSWER: This paper was cited as well. Nevertheless, our earlier study
+ANSWER: This paper is now cited as well. Nevertheless, our earlier study
 (Zhang et al, JCIM 58, 2018, 1037) showed that the DeltaGhydration are
 slightly better using Amber99-sbws than Amber03-ws which is why we
 used particular combination.
@@ -221,13 +221,23 @@ fraction of E. coli cytoplasm, it is difficult to call the system as
 the E. coli cytoplasm. It should be called as a crowded condition that
 mimic 50% of volume fraction of the cytosol of E. coli. 
 
-ANSWER:
+ANSWER: Obviously our model is not complete, to reflect this we
+changed the title of the paper to "Making Soup: Preparing and
+Validating Models of the Bacterial Cytoplasm for Molecular
+Simulation". In the abstract the following sentence is added "The
+model consists of 8 different proteins and one type of t-RNA molecule,
+representing about 50% of the cytoplasmic proteins."
 
 They did not include ribosomes in the system. However, the size
 differences between ribosomes and other proteins should be essential
 in the cellular crowding effect. 
 
-ANSWER:
+ANSWER: This was a deliberate omission. A sentence was added to
+explain it: "It has been estimated that a {\em E. coli} cell contains
+about 50,000 ribosomes per $\mu^3$~\cite{Milo2017a}. The volume of our
+box is about 12,000 nm$^3$ (\figref{shrink}), therefore in principle
+one ribosome molecule should be added, however to reduce the
+complexity this was omitted."
 
 Secondly, they observed tRNA
 aggregation with Mg2+, ATP, and FBP in their systems. They concluded
@@ -242,7 +252,20 @@ structure could be unfolded. However, there is no data about tRNA
 structural changes in crowded condition compared to that in
 solution. 
 
-ANSWER:
+ANSWER: There may be a number of possible solutions to the issue. The
+work by Leotyev et al. (Refs 78 and 79) offers a plausible explanation
+of the problem, namely that in fixed-charge models, that is
+non-polarizable models, the infinite frequency dielectric constant
+should be incorporated, either by introducing a relative dielectric
+constant eps(inf) of approximately 1.7, or by scaling the charges down
+by a factor of sqrt(1.7). Leontyev and co-workers advocate scaling the
+charges since eps(inf) is somewhat material dependent. Such a solution
+was described in the manuscript already, but a new sentence was added:
+"Due to the omission of the electronic polarization, the screening is
+underestimated and this corresponds to applying an effective
+dielectric constant of about 1.7, alternatively scale the charges down
+by $\sqrt{1.7}$ which would mean that FBP would get a charge of
+approximately -3 instead of -4."
 
 Thirdly, except for the protonation state, there are few novel
 biophysical insights in the current work. Essentially same data on
@@ -254,4 +277,10 @@ rooms for improvements. In particular, the issue of the aggregation of
 tRNA in the simulations should be overcome by the refinement of ion
 models or the tRNA-water interaction scaling factors.
 
-ANSWER:
+ANSWER: We agree that the amount of new biophysical insights is
+limited. However, the purpose of this paper was rather to pave the way
+for further in-depth studies by collecting information and scripts
+allowing others to build on this work. For instance, as suggested by
+this referee, one could add ribosomes in larger models for the E. coli
+cytoplasm. We therefore think the present paper is particularly
+suitable for the journal of chemical information and modeling.

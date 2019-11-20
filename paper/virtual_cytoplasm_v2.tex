@@ -1,5 +1,6 @@
-\documentclass[journal=jcisd8,manuscript=article]{achemso}
+\documentclass[journal=jpcisd8,manuscript=article]{achemso}
 % \linespread{1.5}
+\setkeys{acs}{etalmode=truncate,maxauthors=0}
 \usepackage{amssymb,amsmath,graphics,epsfig}
 % \usepackage{amsmath}
 \usepackage[font=small,labelfont=bf]{caption}
@@ -19,7 +20,7 @@
 \newcommand{\figref}[1]{Fig.~\plainref{#1}}
 \newcommand{\tabref}[1]{Table~\plainref{#1}}
 
-\title{Making Soup: Preparing and Validating Molecular Simulations of the Bacterial Cytoplasm}
+\title{Making Soup: Preparing and Validating Models of the Bacterial Cytoplasm for Molecular Simulation}
 
 
 \author{Leandro Oliveira Bortot}
@@ -27,11 +28,11 @@
 \altaffiliation{These authors contributed equally to this work}
 
 \author{Zahedeh Bashardanesh}
-\affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
+\affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology, Uppsala University, Box 596, SE-75124 Uppsala, Sweden}
 \altaffiliation{These authors contributed equally to this work}
 
 \author{David van der Spoel}
-\affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology. Uppsala University, SE-751 05 Uppsala, Sweden}
+\affiliation{Science for Life Laboratory, Department of Cell and Molecular Biology, Uppsala University, Box 596, SE-75124 Uppsala, Sweden}
 \email{david.vanderspoel@icm.uu.se}
 
 
@@ -51,14 +52,17 @@ all-atom explicit solvent models of the prokaryote cytoplasm become
 possible. In this work, we build an atomistic model of the cytoplasm
 of \textit{Escherichia coli} composed of 1.5 million atoms and submit
 it to a total of \SI{3}{\micro\second} of molecular dynamics
-simulations. The properties of biomolecules under crowding conditions
-are compared to those from simulations of the individual compounds
-under dilute conditions.  The simulation model is found to be
-consistent with experimental data about the diffusion coefficient and
-stability of macromolecules under crowded conditions. In order to
-stimulate further work we provide a Python script and a set of files
-that enables other researchers to build their own \textit{E. coli}
-cytoplasm models to address questions related to crowding.
+simulations. 
+The model consists of 8 different proteins and one type of t-RNA molecule,
+representing about 50\% of the cytoplasmic proteins. 
+Properties of biomolecules under crowding conditions are compared to
+those from simulations of the individual compounds under dilute
+conditions.  The simulation model is found to be consistent with
+experimental data about the diffusion coefficient and stability of
+macromolecules under crowded conditions. In order to stimulate further
+work we provide a Python script and a set of files that enables other
+researchers to build their own \textit{E. coli} cytoplasm models to
+address questions related to crowding.
 \end{abstract}
 
 \newpage
@@ -251,6 +255,7 @@ model because we consider only elements that are free to diffuse
 through the cytosol. We gathered data from several sources in order to
 build a computational model that is representative of the cytoplasm of
 {\em Escheria coli}~\cite{Dong1996,Bennett2009,Link1997,Mcguffee2010}.
+It has been estimated that a {\em E. coli} cell contains about 50,000 ribosomes per $\mu^3$~\cite{Milo2017a}. The volume of our box is about 12,000 nm$^3$ (\figref{shrink}), therefore in principle one ribosomes molecule should be added, however to reduce the complexity this was omitted. 
 
 \subsubsection{Protein fraction}
 Eight different proteins were selected that together account for 50\%
@@ -427,11 +432,12 @@ and production run (please check the materials section for details
 about the parameters used).
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{shrinking.pdf} 
+\includegraphics[scale=0.5]{shrinking.pdf}
 \caption{A) The initial simulation box with $L=35.0$ nm and the box
   after the shrinking step, $L=22.9$ nm. Biomolecules in green, water in red. B) The evolution of the
   volume of the simulation box during the shrinking simulations. Each
   replica is shown in different colors. }
+\label{shrink}
 \end{figure}
 
 \subsection{Effects of macromolecular crowding}
@@ -713,7 +719,10 @@ environment are restrained to smaller volumes and shorter inter
 molecular distances, which mitigates the effect of charge
 neutralization. It has been suggested that charged species should
 employ scaled charges in order to be compatible with the empirical
-water models~\cite{Leontyev2009a,Leontyev2011a}. Due to the high local
+water models~\cite{Leontyev2009a,Leontyev2011a}. Due to the omission
+of the electronic polarization, the screening is underestimated and this
+corresponds to applying an effective dielectric constant of about 1.7, alternatively scale the charges down by $\sqrt{1.7}$ which would mean that FBP would get a charge of approximately -3 instead of -4.
+Due to the high local
 density of negative charges in FBP and ATP this might indeed be an
 alternative solution, barring use of polarizable
 models~\cite{Ponder2010a,Lopes2013a,Ghahremanpour2018b,Walz2018a}.
@@ -740,7 +749,7 @@ experimental data about the composition of the cytoplasm of
 \textit{E. coli}~\cite{Dong1996,Bennett2009,Link1997,Mcguffee2010}.
 
 We submitted this model to a total of \SI{3}{\micro\second} of
-molecular dynamics simulations using a modified AMBER FF99SB force
+molecular dynamics simulations using a modified Amber99sb force
 field that was tuned to reproduce experimental data of systems
 composed of several macromolecules~\cite{Best2014a}. The model was
 validated by comparing to experimental data about the reduction of the
