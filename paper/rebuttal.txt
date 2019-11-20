@@ -32,7 +32,7 @@ no taller than 4 cm and should be prepared following the
 specifications under Artwork. Text should be limited to essential
 technical labels.  More guidance is available at
 http://pubs.acs.org/paragonplus/submission/toc_abstract_graphics_guidelines.pdf.
-ANSWER:
+ANSWER: Done.
 
 - The title page of your manuscript file needs more complete
  affiliation information for all authors. Could you please provide
