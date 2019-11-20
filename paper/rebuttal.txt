@@ -1,0 +1,257 @@
+Dear Dr. van der Spoel:
+
+Thank you for submitting your manuscript to Journal of Chemical
+ Information and Modeling. Please find the enclosed reviews of your
+ manuscript. The reviewers have found significant problems with the
+ manuscript in its current form, but we are willing to consider a
+ revised manuscript in which you have made major revisions and
+ responded to the reviewers' concerns. If you resubmit a revised
+ manuscript, there may be a second round of external review, perhaps
+ including new reviewers.
+
+We would like to receive your revision as soon as possible, by
+17-Jan-2020 at the latest.
+
+In addition to addressing the reviewers' comments, please make each of the
+technical corrections listed below:
+
+MANUSCRIPT
+- Please remove "et al." from your references and list all authors' names.
+ANSWER:
+
+- Update the publication information in Reference 56 and Reference 73 when
+available.
+ANSWER:
+
+- Please include a Table of Contents graphic on the very last page of
+your manuscript.  This graphic, in conjunction with the manuscript
+title, should give the reader a summary of the research described in
+the paper. The Table of Contents graphic will also be published in the
+Abstract of the manuscript. This graphic can be no wider than 8 cm and
+no taller than 4 cm and should be prepared following the
+specifications under Artwork. Text should be limited to essential
+technical labels.  More guidance is available at
+http://pubs.acs.org/paragonplus/submission/toc_abstract_graphics_guidelines.pdf.
+ANSWER:
+
+- The title page of your manuscript file needs more complete
+ affiliation information for all authors. Could you please provide
+ updated affiliations including all of the following information
+ (where possible)? Department and institute (or company name), city,
+ state/region, postal code, country.  Please indicate the
+ corresponding author's email address with an asterisk.
+ANSWER:
+
+- Funding Sources: Authors are required to report ALL funding sources
+  and grant/award numbers relevant to this manuscript. Enter all
+  sources of funding for ALL authors relevant to this manuscript in
+  BOTH the Open Funder Registry tool in ACS Paragon Plus and in the
+  manuscript to meet this requirement. See
+  http://pubs.acs.org/page/4authors/funder_options.html for complete
+  instructions.
+ANSWER:
+
+- ORCID: Authors submitting manuscript revisions are required to
+  provide their own validated ORCID iDs before completing the
+  submission, if an ORCID iD is not already associated with their ACS
+  Paragon Plus user profiles. This iD may be provided during original
+  manuscript submission or when submitting the manuscript
+  revision. You can provide only your own ORCID iD, a unique
+  researcher identifier. If your ORCID iD is not already validated and
+  associated with your ACS Paragon Plus user profile, you may do so by
+  following the ORCID-related links in the Email/Name section of your
+  ACS Paragon Plus account. All authors are encouraged to register for
+  and associate their own ORCID iDs with their ACS Paragon Plus
+  profiles. The ORCID iD will be displayed in the published article
+  for any author on a manuscript who has a validated ORCID iD
+  associated with ACS Paragon Plus when the manuscript is
+  accepted. Learn more at http://www.orcid.org.
+ANSWER:
+
+- On resubmission you must submit the following:
+a) A point-by-point response to the reviewers.
+b) A clean, unmarked copy of the manuscript document file.
+c) A marked copy of the revised manuscript in which all the changes are clearly tracked or highlighted. Upload this file as Supporting Information for Review.
+d) A clean, unmarked Supporting Information for Publication file, without any highlighting or tracked changes.
+
+- The reviewers indicate that the quality of the written English could
+  be improved. Please consider using a native English speaker or an
+  English-language editing service to assist with this. The ACS
+  maintains a list of editing services:
+  https://authoringservices.acs.org/.
+
+JCIM is now accepting images to appear on the front cover of the
+journal. If you have a visually arresting and scientifically
+interesting image, please email it and a brief (80 word) description
+of the image to eic@jcim.acs.org. Additional information about the
+technical specifications for the image can be found at
+https://pubsapp.acs.org/paragonplus/submission/jcisd8/jcisd8_authguide.pdf.
+
+Please contact the JCIM editorial office at eic@jcim.acs.org if you
+have any specific questions regarding these guidelines.
+
+JCIM has a Twitter feed (@JCIM_ACS; https://twitter.com/jcim_acs)
+covering the latest news and highlights in the field. If you would
+like us to feature your manuscript on this platform, please share a
+Tweet of no more than 140 characters. Please feel free to share your
+Twitter handle (if you have one) or any other relevant
+department/institutional handles. Include this information in the
+cover letter of your revised manuscript submission.
+
+ACS Publications uses Crossref Similarity Check Powered by iThenticate
+to detect instances of similarity in submitted manuscripts. In
+publishing only original research, ACS is committed to deterring
+plagiarism, including self-plagiarism. Your manuscript may be screened
+for similarity to published material.
+
+Sincerely,
+
+Prof. Rommie Amaro
+Associate Editor Journal of Chemical Information and Modeling
+Urey Hall 3234, MS - 0340,
+La Jolla, CA 92093-0340,
+United States
+Email : amaro-office@jcim.acs.org
+
+
+------------------------------------ To revise your manuscript, log
+into ACS Paragon Plus with your ACS ID at
+http://paragonplus.acs.org/login and select "My Authoring Activity."
+Your manuscript will be listed under "Revisions and Resubmissions
+Requested by Editorial Office." Click on "Submit Revision" to begin
+the submission process. Your manuscript number will be appended to
+denote a revision.
+
+When submitting your revised manuscript, you will be able to respond
+to the comments made by the reviewer(s) in the text box provided or by
+attaching a file containing your response letter.
+
+------------------------------------
+
+Reviewers' Comments to Author:
+
+Reviewer: 1
+
+Comments: Van der Spoel and co-workers built an atomistic model of the
+cytoplasm of Escherichia coli composed of 1.5 million atoms and
+investigated its behavior based on 3x1 us of molecular dynamics
+(MD) simulations. Some interesting observations were made. The most
+important aspects of this work are that i) the authors demonstrated
+that it has become possible to perform MD simulations of cytoplasms
+involving millions of atoms on the microsecond timescale, and ii) they
+provide a Python script and a set of files that enable other
+researchers to build their own E. coli cytoplasm models.
+
+The work is of highest importance and novelty. Moreover, the
+manuscript is nicely written and easy to follow. My recommendation
+thus is to accept this manuscript for publication after following
+minor comments have been addressed:
+
+ANSWER: Thanks for the encouraging commments.
+
+1) Why did the authors choose K+ and not Na+ to model the ionic
+strength of 150 mmol/L? Please comment.
+
+ANSWER: Like most organisms E. coli has a higher concentration of K+
+than Na+ of 30-300 mmol/L versus 10 mmol/L Na+. The number 150 is
+halfway the interval. A reference to a text book is added.
+
+2) Figure 1A: Even though it is not of importance for the message
+conveyed by this figure, this reviewer nonetheless wonders what the
+difference between the red and green particles is in that figure. A
+short note on it in the caption would be appreciated.
+
+ANSWER: Red is water and green is biomolecules, this has been added to
+the caption.
+
+3) p. 13-15: It is mentioned that the RMSD of TufA, MetE and IcdA is
+larger in the cytoplasm than in diluted solutions. Based on the RMSF
+they also identified which part of these proteins become more
+flexible. The authors later speculate that this is due to some
+nonspecific interactions. Here, some more analysis is required. The
+authors should demonstrate that these changes indeed arise from such
+kind of interactions and not more specific interactions. And why are
+only certain loops of each protein involved while all other loops seem
+almost unaffected. And why does the RMSF of residues 450-460 of MetE
+decrease?
+
+ANSWER: 
+
+4) Figure 5: Why are the standard errors of the RMSF for CspC so much
+larger than for the other systems. Please comment.
+
+ANSWER: 
+
+5) In the discussion on p. 17 about the challenge of reproducing
+protein-protein interactions one might also cite
+DOI:10.1021/acs.jctc.8b00579 where it was shown that current force
+fields have problems to distinguish between peptides known from
+experiment to aggregate or not to aggregate. Moreover, increasing the
+protein-water interactions as done in Amber03-ws may abolish protein
+aggregation almost completely.
+
+ANSWER: This paper was cited as well. Nevertheless, our earlier study
+(Zhang et al, JCIM 58, 2018, 1037) showed that the DeltaGhydration are
+slightly better using Amber99-sbws than Amber03-ws which is why we
+used particular combination.
+
+6) Following spelling/grammatical mistakes should be corrected:
+p. 8, l. 29: A verb is missing in that sentence.
+p. 10, l. 47: Change "don't" to "do not". =20
+p. 11, l. 17: Add a space between "500" and "ps".
+p. 15, l. 54: Change "of avoid" to "to avoid".
+p. 16, l. 50: Change "duffusion" to "diffusion".
+
+ANSWER: All fixed, thanks for finding these.
+
+Reviewer: 2
+
+Comments: Bortot et al. studied protein crowded systems using
+molecular simulations with explicit solvent. MD simulations of
+macromolecules in crowded conditions help us to understand protein
+behaviors in a living cell. Recently, several computational scientists
+performed MD simulations of multiple proteins in crowded conditions
+and examined the differences of protein structure and dynamics in
+crowded condition compared with that in dilute solution. In spite of
+the importance of the research field, the paper has three critical
+issues. At first, they used only small number of proteins and
+tRNA(Phe) in the simulation system, although they call the set up as
+the E. coli cytoplasm. Since the proteins can cover only 50 % of the
+fraction of E. coli cytoplasm, it is difficult to call the system as
+the E. coli cytoplasm. It should be called as a crowded condition that
+mimic 50% of volume fraction of the cytosol of E. coli. 
+
+ANSWER:
+
+They did not include ribosomes in the system. However, the size
+differences between ribosomes and other proteins should be essential
+in the cellular crowding effect. 
+
+ANSWER:
+
+Secondly, they observed tRNA
+aggregation with Mg2+, ATP, and FBP in their systems. They concluded
+that completely protonating the phosphate groups of ATP and FBP is
+necessary to prevent their aggregation with Mg2+. However, there is no
+rationale or experimental evidences on the protonation state of
+ATP. Presumably, the Mg2+ model or phosphate model may have
+problems. Another possibility is that they used Amber99sb-ws, where
+the 1.10 scaling is used for LJ interactions between water and
+macromolecules. If they applied the scaling also to tRNA, tRNA
+structure could be unfolded. However, there is no data about tRNA
+structural changes in crowded condition compared to that in
+solution. 
+
+ANSWER:
+
+Thirdly, except for the protonation state, there are few novel
+biophysical insights in the current work. Essentially same data on
+diffusion or RMSD were already shown in the previous crowding papers,
+although the length of simulations and the force fields are
+different. Although the modeling strategy (Figure 1) seems to be
+interesting, the rest of scientific results and discussion may have
+rooms for improvements. In particular, the issue of the aggregation of
+tRNA in the simulations should be overcome by the refinement of ion
+models or the tRNA-water interaction scaling factors.
+
+ANSWER:

@@ -168,8 +168,12 @@ used for the biomolecules.
  
  
 \subsection{General simulation setup}
-The cytoplasm model was built at a 30\% biomolecular mass fraction and
-a physiological salt concentration of 0.15 mol/L KCl. Dropplets containing each component of the model surronded by water and counter-ions were inserted in an empty box in random positions and orientations. Since the volume of this box was initially bigger than what was strictly necessary to accomodate all components, the system was allowed to shrink in a short simulation. Details about how the simulation box was built and optimized are in the results section. All
+The cytoplasm model was built at a 30\% biomolecular mass fraction.
+Like most organisms E. coli has a higher concentration of K$^+$
+(30-300 mmol/L) than Na$^+$ (10 mmol/L)~\cite{Milo2017a}. Therefore a salt
+concentration of 150 mmol/L KCl was used.
+
+Dropplets containing each component of the model surronded by water and counter-ions were inserted in an empty box in random positions and orientations. Since the volume of this box was initially bigger than what was strictly necessary to accomodate all components, the system was allowed to shrink in a short simulation. Details about how the simulation box was built and optimized are in the results section. All
 simulations were performed with the GROMACS 2018
 package~\cite{Abraham2015a,Pronk2013a} using the Amber99SB-ws force
 field~\cite{Best2014a}, a modified version of the Amber99SB force
@@ -291,7 +295,7 @@ Total &                           & 48& 51.1 & \\
 Transporter RNAs (tRNAs) account for 74\% of the dry weight of
 non-ribosomal RNAs~\cite{phillips2012}. Thus, we chose to model the
 RNA presence in the cytoplasm with tRNA molecules. Specifically, 
- the tRNA(Phe) molecule as a representative of tRNAs due to
+ the tRNA(Phe) molecule was used as a representative of tRNAs due to
 the availability of a recent crystal
 structure (4YCO~\cite{Byrne2015}). The protein and RNA content of the total
 dry weight of \textit{E.coli} is 55\% and 2.9\%,
@@ -395,7 +399,7 @@ In order to do this, the droplets around each component are also
 constructed iteratively. The number of water molecules that we must
 place in the simulation box is known from the total biomolecular mass
 of the system and the desired biomolecular fraction, which is a
-parameter of the model. However, we don't know the thickness of the
+parameter of the model. However, we do not know the thickness of the
 water layer around each component, $l$, that accounts for such amount
 of water molecules \textit{a priori}. Since $l$ depends on a series of
 factors such as the shape, size and abundance of each element, we
@@ -413,7 +417,7 @@ After all droplets are successfully inserted in a simulation box by
 the iterative process described above, we proceed to add ions to
 neutralize the net charge of the system and to reach the desired ionic
 strength. Then, we perform energy minimization and a short simulation
- of 500ps in which all molecules of the box are free to move. In
+ of 500 ps in which all molecules of the box are free to move. In
 this step the box shrinks to its optimum size. In our case, the
 simulation box shrank from the initial box size of 35 nm to 22.9 nm,
 which corresponds to a volume change from 42875 nm\textsuperscript{3}
@@ -425,7 +429,7 @@ about the parameters used).
 \begin{figure}[H]
 \includegraphics[scale=0.5]{shrinking.pdf} 
 \caption{A) The initial simulation box with $L=35.0$ nm and the box
-  after the shrinking step, $L=22.9$ nm. B) The evolution of the
+  after the shrinking step, $L=22.9$ nm. Biomolecules in green, water in red. B) The evolution of the
   volume of the simulation box during the shrinking simulations. Each
   replica is shown in different colors. }
 \end{figure}
@@ -564,7 +568,7 @@ between the phosphate-containing metabolites, ATP and FBP, with
 Mg$^{2+}$ (Fig.~\ref{fig:avoiding_aggregation}A). tRNA gets involved
 in the aggregates because Mg$^{2+}$ is present in the box only as
 counter-ion for ATP and tRNA, and so tRNA is one of the few
-``sources'' of Mg$^{2+}$ in the whole system. We looked for ways of
+``sources'' of Mg$^{2+}$ in the whole system. We looked for ways to
 avoid aggregation by using simulations of small systems composed of
 these metabolites in high concentration, Mg$^{2+}$ and water (please
 check the methods section for details).
@@ -604,7 +608,7 @@ the drop in diffusion coefficient is independent of the size of the
 macromolecules. We found that the aggregation of ATP$^{3-}$ and
 FBP$^{4-}$ around Mg$^{2+}$, which was used as counter-ion for tRNA,
 leads to an exaggerated confinement of the tRNA molecules.  Therefore,
-tRNA is considered an outlier in the duffusion calculations. In
+tRNA is considered an outlier in the diffusion calculations. In
 fact, the slope of the linear regression line fitted to
 $D_{cyto}/D_{dil}$ is reduced by by 50\% and  even closer to zero
 (slope $= 0.00014$) after removing the diffusion coefficient of tRNA
@@ -622,10 +626,9 @@ used to perform molecular dynamics simulations of macromolecules yield
 different results for highly concentrated amino acid
 solutions~\cite{andrews2013}. Moreover, it has been reported that
 simulations of a highly concentrated environment leads to aggregation
-when additive force fields are used~\cite{Petrov2014a,Abriata2015a,
-  Nawrocki2017a} and several approaches have been proposed to
+when additive force fields are used~\cite{Petrov2014a,Abriata2015a,Nawrocki2017a,Carballo2018a} and several approaches have been proposed to
 eliminate this
-problem~\cite{Best2014a,Piana2015a,Bashardanesh2018b}. Apart from
+problem~\cite{Best2014a,Piana2015a,Bashardanesh2018b,Carballo2018a}. Apart from
 protein-water interactions, the London-dispersion coefficients in the
 force fields have been investigated as well but their effect on
 protein-protein interactions seems to be
