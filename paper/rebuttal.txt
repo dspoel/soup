@@ -79,6 +79,7 @@ d) A clean, unmarked Supporting Information for Publication file, without any hi
   English-language editing service to assist with this. The ACS
   maintains a list of editing services:
   https://authoringservices.acs.org/.
+ANSWER: TODO
 
 JCIM is now accepting images to appear on the front cover of the
 journal. If you have a visually arresting and scientifically
@@ -89,6 +90,7 @@ https://pubsapp.acs.org/paragonplus/submission/jcisd8/jcisd8_authguide.pdf.
 
 Please contact the JCIM editorial office at eic@jcim.acs.org if you
 have any specific questions regarding these guidelines.
+ANSWER: A cover image will be suggested.
 
 JCIM has a Twitter feed (@JCIM_ACS; https://twitter.com/jcim_acs)
 covering the latest news and highlights in the field. If you would
