@@ -49,7 +49,7 @@ ANSWER:
   manuscript to meet this requirement. See
   http://pubs.acs.org/page/4authors/funder_options.html for complete
   instructions.
-ANSWER: Funding information is and was present.
+ANSWER: Funding information was updated.
 
 - ORCID: Authors submitting manuscript revisions are required to
   provide their own validated ORCID iDs before completing the
@@ -175,12 +175,25 @@ only certain loops of each protein involved while all other loops seem
 almost unaffected. And why does the RMSF of residues 450-460 of MetE
 decrease?
 
-ANSWER: 
+ANSWER: As explained in the text, the region comprised by residues 40-62 of TufA is a conformational switch that is known to be flexible, residues 450-460 of MetE are a flexible loop and residues 1-8 of IcdA is a flexible coil. Thus, one can expect these regions to display variable conformational dynamics under different conditions. We removed the speculation about the unspecific interactions and the discussion about the RMSF difference (please see the answer to the next answer for details about this).
 
 4) Figure 5: Why are the standard errors of the RMSF for CspC so much
 larger than for the other systems. Please comment.
 
-ANSWER: 
+ANSWER: Thank you for pointingt that out. There was a mistake in the statistics of our RMSF calculations.
+We corrected it and updated the RMSF plots. The errors are much smaller now and the overall shift towards higher RMSF values for the proteins cytoplasm models is no longer present. Accordingly, the following sentences were removed from the text:
+
+"In most cases (TufA, MetE, AhpC, CspC and Ppa), the residue-wise RMSF values are higher in the cytoplasm model than under diluted conditions, which indicates that proteins are more flexible in the cytoplasm model (Fig.~\ref{fig:rmsf}). This is in agreement with computational and experimental data showing that nonspecific interactions with crowders can lead to destabilization of proteins~\cite{Feig2011, miklos2011, Wang2012b}." from the results section.
+
+" and the flexibility profiles calculated considering the C$\upalpha$ for each
+chain of the elements of our cytoplasm model show that, in the crowded
+condition, most of the proteins (TufA, MetE, AhpC, CspC and Ppa) are
+more flexible than in the dilute condition (Fig.~\ref{fig:rmsf})." from the conclusion section.
+
+"and \ref{fig:rmsf})" was removed from "the proteins are slightly less stable
+in the cytoplasm model than in dilute condition (Figures
+\ref{fig:structural_integrity_chain} and \ref{fig:rmsf})." in the conclusion section
+
 
 5) In the discussion on p. 17 about the challenge of reproducing
 protein-protein interactions one might also cite
