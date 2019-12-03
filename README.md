@@ -7,3 +7,9 @@ In order to study the cytoplasm of a cell one can use a variety of experimental 
 The main work is done here by a few scripts, located in the aptly named scripts directory. They are described briefly in the README.md in that directory.
 
 A preprint of the article describing this work will be made available on chemrxiv at http://dx.doi.org/10.26434/chemrxiv.10102289
+
+Some related papers from the same group are here:
+
+- Zahadeh Bashardanesh, Johan Elf, Haiyang Zhang and David van der Spoel: Rotational and translational diffusion of proteins as a function of concentration ACS Omega, 2019, http://doi.org/10.1021/acsomega.9b02835
+
+- Zahadeh Bashardanesh and David van der Spoel: Impact of Dispersion Coefficient on Simulations of Proteins and Organic Liquids J. Phys. Chem. B 122 pp. 8018-8027 (2018) https://pubs.acs.org/doi/10.1021/acs.jpcb.8b05770
