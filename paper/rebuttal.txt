@@ -1,20 +1,18 @@
-Dear Dr. van der Spoel:
+Dear Prof. Amaro,
 
-Thank you for submitting your manuscript to Journal of Chemical
- Information and Modeling. Please find the enclosed reviews of your
- manuscript. The reviewers have found significant problems with the
- manuscript in its current form, but we are willing to consider a
- revised manuscript in which you have made major revisions and
- responded to the reviewers' concerns. If you resubmit a revised
- manuscript, there may be a second round of external review, perhaps
- including new reviewers.
+we were happy to receive constructive comments on our manuscript. We
+have edited the manuscript according to the comments, and answered all
+the questions. Please find a detailed list of replies below.
 
-We would like to receive your revision as soon as possible, by
-17-Jan-2020 at the latest.
+I hope the manuscript is acceptable in the present form and await your
+decision.
 
-In addition to addressing the reviewers' comments, please make each of the
-technical corrections listed below:
+Best regards,
 
+David van der Spoel,
+Uppsala University
+Sweden.
+ 
 MANUSCRIPT
 - Please remove "et al." from your references and list all authors' names.
 ANSWER: Done.
@@ -66,7 +64,7 @@ ANSWER: Funding information was updated.
   for any author on a manuscript who has a validated ORCID iD
   associated with ACS Paragon Plus when the manuscript is
   accepted. Learn more at http://www.orcid.org.
-ANSWER:
+ANSWER: We have added one ORCID.
 
 - On resubmission you must submit the following:
 a) A point-by-point response to the reviewers.
@@ -79,56 +77,11 @@ d) A clean, unmarked Supporting Information for Publication file, without any hi
   English-language editing service to assist with this. The ACS
   maintains a list of editing services:
   https://authoringservices.acs.org/.
-ANSWER: TODO
-
-JCIM is now accepting images to appear on the front cover of the
-journal. If you have a visually arresting and scientifically
-interesting image, please email it and a brief (80 word) description
-of the image to eic@jcim.acs.org. Additional information about the
-technical specifications for the image can be found at
-https://pubsapp.acs.org/paragonplus/submission/jcisd8/jcisd8_authguide.pdf.
+ANSWER: We carefully went over the manuscript text and fixed errors.
 
 Please contact the JCIM editorial office at eic@jcim.acs.org if you
 have any specific questions regarding these guidelines.
-ANSWER: A cover image will be suggested.
-
-JCIM has a Twitter feed (@JCIM_ACS; https://twitter.com/jcim_acs)
-covering the latest news and highlights in the field. If you would
-like us to feature your manuscript on this platform, please share a
-Tweet of no more than 140 characters. Please feel free to share your
-Twitter handle (if you have one) or any other relevant
-department/institutional handles. Include this information in the
-cover letter of your revised manuscript submission.
-
-ACS Publications uses Crossref Similarity Check Powered by iThenticate
-to detect instances of similarity in submitted manuscripts. In
-publishing only original research, ACS is committed to deterring
-plagiarism, including self-plagiarism. Your manuscript may be screened
-for similarity to published material.
-
-Sincerely,
-
-Prof. Rommie Amaro
-Associate Editor Journal of Chemical Information and Modeling
-Urey Hall 3234, MS - 0340,
-La Jolla, CA 92093-0340,
-United States
-Email : amaro-office@jcim.acs.org
-
-
------------------------------------- To revise your manuscript, log
-into ACS Paragon Plus with your ACS ID at
-http://paragonplus.acs.org/login and select "My Authoring Activity."
-Your manuscript will be listed under "Revisions and Resubmissions
-Requested by Editorial Office." Click on "Submit Revision" to begin
-the submission process. Your manuscript number will be appended to
-denote a revision.
-
-When submitting your revised manuscript, you will be able to respond
-to the comments made by the reviewer(s) in the text box provided or by
-attaching a file containing your response letter.
-
-------------------------------------
+ANSWER: We did not manage to make a cover image unfortunately.
 
 Reviewers' Comments to Author:
 
@@ -184,15 +137,15 @@ form a flexible coil. Thus, one can expect these regions to display
 variable conformational dynamics under different conditions. We
 removed the speculation about the unspecific interactions and the
 discussion about the RMSF difference (please see the answer to the
-next answer for details about this).
+next question for details about this).
 
 4) Figure 5: Why are the standard errors of the RMSF for CspC so much
 larger than for the other systems. Please comment.
 
-ANSWER: Thank you for pointingt that out. There was a mistake in the
+ANSWER: Thank you for pointing that out. There was a mistake in the
 statistics of our RMSF calculations.  We corrected it and updated the
 RMSF plots. The errors are much smaller now and the overall shift
-towards higher RMSF values for the proteins cytoplasm models is no
+towards higher RMSF values for the protein cytoplasm models is no
 longer present. Accordingly, the following sentences were removed from
 the text:
 
@@ -260,8 +213,8 @@ ANSWER: Obviously our model is not complete, to reflect this we
 changed the title of the paper to "Making Soup: Preparing and
 Validating Models of the Bacterial Cytoplasm for Molecular
 Simulation". In the abstract the following sentence is added "The
-model consists of 8 different proteins and one type of t-RNA molecule,
-representing about 50% of the cytoplasmic proteins."
+model consists of 8 different proteins representing about 50% of the
+cytoplasmic proteins and one type of t-RNA molecule."
 
 They did not include ribosomes in the system. However, the size
 differences between ribosomes and other proteins should be essential
@@ -288,7 +241,7 @@ structural changes in crowded condition compared to that in
 solution. 
 
 ANSWER: There may be a number of possible solutions to the issue. The
-work by Leotyev et al. (Refs 78 and 79) offers a plausible explanation
+work by Leontyev et al. (Refs 78 and 79) offers a plausible explanation
 of the problem, namely that in fixed-charge models, that is
 non-polarizable models, the infinite frequency dielectric constant
 should be incorporated, either by introducing a relative dielectric
